@@ -20,7 +20,15 @@ Packer.startup(function(use)
 	use("preservim/NERDTree")
 	use("ryanoasis/vim-devicons")
 	use("tpope/vim-unimpaired")
-	use("Xuyuanp/nerdtree-git-plugin")
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons", -- optional, for file icon
+		},
+		config = function()
+			require("nvim-tree").setup({})
+		end,
+	})
 	use("tpope/vim-commentary")
 	use("tpope/vim-fugitive")
 	use("mjbrownie/swapit")
@@ -35,8 +43,18 @@ Packer.startup(function(use)
 	use("github/copilot.vim")
 	use("godlygeek/tabular")
 	use("plasticboy/vim-markdown")
-	use({ "iamcco/markdown-preview.nvim", run = "mkdp#util#install()" })
+	use("davidgranstrom/nvim-markdown-preview")
 	use("norcalli/nvim-colorizer.lua")
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("which-key").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
 
 	-- Colorschemes
 	use("morhetz/gruvbox")
