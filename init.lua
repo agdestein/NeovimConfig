@@ -1,10 +1,15 @@
+-- Leader
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 require("plugins")
 require("colorloaders/colors")
-require("whichkey")
-require("coc")
-require("julia")
-require("latex")
-require("markdown")
+require("config/whichkey")
+require("config/spectre")
+require("config/coc")
+require("config/julia")
+require("config/latex")
+require("config/markdown")
 
 -- Set options
 vim.o.clipboard = "unnamedplus"
@@ -24,14 +29,6 @@ vim.o.timeoutlen = 500
 vim.o.wrap = false
 vim.o.foldenable = false
 
--- Leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- Disable comment continuation
--- vim.opt.formatoptions:remove({"o"})
-
--- Autoformat
 vim.g.python3_host_prog = "/usr/bin/python"
 vim.g.formatdef_latexindent = "'latexindent -'"
 vim.api.nvim_set_keymap("n", "<leader>af", ":Autoformat<CR>", {})
@@ -63,9 +60,11 @@ vim.api.nvim_set_keymap("", "<F2>", ":NvimTreeFindFileToggle<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>v", ":edit $MYVIMRC<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>r", ":source $MYVIMRC<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-o>", "o<Esc>", {})
-vim.api.nvim_set_keymap("n", "<leader>p", ":Files<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>w", ":Rg <C-r><C-w><CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>b", ":Buffers<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>p", ":Telescope find_files<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>e", ":Telescope live_grep<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>w", ":Telescope grep_string<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>b", ":Telescope buffers<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>h", ":Telescope help_tags<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>c", ":bd<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-j>", ":bprev<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-k>", ":bnext<CR>", {})

@@ -8,6 +8,8 @@ vim.cmd([[
 ]])
 
 Packer.startup(function(use)
+	use("nvim-lua/plenary.nvim")
+	use("windwp/nvim-spectre")
 	use("vim-airline/vim-airline")
 	use("vim-airline/vim-airline-themes")
 	use("JuliaEditorSupport/julia-vim")
@@ -32,13 +34,9 @@ Packer.startup(function(use)
 	use("tpope/vim-commentary")
 	use("tpope/vim-fugitive")
 	use("mjbrownie/swapit")
-	use({ "junegunn/fzf", run = "fzf#install()" })
-	use("junegunn/fzf.vim")
 	use("jpalardy/vim-slime")
 	use("mroavi/vim-julia-cell")
 	use({ "neoclide/coc.nvim", branch = "release" })
-	use("neoclide/coc-vimtex")
-	use("jremmen/vim-ripgrep")
 	use("chrisbra/Colorizer")
 	use("github/copilot.vim")
 	use("godlygeek/tabular")
@@ -55,6 +53,11 @@ Packer.startup(function(use)
 			})
 		end,
 	})
+	use({
+		"nvim-telescope/telescope.nvim",
+	})
+	use("folke/zen-mode.nvim")
+	use("tpope/vim-surround")
 
 	-- Colorschemes
 	use("morhetz/gruvbox")
