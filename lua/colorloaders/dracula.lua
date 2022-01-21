@@ -8,15 +8,6 @@ vim.g.dracula_bold = "1"
 vim.g.dracula_italic = "1"
 vim.g.dracula_underline = "1"
 
--- Enable transparency
-vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-vim.cmd("hi NonText guibg=NONE ctermbg=NONE")
-vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=2")
-
-vim.g.airline_theme = "dracula"
-
--- vim.cmd("highlight EndOfBuffer ctermfg=bg")
-
 -- vim.cmd("hi! link Type                    DraculaBlue")
 -- vim.cmd("hi! link juliaType               DraculaBlue")
 vim.cmd("hi! link juliaSymbol             DraculaRed")
@@ -30,7 +21,7 @@ vim.cmd("hi! link juliaMacro              DraculaGreenBold")
 vim.cmd("hi! link juliaParDelim           DraculaOrange")
 vim.cmd("hi! link juliaSemicolon          DraculaOrange")
 vim.cmd("hi! link juliaColon              DraculaOrange")
-vim.cmd("hi! link juliaComma	             DraculaOrange")
+vim.cmd("hi! link juliaComma	          DraculaOrange")
 
 -- vim.cmd("hi! link Operator                DraculaOrange")
 -- vim.cmd("hi! link juliaOperator		     DraculaOrange")
@@ -39,3 +30,50 @@ vim.cmd("hi! link juliaComma	             DraculaOrange")
 -- vim.cmd("hi! link juliaTernaryOperator    DraculaOrange")
 -- vim.cmd("hi! link juliaTypeOperator	     DraculaOrange")
 -- vim.cmd("hi! link juliaDotted             DraculaOrange")
+
+-- colors = {
+-- 	bg = "#202328",
+-- 	fg = "#bbc2cf",
+-- 	yellow = "#ECBE7B",
+-- 	cyan = "#008080",
+-- 	darkblue = "#081633",
+-- 	green = "#98be65",
+-- 	orange = "#FF8800",
+-- 	violet = "#a9a1e1",
+-- 	magenta = "#c678dd",
+-- 	blue = "#51afef",
+-- 	red = "#ec5f67",
+-- }
+
+colors = {
+    -- bg = "#282a36",
+    bg = "#21222c",
+    -- bg = "#191a21",
+    fg = "#f8f8f2",
+    red = "#ff5555",
+    green = "#50fa7b",
+    orange = "#ffb86c",
+    yellow = "#f1fa8c",
+    blue = "#caa9fa",
+    violet = "#ff5555",
+    magenta = "#ff79c6",
+    cyan = "#8be9fd",
+    darkblue = "#21222c",
+    comment = "#6272a4",
+    black = "#191a21",
+}
+
+-- vim.cmd("hi TabLineFill '#282828' '#282828'")
+vim.cmd("hi TabLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
+vim.cmd("hi StatusLine  guibg=" .. colors.bg .. " guifg=" .. colors.bg)
+vim.cmd("hi StatusLineNC  guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
+
+vim.cmd("hi TelescopeBorder guifg=" .. colors.magenta)
+-- vim.cmd("hi TelescopePromptBorder guifg=" .. colors.magenta)
+-- vim.cmd("hi TelescopeResultsBorder guifg=" .. colors.magenta)
+-- vim.cmd("hi TelescopePreviewBorder guifg=" .. colors.magenta)
+
+-- Enable transparency
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd("hi NonText guibg=NONE ctermbg=NONE")
+vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
