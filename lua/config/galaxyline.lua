@@ -1,4 +1,5 @@
 local gl = require("galaxyline")
+
 -- local colors = require('galaxyline.theme').default
 local condition = require("galaxyline.condition")
 local gls = gl.section

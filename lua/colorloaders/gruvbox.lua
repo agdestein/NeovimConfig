@@ -33,7 +33,8 @@ vim.cmd("hi! link Operator                GruvboxOrange")
 
 colors = {
     -- bg = "#1d2021",
-    bg = "#202020",
+    -- bg = "#202020",
+    bg = "#282828",
     fg = "#ebdbb2",
     -- orange = "#FE8019",
     orange = "#D65D0E",

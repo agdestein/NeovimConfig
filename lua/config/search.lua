@@ -1,13 +1,15 @@
-require("telescope").setup({
+local Telescope = require("telescope")
+
+Telescope.setup({
     defaults = {
         vimgrep_arguments = {
             "rg",
-            "--color=never",
-            -- "--no-heading",
-            -- "--with-filename",
-            -- "--line-number",
-            -- "--column",
-            -- "--smart-case",
+            -- "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
         },
         mappings = {
             i = {
@@ -33,3 +35,25 @@ WhichKey.register({
     r = { ":Telescope registers<CR>", "Registers" },
     c = { ":Telescope current_buffer_fuzzy_find<CR>", "Current buffer fuzzy find" },
 }, { prefix = "<leader>f", noremap = true })
+
+-- Search and replace
+local Spectre = require("spectre")
+
+-- Normal mode
+WhichKey.register({
+    name = "Spectre",
+    o = { Spectre.open, "Open Spectre" },
+    f = { Spectre.open_file_search, "Search file" },
+}, { mode = "n", prefix = "<leader>s", noremap = true })
+
+-- Visual mode
+WhichKey.register({
+    name = "Spectre",
+    o = { Spectre.open_visual, "Open Spectre with visual" },
+    w = {
+        function()
+            Spectre.open_visual({ select_word = true })
+        end,
+        "Search word",
+    },
+}, { mode = "v", prefix = "<leader>s", noremap = true })

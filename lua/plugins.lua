@@ -1,4 +1,4 @@
-Packer = require("packer")
+local Packer = require("packer")
 
 vim.cmd([[
     augroup packer_user_config
@@ -19,7 +19,13 @@ Packer.startup(function(use)
     -- use("neovim/nvim-lspconfig")
     use({ "neoclide/coc.nvim", branch = "release" })
 
-    use("windwp/nvim-spectre")
+    -- use("windwp/nvim-spectre")
+    use({
+        "windwp/nvim-spectre",
+        config = function()
+            require("spectre").setup({})
+        end,
+    })
     use("tpope/vim-commentary")
     use("tpope/vim-unimpaired")
     use("tpope/vim-fugitive")
@@ -54,4 +60,6 @@ Packer.startup(function(use)
     use("morhetz/gruvbox")
     use({ "dracula/vim", as = "dracula" })
     use("tanvirtin/monokai.nvim")
+
+    use("nvim-treesitter/nvim-treesitter")
 end)

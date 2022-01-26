@@ -1,5 +1,3 @@
-local vim = vim
-
 -- Use K to show documentation in preview window.
 vim.cmd([[
     function! s:show_documentation()
@@ -33,7 +31,7 @@ vim.cmd("autocmd CursorHold * silent call CocActionAsync('highlight')")
 --         return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
 --     endfunction
 -- ]])
---
+
 WhichKey.register({
     name = "Coc",
     n = { "<Plug>(coc-rename)", "Rename symbol" },
@@ -48,13 +46,12 @@ WhichKey.register({
 -- Make <CR> auto-select the first completion item and notify coc.nvim to
 -- format on enter, <cr> could be remapped by other vim plugin
 WhichKey.register({
-    ["<expr> <cr>"] = {
+    ["<CR>"] = {
         [[pumvisible() ? coc#_select_confirm(): '<C-g>u<CR><c-r>=coc#on_enter()<CR>']],
         "Select Coc proposal",
     },
-}, { mode = "i", silent = true, noremap = true })
+    ["<C-space>"] = { "coc#refresh()", "Refresh completion" },
+}, { mode = "i", expr = true, silent = true, noremap = true })
 
 -- Use `[g` and `]g` to navigate diagnostics
 -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-WhichKey.register({ ["[g"] = { "<Plug>(coc-diagnostic-prev)", "Previous Coc diagnostic" } }, { silent = true })
-WhichKey.register({ ["]g"] = { "<Plug>(coc-diagnostic-next)", "Next Coc diagnostic" } }, { silent = true })
