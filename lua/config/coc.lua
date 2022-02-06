@@ -9,7 +9,7 @@ vim.cmd([[
         execute '!' . &keywordprg . " " . expand('<cword>')
       endif
     endfunction
-    nnoremap <silent> K :call <SID>show_documentation()<CR>"
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
 ]])
 
 -- Highlight the symbol and its references when holding the cursor.
@@ -41,6 +41,7 @@ WhichKey.register({
     r = { "<Plug>(coc-references)", "References" },
     t = { "<Plug>(coc-type-definition)", "Type definition" },
     i = { "<Plug>(coc-implementation)", "Implementation" },
+    s = { ":CocDiagnostics<CR>", "Show diagnostics" },
 }, { prefix = "<leader>o", noremap = true, silent = true })
 
 -- Make <CR> auto-select the first completion item and notify coc.nvim to
@@ -55,3 +56,23 @@ WhichKey.register({
 
 -- Use `[g` and `]g` to navigate diagnostics
 -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+WhichKey.register({
+    ["[g"] = { "<Plug>(coc-diagnostic-prev)", "Previous Coc diagnostic" },
+    ["]g"] = { "<Plug>(coc-diagnostic-next)", "Next Coc diagnostic" },
+}, { mode = "n", silent = true, noremap = true })
+
+-- Remap <C-n> and <C-p> for scroll float windows/popups.
+WhichKey.register({
+    ["<C-f>"] = { [[coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"]], "Scroll down" },
+    ["<C-b>"] = { [[coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]], "Scroll up" },
+}, { mode = "n", expr = true, silent = true, noremap = true })
+
+WhichKey.register({
+    ["<C-f>"] = { [[coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"]], "Scroll down" },
+    ["<C-b>"] = { [[coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"]], "Scroll up" },
+}, { mode = "i", expr = true, silent = true, noremap = true })
+
+WhichKey.register({
+    ["<C-f>"] = { [[coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"]], "Scroll down" },
+    ["<C-b>"] = { [[coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"]], "Scroll up" },
+}, { mode = "v", noremap = true, silent = true, nowait = true, expr = true })

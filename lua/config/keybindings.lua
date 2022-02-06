@@ -65,3 +65,23 @@ WhichKey.setup({
         v = { "j", "k" },
     },
 })
+
+WhichKey.register({
+    -- Switch window
+    ["<left>"] = { ":wincmd h<CR>", "Left window" },
+    ["<down>"] = { ":wincmd j<CR>", "Lower window" },
+    ["<up>"] = { ":wincmd k<CR>", "Upper window" },
+    ["<right>"] = { ":wincmd l<CR>", "Right window" },
+
+    -- Resize window
+    ["<C-left>"] = { ":wincmd <<CR>", "Decrease width" },
+    ["<C-down>"] = { ":wincmd +<CR>", "Increase height" },
+    ["<C-up>"] = { ":wincmd -<CR>", "Decrease height" },
+    ["<C-right>"] = { ":wincmd ><CR>", "Increase width" },
+
+    -- Move window
+    ["<S-left>"] = { ":wincmd H<CR>", "Move window left" },
+    ["<S-down>"] = { ":wincmd J<CR>", "Move window down" },
+    ["<S-up>"] = { ":wincmd K<CR>", "Move window up" },
+    ["<S-right>"] = { ":wincmd L<CR>", "Move window right" },
+})

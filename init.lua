@@ -5,8 +5,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("plugins")
-require("config/which-key")
+require("config/keybindings")
 require("config/settings")
+
 
 require("colorloaders/colors")
 require("config/treesitter")
@@ -14,6 +15,9 @@ require("config/treesitter")
 require("config/buffers")
 require("config/galaxyline")
 require("config/search")
+require("config/todo")
+require("config/trouble")
+require("config/terminal")
 require("config/coc")
 require("config/julia")
 require("config/latex")

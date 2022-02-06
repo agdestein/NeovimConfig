@@ -26,7 +26,7 @@ Telescope.setup({
 
 WhichKey.register({
     name = "Telescope",
-    f = { ":Telescope find_files<CR>", "Find files" },
+    o = { ":Telescope find_files<CR>", "Find files" },
     e = { ":Telescope live_grep<CR>", "Live grep" },
     w = { ":Telescope grep_string<CR>", "Grep string" },
     b = { ":Telescope buffers<CR>", "Buffers" },

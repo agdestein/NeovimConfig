@@ -6,18 +6,12 @@ require("bufferline").setup({})
 
 WhichKey.register({
     name = "Buffers",
-    c = { ":bd<CR>", "Close buffer" },
-
-    -- These commands will navigate through buffers in order regardless of which mode you are using
-    -- e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+    c = { ":BufferLinePickClose<CR>", "Pick buffer to close" },
+    o = { ":BufferLinePick<CR>", "Pick buffer" },
     j = { ":BufferLineCyclePrev<CR>", "Previous buffer" },
     k = { ":BufferLineCycleNext<CR>", "Next buffer" },
-
-    -- These commands will move the current buffer backwards or forwards in the bufferline
     h = { ":BufferLineMovePrev<CR>", "Move buffer left" },
     l = { ":BufferLineMoveNext<CR>", "Move buffer right" },
-
-    -- These commands will sort buffers by directory, language, or a custom criteria
     e = { ":BufferLineSortByExtension<CR>", "Sort buffers by extension" },
     d = { ":BufferLineSortByDirectory<CR>", "Sort buffers by directory" },
     i = {
@@ -28,8 +22,8 @@ WhichKey.register({
         end,
         "Sort buffers by id",
     },
-
-    -- Buffer numbers
+    ["-"] = { ":BufferLineCloseLeft<CR>", "Close left buffers" },
+    ["+"] = { ":BufferLineCloseRight<CR>", "Close right buffers" },
     ["1"] = {":BufferLineGoToBuffer 1<CR>", "Go to buffer 1"},
     ["2"] = {":BufferLineGoToBuffer 2<CR>", "Go to buffer 2"},
     ["3"] = {":BufferLineGoToBuffer 3<CR>", "Go to buffer 3"},

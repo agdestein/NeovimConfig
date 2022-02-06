@@ -20,6 +20,7 @@ colors = {
     red = "#e95678",
     violet = "#e95678",
     dark_blue = "#23324d",
+    border = "#a1b5b1",
 }
 
 local monokai = require("monokai")
@@ -45,12 +46,6 @@ monokai.setup({
     },
 })
 
--- Enable transparency
-vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-vim.cmd("hi NonText guibg=NONE ctermbg=NONE")
-vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=2")
-
 vim.cmd("hi! link juliaSymbol Number")
 
 vim.cmd("hi! link juliaFunction           Function")
@@ -64,6 +59,31 @@ vim.cmd("hi juliaParDelim  guifg=" .. palette.base8)
 vim.cmd("hi juliaSemicolon guifg=" .. palette.base8)
 vim.cmd("hi juliaColon     guifg=" .. palette.base8)
 vim.cmd("hi juliaComma	   guifg=" .. palette.base8)
+
+-- vim.cmd("hi TabLineFill '#282828' '#282828'")
+vim.cmd("hi TabLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
+vim.cmd("hi StatusLine  guibg=" .. colors.bg .. " guifg=" .. colors.bg)
+vim.cmd("hi StatusLineNC  guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
+
+vim.cmd("hi TelescopeBorder guifg=" .. colors.border)
+-- vim.cmd("hi TelescopePromptBorder guifg=" .. colors.cyan)
+-- vim.cmd("hi TelescopeResultsBorder guifg=" .. colors.cyan)
+-- vim.cmd("hi TelescopePreviewBorder guifg=" .. colors.cyan)
+
+-- Enable transparency
+vim.cmd("hi TelescopeNormal guibg=NONE ctermbg=NONE")
+vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")
+vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi Number guibg=NONE ctermbg=NONE")
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd("hi NonText guibg=NONE ctermbg=NONE")
+vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
+
+-- Enable transparency
+-- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi NonText guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=2")
 
 -- M.classic = {
 --   name = 'monokai',

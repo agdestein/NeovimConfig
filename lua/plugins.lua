@@ -31,6 +31,7 @@ Packer.startup(function(use)
     use("tpope/vim-fugitive")
     use("tpope/vim-surround")
     use("folke/zen-mode.nvim")
+    use("pocco81/truezen.nvim")
     use("ggandor/lightspeed.nvim")
     use("nvim-telescope/telescope.nvim")
     use("chiel92/vim-autoformat")
@@ -45,6 +46,11 @@ Packer.startup(function(use)
         end,
     })
     use("github/copilot.vim")
+    use("folke/todo-comments.nvim")
+    -- use("folke/trouble.nvim")
+
+    use("akinsho/toggleterm.nvim")
+    use("hkupty/iron.nvim")
 
     -- Language support
     use("dag/vim-fish")
@@ -60,6 +66,7 @@ Packer.startup(function(use)
     use("morhetz/gruvbox")
     use({ "dracula/vim", as = "dracula" })
     use("tanvirtin/monokai.nvim")
+    use("folke/lsp-colors.nvim")
 
     use("nvim-treesitter/nvim-treesitter")
 end)

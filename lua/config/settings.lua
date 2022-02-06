@@ -19,6 +19,7 @@ vim.o.timeoutlen = 500
 vim.o.wrap = false
 vim.o.foldenable = false
 vim.g.python3_host_prog = "/usr/bin/python"
+vim.o.splitright = true
 
 -- Autoformat
 vim.api.nvim_set_keymap("n", "<leader>af", ":Autoformat<CR>", {})
