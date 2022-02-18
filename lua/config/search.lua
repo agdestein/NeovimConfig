@@ -39,6 +39,8 @@ WhichKey.register({
 -- Search and replace
 local Spectre = require("spectre")
 
+Spectre.setup({})
+
 -- Normal mode
 WhichKey.register({
     name = "Spectre",

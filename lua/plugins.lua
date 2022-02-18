@@ -19,13 +19,10 @@ Packer.startup(function(use)
     -- use("neovim/nvim-lspconfig")
     use({ "neoclide/coc.nvim", branch = "release" })
 
+    use("rafcamlet/nvim-luapad")
+
     -- use("windwp/nvim-spectre")
-    use({
-        "windwp/nvim-spectre",
-        config = function()
-            require("spectre").setup({})
-        end,
-    })
+    use("windwp/nvim-spectre")
     use("tpope/vim-commentary")
     use("tpope/vim-unimpaired")
     use("tpope/vim-fugitive")
@@ -39,15 +36,11 @@ Packer.startup(function(use)
     use("jpalardy/vim-slime")
     use("godlygeek/tabular")
     use("norcalli/nvim-colorizer.lua")
-    use({
-        "kyazdani42/nvim-tree.lua",
-        config = function()
-            require("nvim-tree").setup({})
-        end,
-    })
+    use("kyazdani42/nvim-tree.lua")
     use("github/copilot.vim")
     use("folke/todo-comments.nvim")
     -- use("folke/trouble.nvim")
+    use("L3MON4D3/LuaSnip")
 
     use("akinsho/toggleterm.nvim")
     use("hkupty/iron.nvim")
@@ -63,9 +56,12 @@ Packer.startup(function(use)
     use("davidgranstrom/nvim-markdown-preview")
 
     -- Colorschemes
-    use("morhetz/gruvbox")
+    use("ellisonleao/gruvbox.nvim")
+    -- use("luisiacc/gruvbox-baby")
     use({ "dracula/vim", as = "dracula" })
     use("tanvirtin/monokai.nvim")
+    use("shaunsingh/nord.nvim")
+    use({ "catppuccin/nvim", as = "catppuccin" })
     use("folke/lsp-colors.nvim")
 
     use("nvim-treesitter/nvim-treesitter")

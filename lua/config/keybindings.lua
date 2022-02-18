@@ -66,6 +66,10 @@ WhichKey.setup({
     },
 })
 
+-- Leader
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 WhichKey.register({
     -- Switch window
     ["<left>"] = { ":wincmd h<CR>", "Left window" },

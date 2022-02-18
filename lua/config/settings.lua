@@ -3,15 +3,17 @@
 -- Set options
 vim.o.clipboard = "unnamedplus"
 vim.o.encoding = "UTF-8"
-vim.o.number = true
-vim.o.relativenumber = true
+vim.o.signcolumn = "no"
+-- vim.o.signcolumn = "number"
+-- vim.o.number = true
+-- vim.o.relativenumber = true
 vim.o.numberwidth = 2
-vim.o.signcolumn = "number"
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.mouse = "a"
 vim.o.incsearch = true
+-- vim.o.cursorline = true
 vim.o.hidden = true
 vim.o.textwidth = 92
 vim.o.updatetime = 300
@@ -20,11 +22,7 @@ vim.o.wrap = false
 vim.o.foldenable = false
 vim.g.python3_host_prog = "/usr/bin/python"
 vim.o.splitright = true
-
--- Autoformat
-vim.api.nvim_set_keymap("n", "<leader>af", ":Autoformat<CR>", {})
-vim.g.formatdef_latexindent = "'latexindent -'"
--- vim.g.formatdef_lua = "'stylua -f ~/.config/nvim/stylua.toml'"
+-- vim.o.winblend = 10
 
 -- Slime
 vim.g.slime_target = "tmux"

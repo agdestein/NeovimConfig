@@ -61,7 +61,7 @@ Iron.core.add_repl_definitions({
 })
 
 WhichKey.register({
-    ["<C-\\>"] = { "<Cmd>stopinsert!<CR>", "Visual mode" },
+    ["<C-j>"] = { "<Cmd>stopinsert!<CR>", "Visual mode" },
 }, { mode = "t", noremap = true })
 
 -- Disable default keybindings
