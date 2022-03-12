@@ -35,7 +35,7 @@ vim.cmd("autocmd CursorHold * silent call CocActionAsync('highlight')")
 WhichKey.register({
     name = "Coc",
     n = { "<Plug>(coc-rename)", "Rename symbol" },
-    f = { "<Plug>(coc-format-selected)", "Format selection" },
+    f = { "<Plug>(coc-format-selected)", "Format selection", mode = "v" },
     g = { ":call CocAction('format')<CR>", "Format document" },
     d = { "<Plug>(coc-definition)", "Go to definition" },
     r = { "<Plug>(coc-references)", "References" },

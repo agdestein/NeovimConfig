@@ -4,15 +4,18 @@ vim.opt.termguicolors = true
 
 local catppuccin = require("catppuccin")
 
-catppuccin.setup({})
+catppuccin.setup({
+    transparent_background = false,
+})
 
 vim.cmd("colorscheme catppuccin")
 
 colors = {
     fg = "#D9E0EE",
-    grey = "#6E6C7E",
-    bg = "#1A1826",
-    bg = "#302D41",
+    comment = "#6E6C7E",
+    bg = "#161320",
+    -- bg = "#1A1826",
+    -- bg = "#302D41",
     violet = "#DDB6F2",
     dark_blue = "#96CDFB",
     border = "#575268",

@@ -8,7 +8,8 @@ gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "coc-explorer" }
 gls.left[1] = {
     RainbowRed = {
         provider = function()
-            return "▊ "
+            -- return "▊ "
+            return "▎ "
         end,
         highlight = { colors.blue, colors.bg },
     },
@@ -40,7 +41,9 @@ gls.left[2] = {
                 t = colors.red,
             }
             vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim.fn.mode()])
-            return "  "
+            -- return "  "
+            -- return "◖◗ "
+            return "● "
         end,
         highlight = { colors.red, colors.bg, "bold" },
     },
@@ -56,8 +59,8 @@ gls.left[4] = {
     FileIcon = {
         provider = "FileIcon",
         condition = condition.buffer_not_empty,
-        -- highlight = { require("galaxyline.provider_fileinfo").get_file_icon_color, colors.bg },
-        highlight = { colors.yellow, colors.bg },
+        highlight = { require("galaxyline.provider_fileinfo").get_file_icon_color, colors.bg },
+        -- highlight = { colors.yellow, colors.bg },
     },
 }
 
@@ -90,14 +93,14 @@ gls.left[7] = {
 gls.left[8] = {
     DiagnosticError = {
         provider = "DiagnosticError",
-        icon = "  ",
+        icon = "   ",
         highlight = { colors.red, colors.bg },
     },
 }
 gls.left[9] = {
     DiagnosticWarn = {
         provider = "DiagnosticWarn",
-        icon = "  ",
+        icon = "   ",
         highlight = { colors.yellow, colors.bg },
     },
 }
@@ -105,7 +108,7 @@ gls.left[9] = {
 gls.left[10] = {
     DiagnosticHint = {
         provider = "DiagnosticHint",
-        icon = "  ",
+        icon = "   ",
         highlight = { colors.cyan, colors.bg },
     },
 }
@@ -113,7 +116,7 @@ gls.left[10] = {
 gls.left[11] = {
     DiagnosticInfo = {
         provider = "DiagnosticInfo",
-        icon = "  ",
+        icon =  "  ",
         highlight = { colors.blue, colors.bg },
     },
 }
@@ -147,7 +150,7 @@ gls.right[1] = {
         condition = condition.hide_in_width,
         separator = " ",
         separator_highlight = { "NONE", colors.bg },
-        highlight = { colors.green, colors.bg, "bold" },
+        highlight = { colors.comment, colors.bg, "bold" },
     },
 }
 
@@ -157,7 +160,7 @@ gls.right[2] = {
         condition = condition.hide_in_width,
         separator = " ",
         separator_highlight = { "NONE", colors.bg },
-        highlight = { colors.green, colors.bg, "bold" },
+        highlight = { colors.comment, colors.bg, "bold" },
     },
 }
 
@@ -170,7 +173,7 @@ gls.right[3] = {
         condition = condition.check_git_workspace,
         separator = " ",
         separator_highlight = { "NONE", colors.bg },
-        highlight = { colors.violet, colors.bg, "bold" },
+        highlight = { colors.red, colors.bg, "bold" },
     },
 }
 
@@ -178,7 +181,7 @@ gls.right[4] = {
     GitBranch = {
         provider = "GitBranch",
         condition = condition.check_git_workspace,
-        highlight = { colors.violet, colors.bg, "bold" },
+        highlight = { colors.red, colors.bg, "bold" },
     },
 }
 
@@ -186,7 +189,7 @@ gls.right[5] = {
     DiffAdd = {
         provider = "DiffAdd",
         condition = condition.hide_in_width,
-        icon = "  ",
+        icon = "   ",
         highlight = { colors.green, colors.bg },
     },
 }

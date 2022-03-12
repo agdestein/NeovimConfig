@@ -9,19 +9,19 @@ vim.g.dracula_underline = "1"
 
 -- vim.cmd("hi! link Type                    DraculaBlue")
 -- vim.cmd("hi! link juliaType               DraculaBlue")
-vim.cmd("hi! link juliaSymbol             DraculaRed")
-vim.cmd("hi! link juliaSymbolS            DraculaRed")
+vim.cmd("hi! link juliaSymbol             DraculaPurple")
+vim.cmd("hi! link juliaSymbolS            DraculaPurple")
 
 vim.cmd("hi! link juliaFunction           DraculaGreenBold")
 vim.cmd("hi! link juliaFunctionDefinition DraculaGreenBold")
 vim.cmd("hi! link juliaFunctionDef        DraculaGreenBold")
-vim.cmd("hi! link juliaFunctionCall       DraculaGreen")
+vim.cmd("hi! link juliaFunctionCall       DraculaCyan")
 vim.cmd("hi! link juliaMacro              DraculaGreenBold")
 
-vim.cmd("hi! link juliaParDelim           DraculaOrange")
-vim.cmd("hi! link juliaSemicolon          DraculaOrange")
-vim.cmd("hi! link juliaColon              DraculaOrange")
-vim.cmd("hi! link juliaComma	          DraculaOrange")
+-- vim.cmd("hi! link juliaParDelim           DraculaOrange")
+-- vim.cmd("hi! link juliaSemicolon          DraculaOrange")
+-- vim.cmd("hi! link juliaColon              DraculaOrange")
+-- vim.cmd("hi! link juliaComma	          DraculaOrange")
 
 -- vim.cmd("hi! link Operator                DraculaOrange")
 -- vim.cmd("hi! link juliaOperator		     DraculaOrange")

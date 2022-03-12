@@ -25,9 +25,10 @@ Packer.startup(function(use)
     use("windwp/nvim-spectre")
     use("tpope/vim-commentary")
     use("tpope/vim-unimpaired")
-    use("tpope/vim-fugitive")
+    -- use("tpope/vim-fugitive")
+    use("TimUntersberger/neogit")
     use("tpope/vim-surround")
-    use("folke/zen-mode.nvim")
+    -- use("folke/zen-mode.nvim")
     use("pocco81/truezen.nvim")
     use("ggandor/lightspeed.nvim")
     use("nvim-telescope/telescope.nvim")
@@ -41,9 +42,12 @@ Packer.startup(function(use)
     use("folke/todo-comments.nvim")
     -- use("folke/trouble.nvim")
     use("L3MON4D3/LuaSnip")
+    use("lewis6991/gitsigns.nvim")
 
     use("akinsho/toggleterm.nvim")
     use("hkupty/iron.nvim")
+
+    use("nvim-lua/popup.nvim")
 
     -- Language support
     use("dag/vim-fish")
@@ -54,6 +58,7 @@ Packer.startup(function(use)
     use("mroavi/vim-julia-cell")
     use("plasticboy/vim-markdown")
     use("davidgranstrom/nvim-markdown-preview")
+    use({ "oberblastmeister/neuron.nvim", branch = "unstable" })
 
     -- Colorschemes
     use("ellisonleao/gruvbox.nvim")

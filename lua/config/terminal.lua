@@ -85,12 +85,12 @@ WhichKey.register({
 }, { prefix = "<leader>", noremap = true })
 
 WhichKey.register({
-    ["<C-CR>"] = { Iron.core.send_line, "Send line to Iron REPL" },
-    ["<S-CR>"] = { "<Plug>(iron-send-line)<CR>", "Send line to Iron REPL and advance" },
+    ["<C-CR>"] = { "<Plug>(iron-send-line)<CR>", "Send line to Iron REPL and advance" },
+    ["<S-CR>"] = { "vap<C-CR>))", "Send paragraph to IRON REPL", noremap = false },
     -- ["<C-CR>"] = { "vip;<Plug>(iron-visual-send)<CR>", "Send paragraph to Iron REPL" },
-}, { noremap = true })
+}, {}) --{ noremap = true })
 
 WhichKey.register({
-    ["<S-CR>"] = { "<Plug>(iron-visual-send)<CR>", "Send visual to Iron REPL" },
+    ["<C-CR>"] = { "<Plug>(iron-visual-send)<CR>", "Send visual to Iron REPL" },
     -- ["<S-CR>"] = { Iron.core.visual_send, "Send visual to Iron REPL" },
 }, { mode = "v", noremap = true })

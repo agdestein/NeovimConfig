@@ -24,6 +24,25 @@ vim.g.python3_host_prog = "/usr/bin/python"
 vim.o.splitright = true
 -- vim.o.winblend = 10
 
+-- Highlight on yank
+vim.cmd([[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+]])
+
+-- Gitsigns
+require('gitsigns').setup {
+  signs = {
+    add = { text = '+' },
+    change = { text = '~' },
+    delete = { text = '_' },
+    topdelete = { text = '‾' },
+    changedelete = { text = '~' },
+  },
+}
+
 -- Slime
 vim.g.slime_target = "tmux"
 -- vim.g.slime_target = "vimterminal"
@@ -52,8 +71,8 @@ vim.api.nvim_set_keymap("c", "<M-b>", "<S-Left>", { noremap = true })
 vim.api.nvim_set_keymap("c", "<M-f>", "<S-Right>", { noremap = true })
 
 -- Keybindings
-vim.api.nvim_set_keymap("", "<F3>", ":NvimTreeToggle<CR>", {})
-vim.api.nvim_set_keymap("", "<F2>", ":NvimTreeFindFileToggle<CR>", {})
+vim.api.nvim_set_keymap("", "<F3>", ":NvimTreeToggle<CR>", {silent = true})
+vim.api.nvim_set_keymap("", "<F2>", ":NvimTreeFindFileToggle<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<C-o>", "o<Esc>", {})
 
 local function reloadconfig()
