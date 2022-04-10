@@ -51,17 +51,27 @@ Iron.core.add_repl_definitions({
                 "env",
                 "LD_PRELOAD=/usr/lib/libstdc++.so",
                 "LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/",
-                "MESA_LOADER_DRIVER_OVERRIDE=i965 matlab",
+                "MESA_LOADER_DRIVER_OVERRIDE=i965", -- Force old driver for Matlab 2019a
+                -- "MESA_LOADER_DRIVER_OVERRIDE=iris", -- Default driver?
                 "matlab",
                 "-nosplash",
                 "-nodesktop",
             },
         },
     },
+    julia = {
+        julia = {
+            command = {
+                "julia",
+                "-t 4",
+            },
+        },
+    },
 })
 
 WhichKey.register({
-    ["<C-j>"] = { "<Cmd>stopinsert!<CR>", "Visual mode" },
+    ["<C-j>"] = { "<Cmd>stopinsert!<CR><C-w>k", "Visual mode and window up" },
+    ["<M-j>"] = { "<Cmd>stopinsert!<CR>", "Visual mode" },
 }, { mode = "t", noremap = true })
 
 -- Disable default keybindings
@@ -75,22 +85,21 @@ WhichKey.register({
         o = { ":IronRepl<CR>", "Toggle Iron REPL" },
         h = { ":IronReplHere<CR>", "Iron REPL here" },
         r = { Iron.core.repeat_cmd, "Repeat Iron command" },
-        l = { "<Plug>(iron-clear)<CR>", "Clear Iron REPL" },
+        l = { "<Plug>(iron-clear)", "Clear Iron REPL" },
         -- n = { Iron.core.interrupt, "Interrupt Iron REPL" },
         n = { "<Plug>(iron-interrupt)<CR>", "Interrupt Iron REPL" },
         f = { ":IronFocus<CR>i", "Focus Iron REPL" },
-        q = { "<Plug>(iron-exit)<CR>", "Exit Iron REPL" },
+        q = { "<Plug>(iron-exit)<CR>:IronFocus<CR>i", "Exit Iron REPL" },
         p = { [[:IronSend! using Pkg; Pkg.activate(\\".\\")<CR>]], "Activate current Julia environment" },
     },
 }, { prefix = "<leader>", noremap = true })
 
 WhichKey.register({
     ["<C-CR>"] = { "<Plug>(iron-send-line)<CR>", "Send line to Iron REPL and advance" },
-    ["<S-CR>"] = { "vap<C-CR>))", "Send paragraph to IRON REPL", noremap = false },
+    ["<S-CR>"] = { "Vap<C-CR><Esc>", "Send paragraph to IRON REPL", noremap = false },
     -- ["<C-CR>"] = { "vip;<Plug>(iron-visual-send)<CR>", "Send paragraph to Iron REPL" },
 }, {}) --{ noremap = true })
 
 WhichKey.register({
     ["<C-CR>"] = { "<Plug>(iron-visual-send)<CR>", "Send visual to Iron REPL" },
-    -- ["<S-CR>"] = { Iron.core.visual_send, "Send visual to Iron REPL" },
 }, { mode = "v", noremap = true })

@@ -32,6 +32,7 @@ vim.cmd("hi! link juliaMacro              DraculaGreenBold")
 -- vim.cmd("hi! link juliaDotted             DraculaOrange")
 
 colors = {
+    -- termbg = "#282a36",
     bg = "#3a3c4e",
     fg = "#f8f8f2",
     red = "#ff5555",
@@ -50,11 +51,13 @@ colors = {
 -- vim.cmd("hi TabLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
 vim.cmd("hi StatusLine  guibg=" .. colors.bg .. " guifg=" .. colors.bg)
 vim.cmd("hi StatusLineNC  guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
+vim.cmd("hi WinSeparator  guibg=NONE guifg=" .. colors.bg)
 
-vim.cmd("hi TelescopeBorder guifg=" .. colors.magenta)
--- vim.cmd("hi TelescopePromptBorder guifg=" .. colors.magenta)
--- vim.cmd("hi TelescopeResultsBorder guifg=" .. colors.magenta)
--- vim.cmd("hi TelescopePreviewBorder guifg=" .. colors.magenta)
+
+-- vim.cmd("hi TelescopeBorder guifg=" .. colors.magenta)
+vim.cmd("hi TelescopePromptBorder guifg=" .. colors.cyan)
+vim.cmd("hi TelescopeResultsBorder guifg=" .. colors.blue)
+vim.cmd("hi TelescopePreviewBorder guifg=" .. colors.magenta)
 
 -- Enable transparency
 -- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")

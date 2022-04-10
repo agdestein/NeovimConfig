@@ -21,6 +21,7 @@ colors = {
     bg = "#3B4252",
     -- bg = "#434C5E",
     -- bg = "#4C566A",
+    comment = "#616E88",
     magenta = "#B48EAD",
     green = "#A3BE8C",
     cyan = "#88C0D0",
@@ -45,17 +46,17 @@ vim.cmd("hi! link juliaFunctionDef        Function")
 vim.cmd("hi! link juliaFunctionCall       Function")
 vim.cmd("hi! link juliaMacro              Function")
 -- vim.cmd("hi juliaMacro guifg=" .. colors.green)
---
-vim.cmd("hi juliaParDelim  guifg=" .. colors.yellow)
-vim.cmd("hi juliaSemicolon guifg=" .. colors.yellow)
-vim.cmd("hi juliaColon     guifg=" .. colors.yellow)
-vim.cmd("hi juliaComma	   guifg=" .. colors.yellow)
 
+-- vim.cmd("hi juliaParDelim  guifg=" .. colors.yellow)
+-- vim.cmd("hi juliaSemicolon guifg=" .. colors.yellow)
+-- vim.cmd("hi juliaColon     guifg=" .. colors.yellow)
+-- vim.cmd("hi juliaComma	   guifg=" .. colors.yellow)
 
 -- vim.cmd("hi TabLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
 -- vim.cmd("hi BufferLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
-vim.cmd("hi StatusLine  guibg=" .. colors.bg .. " guifg=" .. colors.bg)
-vim.cmd("hi StatusLineNC  guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
+vim.cmd("hi StatusLine guibg=" .. colors.bg .. " guifg=" .. colors.bg)
+vim.cmd("hi StatusLineNC guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
+vim.cmd("hi WinSeparator guibg=NONE guifg=" .. colors.comment)
 
 vim.cmd("hi TelescopeBorder guifg=" .. colors.border)
 -- vim.cmd("hi TelescopePromptBorder guifg=" .. colors.cyan)
@@ -71,7 +72,6 @@ vim.cmd("hi TelescopeBorder guifg=" .. colors.border)
 -- vim.cmd("hi Normal guibg=#2E3440 ctermbg=NONE")
 -- vim.cmd("hi NonText guibg=NONE ctermbg=NONE")
 vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
-
 
 -- Enable transparency
 -- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")

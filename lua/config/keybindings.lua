@@ -89,3 +89,22 @@ WhichKey.register({
     ["<S-up>"] = { ":wincmd K<CR>", "Move window up" },
     ["<S-right>"] = { ":wincmd L<CR>", "Move window right" },
 })
+
+WhichKey.register({
+    n = { ":cnext<CR>", "Next item" },
+    m = { ":cprev<CR>", "Previous item" },
+}, { prefix = "<leader>", noremap = true })
+
+-- Command mode
+vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", { noremap = true })
+vim.api.nvim_set_keymap("c", "<C-e>", "<End>", { noremap = true })
+vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = true })
+vim.api.nvim_set_keymap("c", "<C-n>", "<Down>", { noremap = true })
+vim.api.nvim_set_keymap("c", "<C-b>", "<Left>", { noremap = true })
+vim.api.nvim_set_keymap("c", "<C-f>", "<Right>", { noremap = true })
+vim.api.nvim_set_keymap("c", "<M-b>", "<S-Left>", { noremap = true })
+vim.api.nvim_set_keymap("c", "<M-f>", "<S-Right>", { noremap = true })
+
+-- Keybindings
+vim.api.nvim_set_keymap("", "<F3>", ":NvimTreeToggle<CR>", { silent = true })
+vim.api.nvim_set_keymap("", "<F2>", ":NvimTreeFindFileToggle<CR>", { silent = true })

@@ -45,8 +45,10 @@ vim.cmd("hi! link juliaMacro              Function")
 
 -- vim.cmd("hi TabLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
 -- vim.cmd("hi BufferLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
-vim.cmd("hi StatusLine  guibg=" .. colors.bg .. " guifg=" .. colors.bg)
-vim.cmd("hi StatusLineNC  guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
+vim.cmd("hi StatusLine guibg=" .. colors.bg .. " guifg=" .. colors.bg)
+vim.cmd("hi StatusLineNC guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
+-- vim.cmd("hi WinSeparator guibg=NONE")
+vim.cmd("hi WinSeparator guibg=NONE guifg=" .. colors.comment)
 
 -- vim.cmd("hi TelescopeBorder guifg=" .. colors.border)
 -- vim.cmd("hi TelescopePromptBorder guifg=" .. colors.cyan)

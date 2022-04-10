@@ -3,26 +3,43 @@
 -- Set options
 vim.o.clipboard = "unnamedplus"
 vim.o.encoding = "UTF-8"
+
 vim.o.signcolumn = "no"
+-- vim.o.signcolumn = "yes"
 -- vim.o.signcolumn = "number"
 -- vim.o.number = true
 -- vim.o.relativenumber = true
+
 vim.o.numberwidth = 2
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.cindent = true
 vim.o.expandtab = true
 vim.o.mouse = "a"
 vim.o.incsearch = true
 -- vim.o.cursorline = true
 vim.o.hidden = true
-vim.o.textwidth = 92
+-- vim.o.textwidth = 92
 vim.o.updatetime = 300
 vim.o.timeoutlen = 500
-vim.o.wrap = false
 vim.o.foldenable = false
 vim.g.python3_host_prog = "/usr/bin/python"
 vim.o.splitright = true
+vim.o.splitbelow = true
 -- vim.o.winblend = 10
+vim.o.autoread = true
+
+vim.o.showbreak = "↪ "
+vim.o.breakindent = true
+vim.o.linebreak = true
+vim.o.wrap = true
+
+-- vim.o.laststatus = 3
+-- vim.cmd("set laststatus=3")
+
+vim.g.loaded_perl_provider = false
 
 -- Highlight on yank
 vim.cmd([[
@@ -33,15 +50,15 @@ vim.cmd([[
 ]])
 
 -- Gitsigns
-require('gitsigns').setup {
-  signs = {
-    add = { text = '+' },
-    change = { text = '~' },
-    delete = { text = '_' },
-    topdelete = { text = '‾' },
-    changedelete = { text = '~' },
-  },
-}
+require("gitsigns").setup({
+    -- signs = {
+    --     add = { text = "+" },
+    --     change = { text = "~" },
+    --     delete = { text = "_" },
+    --     topdelete = { text = "‾" },
+    --     changedelete = { text = "~" },
+    -- },
+})
 
 -- Slime
 vim.g.slime_target = "tmux"
@@ -59,21 +76,6 @@ vim.g.slime_target = "tmux"
 --     ["<M-b>"] = { "<S-left>", "Word left" },
 --     ["<M-f>"] = { "<S-Right>", "Word right" },
 -- }, { mode = "c", noremap = true })
-
--- Command mode
-vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<C-e>", "<End>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<C-n>", "<Down>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<C-b>", "<Left>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<C-f>", "<Right>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<M-b>", "<S-Left>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<M-f>", "<S-Right>", { noremap = true })
-
--- Keybindings
-vim.api.nvim_set_keymap("", "<F3>", ":NvimTreeToggle<CR>", {silent = true})
-vim.api.nvim_set_keymap("", "<F2>", ":NvimTreeFindFileToggle<CR>", {silent = true})
-vim.api.nvim_set_keymap("n", "<C-o>", "o<Esc>", {})
 
 local function reloadconfig()
     for name, _ in pairs(package.loaded) do
