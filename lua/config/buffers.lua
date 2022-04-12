@@ -131,8 +131,8 @@ WhichKey.register({
 }, { prefix = "<leader>b", mode = "n", noremap = true, silent = true })
 
 WhichKey.register({
-    ["<leader>c"] = { ":bd<CR>", "Close buffer" },
-    ["<leader>C"] = { ":bp | bd #<CR>", "Close buffer" },
+    ["<leader>c"] = { ":bp | bd #<CR>", "Close buffer" },
+    ["<leader>C"] = { ":bd<CR>", "Close buffer" },
     ["<C-j>"] = { ":BufferLineCyclePrev<CR>", "Previous buffer" },
     ["<C-k>"] = { ":BufferLineCycleNext<CR>", "Next buffer" },
 }, { mode = "n", noremap = true, silent = true })

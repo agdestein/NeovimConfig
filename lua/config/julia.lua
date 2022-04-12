@@ -9,6 +9,5 @@ WhichKey.register({
     j = {
         name = "Julia",
         b = { ":call julia#toggle_function_blockassign()<CR>", "Toggle function block" },
-        f = { ":JuliaFormatterFormat<CR>", "Format code" },
     },
 }, { prefix = "<leader>", noremap = true })
