@@ -34,9 +34,6 @@ colors = {
     border = "#4C566A",
 }
 
--- #D8DEE9
--- #E5E9F0
-
 vim.cmd("hi! link juliaSymbol Number")
 vim.cmd("hi! link juliaSymbolS Number")
 

@@ -1,7 +1,7 @@
-local LuaSnip = require("LuaSnip")
+local luasnip = require("LuaSnip")
 local types = require("luasnip.util.types")
 
-LuaSnip.config.set_config({
+luasnip.config.set_config({
 	history = true,
 
 	-- Update more often, :h events for more info.

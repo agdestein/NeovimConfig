@@ -5,7 +5,6 @@ vim.o.clipboard = "unnamedplus"
 vim.o.encoding = "UTF-8"
 
 vim.o.signcolumn = "no"
--- vim.o.signcolumn = "yes"
 -- vim.o.signcolumn = "number"
 -- vim.o.number = true
 -- vim.o.relativenumber = true
@@ -65,18 +64,6 @@ vim.g.slime_target = "tmux"
 -- vim.g.slime_target = "vimterminal"
 -- vim.g.slime_target = "x11"
 
--- -- Command mode
--- WhichKey.register({
---     ["<C-a>"] = { "<Home>", "Home" },
---     ["<C-e>"] = { "<End>", "End" },
---     ["<C-p>"] = { "<Up>", "Up" },
---     ["<C-n>"] = { "<Down>", "Down" },
---     ["<C-b>"] = { "<Left>", "Left" },
---     ["<C-f>"] = { "<Right>", "Right" },
---     ["<M-b>"] = { "<S-left>", "Word left" },
---     ["<M-f>"] = { "<S-Right>", "Word right" },
--- }, { mode = "c", noremap = true })
-
 local function reloadconfig()
     for name, _ in pairs(package.loaded) do
         if name:match("^config") then
@@ -92,4 +79,3 @@ WhichKey.register({
     r = { reloadconfig, "Reload Neovim config" },
     e = { ":edit $MYVIMRC<CR>", "Edit Neovim config" },
 }, { prefix = "<leader>q", noremap = true })
--- vim.api.nvim_set_keymap("n", "<leader>v", ":edit $MYVIMRC<CR>", {})

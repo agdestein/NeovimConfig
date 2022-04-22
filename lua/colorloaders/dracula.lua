@@ -53,7 +53,6 @@ vim.cmd("hi StatusLine  guibg=" .. colors.bg .. " guifg=" .. colors.bg)
 vim.cmd("hi StatusLineNC  guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
 vim.cmd("hi WinSeparator  guibg=NONE guifg=" .. colors.bg)
 
-
 -- vim.cmd("hi TelescopeBorder guifg=" .. colors.magenta)
 vim.cmd("hi TelescopePromptBorder guifg=" .. colors.cyan)
 vim.cmd("hi TelescopeResultsBorder guifg=" .. colors.blue)

@@ -72,16 +72,16 @@ vim.g.maplocalleader = " "
 
 WhichKey.register({
     -- Switch window
-    ["<left>"] = { ":wincmd h<CR>", "Left window" },
-    ["<down>"] = { ":wincmd j<CR>", "Lower window" },
-    ["<up>"] = { ":wincmd k<CR>", "Upper window" },
-    ["<right>"] = { ":wincmd l<CR>", "Right window" },
+    -- ["<left>"] = { ":wincmd h<CR>", "Left window" },
+    -- ["<down>"] = { ":wincmd j<CR>", "Lower window" },
+    -- ["<up>"] = { ":wincmd k<CR>", "Upper window" },
+    -- ["<right>"] = { ":wincmd l<CR>", "Right window" },
 
     -- Resize window
-    ["<C-left>"] = { ":wincmd <<CR>", "Decrease width" },
-    ["<C-down>"] = { ":wincmd +<CR>", "Increase height" },
-    ["<C-up>"] = { ":wincmd -<CR>", "Decrease height" },
-    ["<C-right>"] = { ":wincmd ><CR>", "Increase width" },
+    ["<left>"] = { ":wincmd <<CR>", "Decrease width" },
+    ["<down>"] = { ":wincmd +<CR>", "Increase height" },
+    ["<up>"] = { ":wincmd -<CR>", "Decrease height" },
+    ["<right>"] = { ":wincmd ><CR>", "Increase width" },
 
     -- Move window
     ["<S-left>"] = { ":wincmd H<CR>", "Move window left" },
@@ -95,16 +95,27 @@ WhichKey.register({
     m = { ":cprev<CR>", "Previous item" },
 }, { prefix = "<leader>", noremap = true })
 
--- Command mode
-vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<C-e>", "<End>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<C-n>", "<Down>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<C-b>", "<Left>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<C-f>", "<Right>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<M-b>", "<S-Left>", { noremap = true })
-vim.api.nvim_set_keymap("c", "<M-f>", "<S-Right>", { noremap = true })
+-- -- Command mode
+-- vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", { noremap = true })
+-- vim.api.nvim_set_keymap("c", "<C-e>", "<End>", { noremap = true })
+-- vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = true })
+-- vim.api.nvim_set_keymap("c", "<C-n>", "<Down>", { noremap = true })
+-- vim.api.nvim_set_keymap("c", "<C-b>", "<Left>", { noremap = true })
+-- vim.api.nvim_set_keymap("c", "<C-f>", "<Right>", { noremap = true })
+-- vim.api.nvim_set_keymap("c", "<M-b>", "<S-Left>", { noremap = true })
+-- vim.api.nvim_set_keymap("c", "<M-f>", "<S-Right>", { noremap = true })
 
--- Keybindings
+-- WhichKey.register({
+--     ["<C-a>"] = { "<Home>", "Home" },
+--     ["<C-e>"] = { "<End>", "End" },
+--     ["<C-p>"] = { "<Up>", "Up" },
+--     ["<C-n>"] = { "<Down>", "Down" },
+--     ["<C-b>"] = { "<Left>", "Left" },
+--     ["<C-f>"] = { "<Right>", "Right" },
+--     ["<M-b>"] = { "<S-left>", "Word left" },
+--     ["<M-f>"] = { "<S-Right>", "Word right" },
+-- }, { mode = "c", noremap = true })
+
+-- Tree
 vim.api.nvim_set_keymap("", "<F3>", ":NvimTreeToggle<CR>", { silent = true })
 vim.api.nvim_set_keymap("", "<F2>", ":NvimTreeFindFileToggle<CR>", { silent = true })

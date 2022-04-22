@@ -96,6 +96,7 @@ faded_orange   = #af3a03
 
 -- vim.cmd("hi TabLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
 
+vim.cmd("hi SignColumn guibg=NONE")
 -- vim.cmd("hi StatusLine  guibg=" .. colors.bg .. " guifg=" .. colors.bg)
 -- vim.cmd("hi StatusLineNC  guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
 

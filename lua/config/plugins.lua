@@ -28,9 +28,8 @@ Packer.startup(function(use)
         end,
     })
 
-    -- -- LSP
-    -- use("neovim/nvim-lspconfig")
-    use({ "neoclide/coc.nvim", branch = "release" })
+    -- LSP
+    use("neovim/nvim-lspconfig")
 
     use("rafcamlet/nvim-luapad")
 
@@ -71,6 +70,21 @@ Packer.startup(function(use)
     use("plasticboy/vim-markdown")
     use("davidgranstrom/nvim-markdown-preview")
     use({ "oberblastmeister/neuron.nvim", branch = "unstable" })
+
+    use("hrsh7th/cmp-buffer")
+    use("hrsh7th/cmp-calc")
+    use("hrsh7th/cmp-copilot")
+    use("hrsh7th/cmp-cmdline")
+    use("petertriho/cmp-git")
+    use("kdheepak/cmp-latex-symbols")
+    use("saadparwaiz1/cmp_luasnip")
+    use("hrsh7th/cmp-nvim-lsp")
+    use("hrsh7th/cmp-nvim-lua")
+    -- use("hrsh7th/cmp-omni")
+    use("hrsh7th/cmp-path")
+    use("hrsh7th/nvim-cmp")
+
+    use("jose-elias-alvarez/null-ls.nvim")
 
     -- Colorschemes
     use("ellisonleao/gruvbox.nvim")
