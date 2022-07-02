@@ -33,7 +33,7 @@ vim.o.autoread = true
 vim.o.showbreak = "↪ "
 vim.o.breakindent = true
 vim.o.linebreak = true
-vim.o.wrap = true
+vim.o.wrap = false
 
 -- vim.o.laststatus = 3
 -- vim.cmd("set laststatus=3")
@@ -48,21 +48,10 @@ vim.cmd([[
   augroup end
 ]])
 
--- Gitsigns
-require("gitsigns").setup({
-    -- signs = {
-    --     add = { text = "+" },
-    --     change = { text = "~" },
-    --     delete = { text = "_" },
-    --     topdelete = { text = "‾" },
-    --     changedelete = { text = "~" },
-    -- },
-})
-
--- Slime
-vim.g.slime_target = "tmux"
--- vim.g.slime_target = "vimterminal"
--- vim.g.slime_target = "x11"
+-- Format
+vim.g.formatdef_latexindent = "'latexindent -'"
+-- vim.g.formatdef_lua = "'stylua -f ~/.config/nvim/stylua.toml'"
+vim.g.formatdef_python = "black"
 
 local function reloadconfig()
     for name, _ in pairs(package.loaded) do

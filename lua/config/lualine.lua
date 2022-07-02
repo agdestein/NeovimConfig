@@ -47,8 +47,9 @@ lualine.setup({
                     end
                     return msg
                 end,
-                icon = " LSP:",
-                color = { fg = colors.cyan, gui = "bold" },
+                -- icon = " LSP:",
+                icon = " ",
+                -- color = { fg = colors.cyan, gui = "bold" },
             },
         },
         lualine_x = {

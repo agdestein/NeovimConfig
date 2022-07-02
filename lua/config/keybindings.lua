@@ -93,6 +93,8 @@ WhichKey.register({
 WhichKey.register({
     n = { ":cnext<CR>", "Next item" },
     m = { ":cprev<CR>", "Previous item" },
+    ag = { ":Neogit<CR>", "Neogit" },
+    af = { ":Autoformat<CR>", "Autoformat" },
 }, { prefix = "<leader>", noremap = true })
 
 -- -- Command mode
@@ -116,6 +118,3 @@ WhichKey.register({
 --     ["<M-f>"] = { "<S-Right>", "Word right" },
 -- }, { mode = "c", noremap = true })
 
--- Tree
-vim.api.nvim_set_keymap("", "<F3>", ":NvimTreeToggle<CR>", { silent = true })
-vim.api.nvim_set_keymap("", "<F2>", ":NvimTreeFindFileToggle<CR>", { silent = true })

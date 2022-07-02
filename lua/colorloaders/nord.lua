@@ -4,7 +4,6 @@ local vim = vim
 vim.cmd("hi clear")
 
 vim.opt.termguicolors = true
-vim.cmd("colorscheme nord")
 
 vim.g.nord_contrast = false
 vim.g.nord_borders = true
@@ -13,6 +12,7 @@ vim.g.nord_italic = true
 
 -- Load the colorscheme
 require("nord").set()
+vim.cmd("colorscheme nord")
 
 colors = {
     fg = "#ECEFF4",
@@ -34,14 +34,14 @@ colors = {
     border = "#4C566A",
 }
 
-vim.cmd("hi! link juliaSymbol Number")
-vim.cmd("hi! link juliaSymbolS Number")
-
-vim.cmd("hi! link juliaFunction           Function")
-vim.cmd("hi! link juliaFunctionDefinition Function")
-vim.cmd("hi! link juliaFunctionDef        Function")
-vim.cmd("hi! link juliaFunctionCall       Function")
-vim.cmd("hi! link juliaMacro              Function")
+-- vim.cmd("hi! link juliaSymbol Number")
+-- vim.cmd("hi! link juliaSymbolS Number")
+--
+-- vim.cmd("hi! link juliaFunction           Function")
+-- vim.cmd("hi! link juliaFunctionDefinition Function")
+-- vim.cmd("hi! link juliaFunctionDef        Function")
+-- vim.cmd("hi! link juliaFunctionCall       Function")
+-- vim.cmd("hi! link juliaMacro              Function")
 -- vim.cmd("hi juliaMacro guifg=" .. colors.green)
 
 -- vim.cmd("hi juliaParDelim  guifg=" .. colors.yellow)
@@ -51,11 +51,11 @@ vim.cmd("hi! link juliaMacro              Function")
 
 -- vim.cmd("hi TabLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
 -- vim.cmd("hi BufferLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
-vim.cmd("hi StatusLine guibg=" .. colors.bg .. " guifg=" .. colors.bg)
-vim.cmd("hi StatusLineNC guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
+-- vim.cmd("hi StatusLine guibg=" .. colors.bg .. " guifg=" .. colors.bg)
+-- vim.cmd("hi StatusLineNC guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
 vim.cmd("hi WinSeparator guibg=NONE guifg=" .. colors.comment)
 
-vim.cmd("hi TelescopeBorder guifg=" .. colors.border)
+-- vim.cmd("hi TelescopeBorder guifg=" .. colors.border)
 -- vim.cmd("hi TelescopePromptBorder guifg=" .. colors.cyan)
 -- vim.cmd("hi TelescopeResultsBorder guifg=" .. colors.cyan)
 -- vim.cmd("hi TelescopePreviewBorder guifg=" .. colors.cyan)
@@ -68,7 +68,7 @@ vim.cmd("hi TelescopeBorder guifg=" .. colors.border)
 -- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 -- vim.cmd("hi Normal guibg=#2E3440 ctermbg=NONE")
 -- vim.cmd("hi NonText guibg=NONE ctermbg=NONE")
-vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
 
 -- Enable transparency
 -- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")

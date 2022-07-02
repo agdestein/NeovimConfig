@@ -1,35 +1,12 @@
 vim.cmd("hi clear")
 
 vim.opt.termguicolors = true
-vim.cmd("colorscheme dracula")
 
 vim.g.dracula_bold = "1"
 vim.g.dracula_italic = "1"
 vim.g.dracula_underline = "1"
 
--- vim.cmd("hi! link Type                    DraculaBlue")
--- vim.cmd("hi! link juliaType               DraculaBlue")
-vim.cmd("hi! link juliaSymbol             DraculaPurple")
-vim.cmd("hi! link juliaSymbolS            DraculaPurple")
-
-vim.cmd("hi! link juliaFunction           DraculaGreenBold")
-vim.cmd("hi! link juliaFunctionDefinition DraculaGreenBold")
-vim.cmd("hi! link juliaFunctionDef        DraculaGreenBold")
-vim.cmd("hi! link juliaFunctionCall       DraculaCyan")
-vim.cmd("hi! link juliaMacro              DraculaGreenBold")
-
--- vim.cmd("hi! link juliaParDelim           DraculaOrange")
--- vim.cmd("hi! link juliaSemicolon          DraculaOrange")
--- vim.cmd("hi! link juliaColon              DraculaOrange")
--- vim.cmd("hi! link juliaComma	          DraculaOrange")
-
--- vim.cmd("hi! link Operator                DraculaOrange")
--- vim.cmd("hi! link juliaOperator		     DraculaOrange")
--- vim.cmd("hi! link juliaRangeOperator	     DraculaOrange")
--- vim.cmd("hi! link juliaCTransOperator     DraculaOrange")
--- vim.cmd("hi! link juliaTernaryOperator    DraculaOrange")
--- vim.cmd("hi! link juliaTypeOperator	     DraculaOrange")
--- vim.cmd("hi! link juliaDotted             DraculaOrange")
+vim.cmd("colorscheme dracula")
 
 colors = {
     -- termbg = "#282a36",
@@ -48,17 +25,9 @@ colors = {
     black = "#191a21",
 }
 
--- vim.cmd("hi TabLineFill guibg=" .. colors.bg .. " guifg=" .. colors.bg)
-vim.cmd("hi StatusLine  guibg=" .. colors.bg .. " guifg=" .. colors.bg)
-vim.cmd("hi StatusLineNC  guibg=" .. colors.bg .. "  guifg=" .. colors.bg)
-vim.cmd("hi WinSeparator  guibg=NONE guifg=" .. colors.bg)
+vim.cmd("hi WinSeparator  guibg=NONE guifg=" .. colors.comment)
 
 -- vim.cmd("hi TelescopeBorder guifg=" .. colors.magenta)
 vim.cmd("hi TelescopePromptBorder guifg=" .. colors.cyan)
 vim.cmd("hi TelescopeResultsBorder guifg=" .. colors.blue)
 vim.cmd("hi TelescopePreviewBorder guifg=" .. colors.magenta)
-
--- Enable transparency
--- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
--- vim.cmd("hi NonText guibg=NONE ctermbg=NONE")
-vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")

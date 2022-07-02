@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
             c = { vim.lsp.buf.code_action, "Code action" },
             d = { vim.lsp.buf.definition, "Definition" },
             D = { vim.lsp.buf.declaration, "Declaration" },
-            f = { vim.lsp.buf.formatting, "Formatting" },
+            f = { vim.lsp.buf.format, "Format" },
             i = { vim.lsp.buf.implementation, "Implementation" },
             k = { vim.lsp.buf.signature_help, "Signature help" },
             r = { vim.lsp.buf.references, "References" },
@@ -44,7 +44,7 @@ local on_attach = function(client, bufnr)
         },
     }, { noremap = true, buffer = bufnr, silent = true })
 
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.document_highlight then
         vim.cmd([[
             augroup lsp_document_highlight
                 autocmd! * <buffer>
@@ -85,7 +85,7 @@ end
 
 -- disable virtual text (recommended for julia)
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = false,
+    virtual_text = true,
     underline = false,
     signs = true,
     update_in_insert = false,
@@ -153,13 +153,5 @@ lsp.sumneko_lua.setup({
                 enable = false,
             },
         },
-    },
-})
-
-require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.formatting.stylua,
-        require("null-ls").builtins.diagnostics.eslint,
-        require("null-ls").builtins.completion.spell,
     },
 })

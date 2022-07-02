@@ -71,12 +71,12 @@ cmp.setup.cmdline(":", {
     }),
 })
 
-WhichKey.register({
-    ["<C-]>"] = { "<C-x><C-]>", "" },
-    ["<C-f>"] = { "<C-x><C-f>", "" },
-    ["<C-d>"] = { "<C-x><C-d>", "" },
-    ["<C-l>"] = { "<C-x><C-l>", "" },
-}, { mode = "i", expr = true, noremap = true})
+-- WhichKey.register({
+--     ["<C-]>"] = { "<C-x><C-]>", "" },
+--     ["<C-f>"] = { "<C-x><C-f>", "" },
+--     ["<C-d>"] = { "<C-x><C-d>", "" },
+--     ["<C-l>"] = { "<C-x><C-l>", "" },
+-- }, { mode = "i", expr = true, noremap = true})
 
 -- vim.api.nvim_set_keymap("i", "^]", "^X^]", { noremap = true, expr = true, silent = true })
 -- vim.api.nvim_set_keymap("i", "^F", "^X^F", { noremap = true, expr = true, silent = true })

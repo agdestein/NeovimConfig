@@ -2,12 +2,6 @@ require("bufferline").setup({
     options = {
         numbers = "none", -- "none" | "ordinal" | "buffer_id" | "both"
 
-        --- @deprecated, please specify numbers as a function to customize the styling
-        -- number_style = "superscript", -- "superscript" | "subscript" | "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
-
-        -- NOTE: this plugin is designed with this icon in mind,
-        -- and so changing this is NOT recommended, this is intended
-        -- as an escape hatch for people who cannot bear it for whatever reason
         indicator_icon = "▎",
         buffer_close_icon = "",
         modified_icon = "●",
