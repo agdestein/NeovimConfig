@@ -19,25 +19,3 @@ require("gruvbox").setup({
 })
 
 vim.cmd("colorscheme gruvbox")
-
-local colors = {
-    bg       = "#3c3836",
-    fg       = "#ebdbb2",
-    orange   = "#D65D0E",
-    comment  = "#928374",
-    red      = "#cc241d",
-    violet   = "#cc241d",
-    green    = "#98971a",
-    yellow   = "#d79921",
-    blue     = "#458588",
-    magenta  = "#b16286",
-    cyan     = "#689d6a",
-    darkblue = "#21222c",
-    black    = "#1d2021",
-}
-
--- vim.cmd("hi WinSeparator  guibg=NONE guifg=" .. colors.comment)
-
-vim.cmd("hi TelescopePromptBorder guifg=" .. colors.blue)
-vim.cmd("hi TelescopeResultsBorder guifg=" .. colors.green)
-vim.cmd("hi TelescopePreviewBorder guifg=" .. colors.cyan)

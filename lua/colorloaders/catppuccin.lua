@@ -71,23 +71,3 @@ catppuccin.setup({
 vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 
 vim.cmd("colorscheme catppuccin")
-
-
--- colors = {
---     fg = "#D9E0EE",
---     comment = "#6E6C7E",
---     bg = "#161320",
---     -- bg = "#1A1826",
---     -- bg = "#302D41",
---     violet = "#DDB6F2",
---     dark_blue = "#96CDFB",
---     border = "#575268",
---     orange = "#F8BD96",
---     red = "#F28FAD",
---     green = "#ABE9B3",
---     yellow = "#FAE3B0",
---     blue = "#96CDFB",
---     magenta = "#F5C2E7",
---     cyan = "#89DCEB",
--- }
--- vim.cmd("hi WinSeparator guifg=#6E6C7E")

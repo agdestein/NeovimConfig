@@ -13,17 +13,9 @@ Packer.startup(function(use)
     use("ryanoasis/vim-devicons")
     use("kyazdani42/nvim-web-devicons")
     -- use("nvim-lualine/lualine.nvim")
-    -- use("feline-nvim/feline.nvim")
 
     use("akinsho/bufferline.nvim")
     use("folke/which-key.nvim")
-
-    use({
-        "goolord/alpha-nvim",
-        config = function()
-            require("alpha").setup(require("alpha.themes.startify").config)
-        end,
-    })
 
     use("neovim/nvim-lspconfig")
 
@@ -43,21 +35,10 @@ Packer.startup(function(use)
     use("mjbrownie/swapit")
     use("godlygeek/tabular")
     use("norcalli/nvim-colorizer.lua")
-    -- use("kyazdani42/nvim-tree.lua")
     use({
         "kyazdani42/nvim-tree.lua",
-        requires = {
-            "kyazdani42/nvim-web-devicons", -- optional, for file icon
-        },
-        tag = "nightly", -- optional, updated every week. (see issue #1193)
+        tag = "nightly",
     })
-    -- use({
-    --     "nvim-neo-tree/neo-tree.nvim",
-    --     branch = "v2.x",
-    --     requires = {
-    --         "MunifTanjim/nui.nvim",
-    --     },
-    -- })
 
     -- use("github/copilot.vim")
     use("folke/todo-comments.nvim")
@@ -73,6 +54,8 @@ Packer.startup(function(use)
     use("lervag/vimtex")
     use("JuliaEditorSupport/julia-vim")
     use("andreypopp/julia-repl-vim")
+    use("kdheepak/JuliaFormatter.vim")
+
     use("plasticboy/vim-markdown")
     use("davidgranstrom/nvim-markdown-preview")
 
@@ -89,10 +72,12 @@ Packer.startup(function(use)
     use("hrsh7th/cmp-path")
     use("hrsh7th/nvim-cmp")
 
+    use("duane9/nvim-rg")
+
     -- Colorschemes
     use("ellisonleao/gruvbox.nvim")
     use({ "catppuccin/nvim", as = "catppuccin" })
-    use({ "dracula/vim", as = "dracula" })
+    use("Mofiqul/dracula.nvim")
     use("tanvirtin/monokai.nvim")
     use("shaunsingh/nord.nvim")
     use("navarasu/onedark.nvim")

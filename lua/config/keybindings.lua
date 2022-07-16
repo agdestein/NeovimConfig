@@ -95,7 +95,12 @@ WhichKey.register({
     m = { ":cprev<CR>", "Previous item" },
     ag = { ":Neogit<CR>", "Neogit" },
     af = { ":Autoformat<CR>", "Autoformat" },
+    ac = { ":ColorizerToggle<CR>", "Colorize" },
 }, { prefix = "<leader>", noremap = true })
+
+WhichKey.register({
+    ["<F1>"] = { ":set number!<CR> :set relativenumber!<CR>", "Toggle line numbers" },
+}, { noremap = true })
 
 -- -- Command mode
 -- vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", { noremap = true })
@@ -117,4 +122,3 @@ WhichKey.register({
 --     ["<M-b>"] = { "<S-left>", "Word left" },
 --     ["<M-f>"] = { "<S-Right>", "Word right" },
 -- }, { mode = "c", noremap = true })
-
