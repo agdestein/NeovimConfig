@@ -10,6 +10,10 @@ vim.g.julia_indent_align_funcargs = false
 
 vim.g.JuliaFormatter_use_sysimage = true
 
+vim.cmd("hi link juliaParDelim Delimiter")
+vim.cmd("hi link juliaSemicolon Operator")
+vim.cmd("hi link juliaFunctionCall Identifier")
+
 WhichKey.register({
     j = {
         name = "Julia",

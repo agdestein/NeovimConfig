@@ -121,13 +121,35 @@ vim.lsp.protocol.CompletionItemKind = {
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pylsp", "julials", "texlab" }
+local servers = { "pylsp", "texlab", "sumneko_lua" }
 for _, server in pairs(servers) do
     lsp[server].setup({
         on_attach = on_attach,
         capabilities = create_capabilities(),
     })
 end
+
+-- https://github.com/fredrikekre/.dotfiles/blob/master/.config/nvim/init.vim#L73-L91
+local REVISE_LANGUAGESERVER = true
+lsp.julials.setup({
+    on_new_config = function(new_config, _)
+        -- local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
+        local julia = vim.fn.expand("/usr/bin/julia")
+        if REVISE_LANGUAGESERVER then
+            new_config.cmd[5] = (new_config.cmd[5]):gsub("using LanguageServer", "using Revise; using LanguageServer; if isdefined(LanguageServer, :USE_REVISE); LanguageServer.USE_REVISE[] = true; end")
+        elseif require'lspconfig'.util.path.is_file(julia) then
+            new_config.cmd[1] = julia
+        end
+    end,
+    -- This just adds dirname(fname) as a fallback (see nvim-lspconfig#1768).
+    root_dir = function(fname)
+        local util = require'lspconfig.util'
+        return util.root_pattern 'Project.toml'(fname) or util.find_git_ancestor(fname) or
+               util.path.dirname(fname)
+    end,
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
 
 lsp.sumneko_lua.setup({
     on_attach = on_attach,

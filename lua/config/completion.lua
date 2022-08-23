@@ -30,6 +30,8 @@ cmp.setup({
 
     sources = {
         { name = "path" },
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
         -- { name = "copilot" },
         { name = "latex_symbols" },
         { name = "luasnip" },
