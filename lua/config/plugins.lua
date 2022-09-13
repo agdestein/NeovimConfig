@@ -12,14 +12,13 @@ Packer.startup(function(use)
     use("nvim-lua/plenary.nvim")
     -- use("ryanoasis/vim-devicons")
     use("kyazdani42/nvim-web-devicons")
-    use("nvim-lualine/lualine.nvim")
+    -- use("nvim-lualine/lualine.nvim")
 
     use("akinsho/bufferline.nvim")
     use("folke/which-key.nvim")
 
     use("neovim/nvim-lspconfig")
 
-    use("windwp/nvim-spectre")
     use("numToStr/Comment.nvim")
     use("TimUntersberger/neogit")
     use({
@@ -59,6 +58,8 @@ Packer.startup(function(use)
     use("plasticboy/vim-markdown")
     use("davidgranstrom/nvim-markdown-preview")
     use("jbyuki/nabla.nvim")
+
+    use("ron-rs/ron.vim")
 
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-calc")

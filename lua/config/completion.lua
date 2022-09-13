@@ -1,25 +1,29 @@
+local luasnip = require("luasnip")
 local cmp = require("cmp")
+
+local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
 cmp.setup({
     completion = {
         completeopt = "menu,menuone,noselect",
         -- autocomplete = false,
     },
-
-    -- You must set mapping.
+    window = {
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
+    },
     mapping = {
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<C-d>"] = cmp.mapping.cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.cmp.mapping.scroll_docs(4),
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.close(),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-y>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert(), select = true }, { "i", "c" }), -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+        ["<C-y>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }, { "i", "c" }), -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
         ["<tab>"] = cmp.config.disable,
-
-        -- -- Accept currently selected item. Set `select` to `false` to only
-        -- -- confirm explicitly selected items.
-        -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
     },
 
     snippet = {
@@ -28,10 +32,21 @@ cmp.setup({
         end,
     },
 
+    -- formatting = {
+    --     format = lspkind.cmp_format({
+    --         with_text = true,
+    --         -- menu = {
+    --         --     buffer = "[buf]",
+    --         --     nvim_lsp = "[LSP]",
+    --         --     path = "[path]",
+    --         -- },
+    --     }),
+    -- },
+
     sources = {
         { name = "path" },
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
         -- { name = "copilot" },
         { name = "latex_symbols" },
         { name = "luasnip" },
@@ -42,10 +57,10 @@ cmp.setup({
         { name = "buffer" },
     },
 
-    -- experimental = {
-    --     native_menu = false,
-    --     ghost_text = false,
-    -- },
+    -- view = { entries = native },
+    experimental = {
+        ghost_text = true,
+    },
 })
 
 -- Set configuration for specific filetype.

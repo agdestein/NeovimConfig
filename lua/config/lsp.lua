@@ -80,6 +80,7 @@ local function create_capabilities()
             },
         },
     }
+    require("cmp_nvim_lsp").update_capabilities(capabilities)
     return capabilities
 end
 

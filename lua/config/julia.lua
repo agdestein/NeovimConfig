@@ -1,7 +1,7 @@
 -- Julia
 -- vim.g.default_julia_version = "1.7"
 
-vim.g.latex_to_unicode_tab = "on"
+vim.g.latex_to_unicode_tab = "off"
 vim.g.latex_to_unicode_auto = false
 
 vim.g.julia_indent_align_import = false

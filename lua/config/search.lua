@@ -36,32 +36,3 @@ WhichKey.register({
     r = { ":Telescope registers<CR>", "Registers" },
     c = { ":Telescope current_buffer_fuzzy_find<CR>", "Current buffer fuzzy find" },
 }, { prefix = "<leader>f", noremap = true })
-
-
--- Search and replace
-local Spectre = require("spectre")
-
-Spectre.setup({})
-
--- Normal mode
-WhichKey.register({
-    name = "Spectre",
-    o = { Spectre.open, "Open Spectre" },
-    w = {
-        function()
-            Spectre.open_visual({ select_word = true })
-        end,
-        "Search word",
-    },
-    f = { Spectre.open_file_search, "Search in file" },
-}, { prefix = "<leader>s", noremap = true })
-
--- Visual mode
-WhichKey.register({
-    s = {
-        function()
-            Spectre.open_visual()
-        end,
-        "Search selection"
-    },
-}, { mode = "v", prefix = "<leader>", noremap = true })

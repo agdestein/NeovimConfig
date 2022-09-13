@@ -1,8 +1,10 @@
 require("bufferline").setup({
     options = {
         numbers = "none", -- "none" | "ordinal" | "buffer_id" | "both"
-
-        indicator_icon = "▎",
+        indicator = {
+            icon = '▎', -- this should be omitted if indicator style is not 'icon'
+            style = 'icon' -- 'icon' | 'underline' | 'none',
+        },
         buffer_close_icon = "",
         modified_icon = "●",
         close_icon = "",
