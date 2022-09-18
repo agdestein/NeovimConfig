@@ -24,10 +24,13 @@ local sn = ls.snippet_node
 local t = ls.text_node
 local types = require("luasnip.util.types")
 
-ls.add_snippets("markdown", {
-    s("cite", {
-        t("["),
-        i(1, "Article"),
-        t("](@cite)"),
-    }),
-})
+-- In a markdown file: search markdown-, then julia-, then tex-, then all-snippets.
+ls.filetype_extend("markdown", { "julia", "tex" })
+
+-- ls.add_snippets("markdown", {
+--     s("cite", {
+--         t("["),
+--         i(1, "Article"),
+--         t("](@cite)"),
+--     }),
+-- })

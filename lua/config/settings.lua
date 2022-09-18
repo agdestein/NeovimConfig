@@ -29,6 +29,8 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 -- vim.o.winblend = 10
 vim.o.autoread = true
+vim.o.spell = true
+vim.o.spelllang = "en_us"
 
 vim.o.showbreak = "↪ "
 vim.o.breakindent = true

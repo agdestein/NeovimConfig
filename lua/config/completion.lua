@@ -47,7 +47,6 @@ cmp.setup({
         { name = "path" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        -- { name = "copilot" },
         { name = "latex_symbols" },
         { name = "luasnip" },
         { name = "nvim_lua" },
@@ -55,6 +54,7 @@ cmp.setup({
         -- { name = "calc" },
         -- { name = "omni" },
         { name = "buffer" },
+        { name = "spell" },
     },
 
     -- view = { entries = native },

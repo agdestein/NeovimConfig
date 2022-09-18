@@ -32,15 +32,15 @@ ls.config.set_config({
     ext_opts = {
         [types.choiceNode] = {
             active = {
-                virt_text = { { "●", "Normal" } }
+                virt_text = { { "●", "Normal" } },
                 -- virt_text = { { "choiceNode", "Comment" } },
-            }
+            },
         },
         [types.insertNode] = {
             active = {
-                virt_text = { { "●", "Comment" } }
-            }
-        }
+                virt_text = { { "●", "Comment" } },
+            },
+        },
     },
 
     -- treesitter-hl has 100, use something higher (default is 200).
@@ -63,12 +63,13 @@ ls.config.set_config({
     ft_func = function()
         return vim.split(vim.bo.filetype, ".", true)
     end,
+    -- ft_func = require("luasnip.extras.filetype_functions").from_cursor,
 
-    -- Also load julia when a markdown-file is opened,
-    -- Other filetypes just load themselves.
-    load_ft_func = require("luasnip.extras.filetype_functions").extend_load_ft({
-        markdown = { "julia" },
-    }),
+    -- -- Also load julia and tex when a markdown-file is opened.
+    -- -- Other filetypes just load themselves.
+    -- load_ft_func = require("luasnip.extras.filetype_functions").extend_load_ft({
+    --     markdown = { "julia", "tex" },
+    -- }),
 })
 
 WhichKey.register({

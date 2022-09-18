@@ -10,7 +10,6 @@ vim.cmd([[
 Packer.startup(function(use)
     use("nvim-lua/popup.nvim")
     use("nvim-lua/plenary.nvim")
-    -- use("ryanoasis/vim-devicons")
     use("kyazdani42/nvim-web-devicons")
     -- use("nvim-lualine/lualine.nvim")
 
@@ -39,7 +38,6 @@ Packer.startup(function(use)
         tag = "nightly",
     })
 
-    -- use("github/copilot.vim")
     use("folke/todo-comments.nvim")
     use("folke/trouble.nvim")
     use("L3MON4D3/LuaSnip")
@@ -55,15 +53,14 @@ Packer.startup(function(use)
     use("andreypopp/julia-repl-vim")
     use("kdheepak/JuliaFormatter.vim")
 
-    use("plasticboy/vim-markdown")
     use("davidgranstrom/nvim-markdown-preview")
+    use("preservim/vim-markdown")
     use("jbyuki/nabla.nvim")
 
     use("ron-rs/ron.vim")
 
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-calc")
-    -- use("hrsh7th/cmp-copilot")
     use("hrsh7th/cmp-cmdline")
     use("petertriho/cmp-git")
     use("kdheepak/cmp-latex-symbols")
@@ -73,6 +70,7 @@ Packer.startup(function(use)
     -- use("hrsh7th/cmp-omni")
     use("hrsh7th/cmp-path")
     use("hrsh7th/nvim-cmp")
+    use("f3fora/cmp-spell")
 
     use("duane9/nvim-rg")
 
