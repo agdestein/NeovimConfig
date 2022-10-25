@@ -33,6 +33,7 @@ WhichKey.register({
     b = { ":Telescope buffers<CR>", "Buffers" },
     h = { ":Telescope help_tags<CR>", "Help tags" },
     k = { ":Telescope keymaps<CR>", "Keymaps" },
-    r = { ":Telescope registers<CR>", "Registers" },
+    i = { ":Telescope registers<CR>", "Registers" },
+    r = { ":Telescope oldfiles<CR>", "Oldfiles" },
     c = { ":Telescope current_buffer_fuzzy_find<CR>", "Current buffer fuzzy find" },
 }, { prefix = "<leader>f", noremap = true })

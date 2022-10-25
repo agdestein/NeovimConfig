@@ -13,7 +13,7 @@ Packer.startup(function(use)
     use("kyazdani42/nvim-web-devicons")
     -- use("nvim-lualine/lualine.nvim")
 
-    use("akinsho/bufferline.nvim")
+    -- use("akinsho/bufferline.nvim")
     use("folke/which-key.nvim")
 
     use("neovim/nvim-lspconfig")
@@ -53,9 +53,8 @@ Packer.startup(function(use)
     use("andreypopp/julia-repl-vim")
     use("kdheepak/JuliaFormatter.vim")
 
-    use("davidgranstrom/nvim-markdown-preview")
     use("preservim/vim-markdown")
-    use("jbyuki/nabla.nvim")
+    use("davidgranstrom/nvim-markdown-preview")
 
     use("ron-rs/ron.vim")
 
@@ -71,8 +70,11 @@ Packer.startup(function(use)
     use("hrsh7th/cmp-path")
     use("hrsh7th/nvim-cmp")
     use("f3fora/cmp-spell")
+    use("lukas-reineke/cmp-rg")
 
     use("duane9/nvim-rg")
+
+    use("lukas-reineke/headlines.nvim")
 
     -- Colorschemes
     use("ellisonleao/gruvbox.nvim")

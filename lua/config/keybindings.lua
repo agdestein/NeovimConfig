@@ -91,8 +91,9 @@ WhichKey.register({
 })
 
 WhichKey.register({
-    n = { ":cnext<CR>", "Next item" },
     m = { ":cprev<CR>", "Previous item" },
+    n = { ":cnext<CR>", "Next item" },
+    p = { "\"_dP", "Delete without yank", mode = "x"},
     ag = { ":Neogit<CR>", "Neogit" },
     af = { ":Autoformat<CR>", "Autoformat" },
     ac = { ":ColorizerToggle<CR>", "Colorize" },

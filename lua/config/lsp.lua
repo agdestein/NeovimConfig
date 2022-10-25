@@ -80,7 +80,7 @@ local function create_capabilities()
             },
         },
     }
-    require("cmp_nvim_lsp").update_capabilities(capabilities)
+    require("cmp_nvim_lsp").default_capabilities(capabilities)
     return capabilities
 end
 
@@ -122,7 +122,7 @@ vim.lsp.protocol.CompletionItemKind = {
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pylsp", "texlab", "sumneko_lua" }
+local servers = { "pylsp", "texlab", "sumneko_lua", "rust_analyzer" }
 for _, server in pairs(servers) do
     lsp[server].setup({
         on_attach = on_attach,
@@ -131,7 +131,7 @@ for _, server in pairs(servers) do
 end
 
 -- https://github.com/fredrikekre/.dotfiles/blob/master/.config/nvim/init.vim#L73-L91
-local REVISE_LANGUAGESERVER = true
+local REVISE_LANGUAGESERVER = false
 lsp.julials.setup({
     on_new_config = function(new_config, _)
         -- local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")

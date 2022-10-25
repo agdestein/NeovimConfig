@@ -168,4 +168,10 @@ ls.add_snippets("tex", {
         i(2, "0"),
         t("}{\\lim}"),
     }),
+
+    s("left", {
+        t("\\left( "),
+        i(1, "content"),
+        t(" \\right)"),
+    }),
 })

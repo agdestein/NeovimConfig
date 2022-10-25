@@ -1,59 +1,41 @@
--- General settings
-
--- Set options
-vim.o.clipboard = "unnamedplus"
-vim.o.encoding = "UTF-8"
-
-vim.o.signcolumn = "no"
--- vim.o.signcolumn = "number"
--- vim.o.number = true
--- vim.o.relativenumber = true
-
-vim.o.numberwidth = 2
-vim.o.shiftwidth = 4
-vim.o.tabstop = 4
 vim.o.autoindent = true
-vim.o.smartindent = true
+vim.o.autoread = true
+vim.o.breakindent = true
+vim.o.ch = 0
 vim.o.cindent = true
+vim.o.clipboard = "unnamedplus"
+vim.o.cursorline = false
+vim.o.encoding = "UTF-8"
 vim.o.expandtab = true
-vim.o.mouse = "a"
-vim.o.incsearch = true
--- vim.o.cursorline = true
-vim.o.hidden = true
--- vim.o.textwidth = 92
-vim.o.updatetime = 300
-vim.o.timeoutlen = 500
 vim.o.foldenable = false
-vim.g.python3_host_prog = "/usr/bin/python"
+vim.o.hidden = true
+vim.o.incsearch = true
+vim.o.linebreak = true
+vim.o.ls = 0
+vim.o.mouse = "a"
+vim.o.number = false
+-- vim.o.numberwidth = 2
+vim.o.relativenumber = false
+vim.o.shiftwidth = 4
+vim.o.showbreak = "↪ "
+vim.o.signcolumn = "no"
+vim.o.smartindent = true
+vim.o.spell = false
+vim.o.spelllang = "en_us"
 vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.tabstop = 4
+-- vim.o.textwidth = 92
+vim.o.timeoutlen = 500
+vim.o.title = true
+vim.o.updatetime = 300
 -- vim.o.winblend = 10
-vim.o.autoread = true
-vim.o.spell = true
-vim.o.spelllang = "en_us"
-
-vim.o.showbreak = "↪ "
-vim.o.breakindent = true
-vim.o.linebreak = true
 vim.o.wrap = false
 
--- vim.o.laststatus = 3
--- vim.cmd("set laststatus=3")
-
-vim.g.loaded_perl_provider = false
-
--- Highlight on yank
-vim.cmd([[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]])
-
--- Format
 vim.g.formatdef_latexindent = "'latexindent -'"
--- vim.g.formatdef_lua = "'stylua -f ~/.config/nvim/stylua.toml'"
 vim.g.formatdef_python = "black"
+vim.g.loaded_perl_provider = false
+vim.g.python3_host_prog = "/usr/bin/python"
 
 local function reloadconfig()
     for name, _ in pairs(package.loaded) do

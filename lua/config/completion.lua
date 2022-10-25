@@ -54,6 +54,7 @@ cmp.setup({
         -- { name = "calc" },
         -- { name = "omni" },
         { name = "buffer" },
+        { name = "rg", keyword_length = 3 },
         { name = "spell" },
     },
 

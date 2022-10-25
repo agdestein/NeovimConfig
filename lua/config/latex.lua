@@ -11,5 +11,3 @@ vim.g.vimtex_compiler_latexmk = {
         "-interaction=nonstopmode",
     },
 }
-
-WhichKey.register({ [";"] = { require("nabla").popup, "Nabla" } }, { prefix = "<Leader>" })

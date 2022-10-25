@@ -1,12 +1,30 @@
-vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+local yank_group = augroup("HighlightYank", {})
+
+autocmd("BufRead,BufNewFile", {
     pattern = "*.tex",
     callback = function()
-        vim.opt_local.textwidth = 92
+        -- vim.opt_local.textwidth = 92
+        vim.o.spell = true
     end,
 })
-vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
+
+autocmd("BufRead,BufNewFile", {
     pattern = "*.md",
     callback = function()
-        vim.opt_local.textwidth = 80
+        -- vim.opt_local.textwidth = 80
+        -- vim.o.spell = true
+    end,
+})
+
+autocmd("TextYankPost", {
+    group = yank_group,
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = "IncSearch",
+            timeout = 40,
+        })
     end,
 })

@@ -4,6 +4,8 @@ vim.opt.termguicolors = true
 
 local catppuccin = require("catppuccin")
 
+vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
+
 catppuccin.setup({
     dim_inactive = {
         enabled = false,
@@ -52,7 +54,7 @@ catppuccin.setup({
         cmp = true,
         lsp_saga = false,
         gitgutter = false,
-        gitsigns = true,
+        gitsigns = false,
         leap = true,
         telescope = true,
         nvimtree = {
@@ -74,17 +76,17 @@ catppuccin.setup({
             enabled = true,
             colored_indent_levels = false,
         },
-        dashboard = true,
+        dashboard = false,
         neogit = true,
         vim_sneak = false,
         fern = false,
         barbar = false,
-        bufferline = true,
+        bufferline = false,
         markdown = true,
         lightspeed = false,
         ts_rainbow = false,
         hop = false,
-        notify = true,
+        notify = false,
         telekasten = false,
         symbols_outline = true,
         mini = false,
@@ -93,7 +95,5 @@ catppuccin.setup({
         beacon = false,
     },
 })
-
-vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 
 vim.cmd("colorscheme catppuccin")

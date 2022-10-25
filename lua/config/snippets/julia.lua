@@ -168,4 +168,12 @@ ls.add_snippets("julia", {
         i(1, "Article"),
         t("](@cite)"),
     }),
+
+    s("@testset", {
+        t("@testset \""),
+        i(1, "Name"),
+        t({"\" begin", "\t"}),
+        i(2, "@test a ≈ b"),
+        t({"", "end"}),
+    }),
 })
