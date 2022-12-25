@@ -2,7 +2,8 @@ vim.cmd("hi clear")
 
 vim.opt.termguicolors = true
 
-vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+-- Flavour: "latte", "frappe", "macchiato", "mocha"
+vim.g.catppuccin_flavour = "mocha"
 
 local catppuccin = require("catppuccin")
 
@@ -116,38 +117,26 @@ catppuccin.setup({
                 -- WinSeparator = { bg = colors.base, fg = colors.maroon},
             }
         end,
-    },
 
-    -- local color_palette = {
-    -- 	rosewater = "#F5E0DC",
-    -- 	flamingo = "#F2CDCD",
-    -- 	pink = "#F5C2E7",
-    -- 	mauve = "#CBA6F7",
-    -- 	red = "#F38BA8",
-    -- 	maroon = "#EBA0AC",
-    -- 	peach = "#FAB387",
-    -- 	yellow = "#F9E2AF",
-    -- 	green = "#A6E3A1",
-    -- 	teal = "#94E2D5",
-    -- 	sky = "#89DCEB",
-    -- 	sapphire = "#74C7EC",
-    -- 	blue = "#89B4FA",
-    -- 	lavender = "#B4BEFE",
-    --
-    -- 	text = "#CDD6F4",
-    -- 	subtext1 = "#BAC2DE",
-    -- 	subtext0 = "#A6ADC8",
-    -- 	overlay2 = "#9399B2",
-    -- 	overlay1 = "#7F849C",
-    -- 	overlay0 = "#6C7086",
-    -- 	surface2 = "#585B70",
-    -- 	surface1 = "#45475A",
-    -- 	surface0 = "#313244",
-    --
-    -- 	base = "#1E1E2E",
-    -- 	mantle = "#181825",
-    -- 	crust = "#11111B",
-    -- }
+        latte = function(colors)
+            return {
+                Headline1 = { fg = colors.peach,    bg = "#f0eae9", bold = true },
+                Headline2 = { fg = colors.yellow,   bg = "#eeecea", bold = true },
+                Headline3 = { fg = colors.green,    bg = "#e6edeb", bold = true },
+                Headline4 = { fg = colors.sapphire, bg = "#e5edf2", bold = true },
+                Headline5 = { fg = colors.mauve,    bg = "#eae8f5", bold = true },
+                Headline6 = { fg = colors.lavender, bg = "#e9ecf5", bold = true },
+                CodeBlock = { bg = "#e6e9ef"},
+
+                -- StatusLine = { fg = colors.base, bg = colors.maroon},
+                -- StatusLineNC = { fg = colors.base, bg = colors.maroon},
+                -- WinSeparator = { bg = colors.base, fg = colors.maroon},
+            }
+        end,
+    },
 })
 
 vim.cmd("colorscheme catppuccin")
+
+vim.g.nvim_markdown_preview_theme = "catppuccin"
+-- vim.g.nvim_markdown_preview_theme = "catppuccin_latte"

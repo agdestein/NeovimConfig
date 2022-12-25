@@ -1,17 +1,31 @@
-local Packer = require("packer")
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
 
-vim.cmd([[
-    augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-    augroup end
-]])
+local packer_bootstrap = ensure_packer()
+local packer = require("packer")
 
-Packer.startup(function(use)
+-- vim.cmd([[
+--     augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+--     augroup end
+-- ]])
+
+packer.startup(function(use)
+    use("wbthomason/packer.nvim")
+
     use("nvim-lua/popup.nvim")
     use("nvim-lua/plenary.nvim")
     use("kyazdani42/nvim-web-devicons")
-    -- use("nvim-lualine/lualine.nvim")
+    use("nvim-lualine/lualine.nvim")
 
     -- use("akinsho/bufferline.nvim")
     use("folke/which-key.nvim")
@@ -20,12 +34,7 @@ Packer.startup(function(use)
 
     use("numToStr/Comment.nvim")
     use("TimUntersberger/neogit")
-    use({
-        "ggandor/leap.nvim",
-        config = function()
-            require("leap").set_default_keymaps()
-        end,
-    })
+    use("ggandor/leap.nvim")
 
     use("nvim-telescope/telescope.nvim")
 
@@ -39,19 +48,20 @@ Packer.startup(function(use)
     })
 
     use("folke/todo-comments.nvim")
-    use("folke/trouble.nvim")
     use("L3MON4D3/LuaSnip")
 
     use("akinsho/toggleterm.nvim")
     use("hkupty/iron.nvim")
 
     -- Language support
+    use("LnL7/vim-nix")
     use("dag/vim-fish")
     use("cespare/vim-toml")
     use("lervag/vimtex")
     use("JuliaEditorSupport/julia-vim")
     use("andreypopp/julia-repl-vim")
     use("kdheepak/JuliaFormatter.vim")
+    use("elkowar/yuck.vim")
 
     use("preservim/vim-markdown")
     use("davidgranstrom/nvim-markdown-preview")
@@ -85,7 +95,16 @@ Packer.startup(function(use)
     use("navarasu/onedark.nvim")
     use("folke/lsp-colors.nvim")
 
-    use("nvim-treesitter/nvim-treesitter")
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    })
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+      require('packer').sync()
+    end
 end)
 
 -- use({

@@ -5,7 +5,7 @@ WhichKey.register({
         name = "Zettels",
         n = {
             function()
-                id = os.date("%Y%m%d%H%M%S")
+                local id = os.date("%Y%m%d%H%M%S")
                 vim.cmd(string.format("edit %s/%d.md", zet_dir, id))
             end,
             "Create new zettel",

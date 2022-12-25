@@ -122,7 +122,14 @@ vim.lsp.protocol.CompletionItemKind = {
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pylsp", "texlab", "sumneko_lua", "rust_analyzer" }
+local servers = {
+    "pylsp",
+    "sumneko_lua",
+    "texlab",
+    "rust_analyzer",
+    "rnix",
+    -- "tailwindcss",
+}
 for _, server in pairs(servers) do
     lsp[server].setup({
         on_attach = on_attach,
@@ -137,16 +144,17 @@ lsp.julials.setup({
         -- local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
         local julia = vim.fn.expand("/usr/bin/julia")
         if REVISE_LANGUAGESERVER then
-            new_config.cmd[5] = (new_config.cmd[5]):gsub("using LanguageServer", "using Revise; using LanguageServer; if isdefined(LanguageServer, :USE_REVISE); LanguageServer.USE_REVISE[] = true; end")
-        elseif require'lspconfig'.util.path.is_file(julia) then
+            new_config.cmd[5] = (new_config.cmd[5]):gsub("using LanguageServer",
+                "using Revise; using LanguageServer; if isdefined(LanguageServer, :USE_REVISE); LanguageServer.USE_REVISE[] = true; end")
+        elseif require 'lspconfig'.util.path.is_file(julia) then
             new_config.cmd[1] = julia
         end
     end,
     -- This just adds dirname(fname) as a fallback (see nvim-lspconfig#1768).
     root_dir = function(fname)
-        local util = require'lspconfig.util'
-        return util.root_pattern 'Project.toml'(fname) or util.find_git_ancestor(fname) or
-               util.path.dirname(fname)
+        local util = require 'lspconfig.util'
+        return util.root_pattern 'Project.toml' (fname) or util.find_git_ancestor(fname) or
+            util.path.dirname(fname)
     end,
     on_attach = on_attach,
     capabilities = capabilities,
@@ -170,6 +178,7 @@ lsp.sumneko_lua.setup({
             workspace = {
                 -- Make the server aware of Neovim runtime files
                 library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
             },
             -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = {
