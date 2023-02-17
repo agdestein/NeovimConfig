@@ -1,2 +1,4 @@
 plugin/
-/* lua/colorloaders/ */
+spell/
+
+lazy-lock.json

@@ -120,47 +120,75 @@ vim.lsp.protocol.CompletionItemKind = {
     "   (TypeParameter)",
 }
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = {
-    "pylsp",
-    "sumneko_lua",
-    "texlab",
-    "rust_analyzer",
-    "rnix",
-    -- "tailwindcss",
-}
-for _, server in pairs(servers) do
-    lsp[server].setup({
-        on_attach = on_attach,
-        capabilities = create_capabilities(),
-    })
-end
+-- Python
+lsp.pylsp.setup({
+    on_attach = on_attach,
+    capabilities = create_capabilities(),
+})
 
+-- Markdown
+lsp.marksman.setup({
+    on_attach = on_attach,
+    capabilities = create_capabilities(),
+})
+
+-- LaTeX
+lsp.texlab.setup({
+    on_attach = on_attach,
+    capabilities = create_capabilities(),
+})
+
+-- Rust
+lsp.rust_analyzer.setup({
+    on_attach = on_attach,
+    capabilities = create_capabilities(),
+    cmd = {
+        "rustup",
+        "run",
+        "stable",
+        "rust-analyzer",
+    },
+})
+
+-- Nix
+lsp.rnix.setup({
+    on_attach = on_attach,
+    capabilities = create_capabilities(),
+})
+
+-- -- CSS
+-- lsp.tailwindcss.setup({
+--     on_attach = on_attach,
+--     capabilities = create_capabilities(),
+-- })
+
+-- Julia
 -- https://github.com/fredrikekre/.dotfiles/blob/master/.config/nvim/init.vim#L73-L91
 local REVISE_LANGUAGESERVER = false
 lsp.julials.setup({
     on_new_config = function(new_config, _)
-        -- local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
-        local julia = vim.fn.expand("/usr/bin/julia")
+        local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
+        -- local julia = vim.fn.expand("/usr/bin/julia")
         if REVISE_LANGUAGESERVER then
-            new_config.cmd[5] = (new_config.cmd[5]):gsub("using LanguageServer",
-                "using Revise; using LanguageServer; if isdefined(LanguageServer, :USE_REVISE); LanguageServer.USE_REVISE[] = true; end")
-        elseif require 'lspconfig'.util.path.is_file(julia) then
+            new_config.cmd[5] = (new_config.cmd[5]):gsub(
+                "using LanguageServer",
+                "using Revise; using LanguageServer; if isdefined(LanguageServer, :USE_REVISE); LanguageServer.USE_REVISE[] = true; end"
+            )
+        elseif require("lspconfig").util.path.is_file(julia) then
             new_config.cmd[1] = julia
         end
     end,
     -- This just adds dirname(fname) as a fallback (see nvim-lspconfig#1768).
     root_dir = function(fname)
-        local util = require 'lspconfig.util'
-        return util.root_pattern 'Project.toml' (fname) or util.find_git_ancestor(fname) or
-            util.path.dirname(fname)
+        local util = require("lspconfig.util")
+        return util.root_pattern("Project.toml")(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
     end,
     on_attach = on_attach,
     capabilities = capabilities,
 })
 
-lsp.sumneko_lua.setup({
+-- Lua
+lsp.lua_ls.setup({
     on_attach = on_attach,
     capabilities = create_capabilities(),
     settings = {

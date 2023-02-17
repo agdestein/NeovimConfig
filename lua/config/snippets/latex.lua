@@ -125,7 +125,7 @@ ls.add_snippets("tex", {
         t("}"),
     }),
 
-    s("frac", {
+    s("f", {
         t("\\frac{"),
         i(1, "arg1"),
         t("}{"),
@@ -133,15 +133,20 @@ ls.add_snippets("tex", {
         t("}"),
     }),
 
-    s("dx", {
+    s("dd", {
         t("\\frac{"),
-        c(1, { t("\\partial "), t("\\mathrm{d} ")}),
-        i(2, "f"),
+        c(3, { t("\\partial "), t("\\mathrm{d} ")}),
+        i(2, ""),
         t("}{"),
-        f(copy, 1),
-        i(3, "x"),
+        f(copy, 3),
+        i(1, "x"),
         t("}"),
     }),
+
+    s("e", t("\\mathrm{e}")),
+    s("d", t("\\mathrm{d}")),
+    s("R", t("\\mathbb{R}")),
+    s("ub", t("\\bar{u}")),
 
     s("includegraphics", {
         t("\\includegraphics[width="),

@@ -28,7 +28,7 @@ local types = require("luasnip.util.types")
 ls.filetype_extend("markdown", { "julia", "tex" })
 
 ls.add_snippets("markdown", {
-    s("code", {
+    s("```", {
         t("```"),
         i(1, "language"),
         t({ "", "" }),

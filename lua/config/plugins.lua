@@ -1,141 +1,147 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
+    })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-local packer = require("packer")
+require("lazy").setup({
 
--- vim.cmd([[
---     augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
---     augroup end
--- ]])
+    -- {
+    --     "folke/noice.nvim",
+    --     dependencies = {
+    --         "MunifTanjim/nui.nvim",
+    --         -- { "rcarriga/nvim-notify", opts = { animate = false } },
+    --     },
+    -- },
 
-packer.startup(function(use)
-    use("wbthomason/packer.nvim")
+    -- "nvim-lua/popup.nvim",
+    -- "nvim-lua/plenary.nvim",
+    -- "kyazdani42/nvim-web-devicons",
+    "nvim-lualine/lualine.nvim",
+    -- "akinsho/bufferline.nvim",
+    "folke/which-key.nvim",
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            { "j-hui/fidget.nvim", opts = {} },
+            { "folke/neodev.nvim", opts = {} },
+        },
+    },
+    { "numToStr/Comment.nvim", opts = {} },
+    { "TimUntersberger/neogit", opts = { disable_commit_confirmation = true } },
+    "ggandor/leap.nvim",
+    { "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } },
+    {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        cond = function()
+            return vim.fn.executable("make") == 1
+        end,
+    },
 
-    use("nvim-lua/popup.nvim")
-    use("nvim-lua/plenary.nvim")
-    use("kyazdani42/nvim-web-devicons")
-    use("nvim-lualine/lualine.nvim")
+    "chiel92/vim-autoformat",
+    "mjbrownie/swapit",
+    "godlygeek/tabular",
+    "norcalli/nvim-colorizer.lua",
+    { "lewis6991/gitsigns.nvim", opts = {} },
+    -- {
+    --     "kyazdani42/nvim-tree.lua",
+    --     version = "nightly",
+    --     opts = {},
+    -- },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        version = "*",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        },
+    },
+    { "folke/todo-comments.nvim", opts = {} },
+    "L3MON4D3/LuaSnip",
+    "akinsho/toggleterm.nvim",
+    "hkupty/iron.nvim",
+    "LnL7/vim-nix",
+    "dag/vim-fish",
+    "cespare/vim-toml",
+    "lervag/vimtex",
+    "JuliaEditorSupport/julia-vim",
+    "andreypopp/julia-repl-vim",
+    -- "kdheepak/JuliaFormatter.vim",
+    "elkowar/yuck.vim",
+    "preservim/vim-markdown",
+    -- "davidgranstrom/nvim-markdown-preview",
+    { dir = "$HOME/projects/nvim-markdown-preview" },
+    "ron-rs/ron.vim",
 
-    -- use("akinsho/bufferline.nvim")
-    use("folke/which-key.nvim")
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-calc",
+            "hrsh7th/cmp-cmdline",
+            "petertriho/cmp-git",
+            "kdheepak/cmp-latex-symbols",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            -- "hrsh7th/cmp-omni",
+            "hrsh7th/cmp-path",
+            "f3fora/cmp-spell",
+            "lukas-reineke/cmp-rg",
+        },
+    },
 
-    use("neovim/nvim-lspconfig")
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        opts = {
+            char = "┊",
+            show_trailing_blankline_indent = false,
+        },
+    },
 
-    use("numToStr/Comment.nvim")
-    use("TimUntersberger/neogit")
-    use("ggandor/leap.nvim")
-
-    use("nvim-telescope/telescope.nvim")
-
-    use("chiel92/vim-autoformat")
-    use("mjbrownie/swapit")
-    use("godlygeek/tabular")
-    use("norcalli/nvim-colorizer.lua")
-    use({
-        "kyazdani42/nvim-tree.lua",
-        tag = "nightly",
-    })
-
-    use("folke/todo-comments.nvim")
-    use("L3MON4D3/LuaSnip")
-
-    use("akinsho/toggleterm.nvim")
-    use("hkupty/iron.nvim")
-
-    -- Language support
-    use("LnL7/vim-nix")
-    use("dag/vim-fish")
-    use("cespare/vim-toml")
-    use("lervag/vimtex")
-    use("JuliaEditorSupport/julia-vim")
-    use("andreypopp/julia-repl-vim")
-    use("kdheepak/JuliaFormatter.vim")
-    use("elkowar/yuck.vim")
-
-    use("preservim/vim-markdown")
-    use("davidgranstrom/nvim-markdown-preview")
-
-    use("ron-rs/ron.vim")
-
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-calc")
-    use("hrsh7th/cmp-cmdline")
-    use("petertriho/cmp-git")
-    use("kdheepak/cmp-latex-symbols")
-    use("saadparwaiz1/cmp_luasnip")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-nvim-lua")
-    -- use("hrsh7th/cmp-omni")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/nvim-cmp")
-    use("f3fora/cmp-spell")
-    use("lukas-reineke/cmp-rg")
-
-    use("duane9/nvim-rg")
-
-    use("lukas-reineke/headlines.nvim")
-
-    -- Colorschemes
-    use("ellisonleao/gruvbox.nvim")
-    use({ "catppuccin/nvim", as = "catppuccin" })
-    use("Mofiqul/dracula.nvim")
-    use("tanvirtin/monokai.nvim")
-    use("shaunsingh/nord.nvim")
-    use("navarasu/onedark.nvim")
-    use("folke/lsp-colors.nvim")
-
-    use({
+    "duane9/nvim-rg",
+    -- {
+    --     "lukas-reineke/headlines.nvim",
+    --
+    --     opts = {
+    --         markdown = {
+    --             headline_highlights = {
+    --                 "Headline1",
+    --                 "Headline2",
+    --                 "Headline3",
+    --                 "Headline4",
+    --                 "Headline5",
+    --                 "Headline6",
+    --             },
+    --             codeblock_highlight = "CodeBlock",
+    --             dash_highlight = "Dash",
+    --             quote_highlight = "Quote",
+    --         },
+    --     },
+    -- },
+    "ellisonleao/gruvbox.nvim",
+    { "catppuccin/nvim", name = "catppuccin" },
+    "Mofiqul/dracula.nvim",
+    "tanvirtin/monokai.nvim",
+    "shaunsingh/nord.nvim",
+    "navarasu/onedark.nvim",
+    "folke/lsp-colors.nvim",
+    {
         "nvim-treesitter/nvim-treesitter",
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    })
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-      require('packer').sync()
-    end
-end)
-
--- use({
---     'myusername/example',        -- The plugin location string
---     -- The following keys are all optional
---     disable = boolean,           -- Mark a plugin as inactive
---     as = string,                 -- Specifies an alias under which to install the plugin
---     installer = function,        -- Specifies custom installer. See "custom installers" below.
---     updater = function,          -- Specifies custom updater. See "custom installers" below.
---     after = string or list,      -- Specifies plugins to load before this plugin. See "sequencing" below
---     rtp = string,                -- Specifies a subdirectory of the plugin to add to runtimepath.
---     opt = boolean,               -- Manually marks a plugin as optional.
---     branch = string,             -- Specifies a git branch to use
---     tag = string,                -- Specifies a git tag to use. Supports '*' for "latest tag"
---     commit = string,             -- Specifies a git commit to use
---     lock = boolean,              -- Skip updating this plugin in updates/syncs. Still cleans.
---     run = string, function, or table, -- Post-update/install hook. See "update/install hooks".
---     requires = string or list,   -- Specifies plugin dependencies. See "dependencies".
---     rocks = string or list,      -- Specifies Luarocks dependencies for the plugin
---     config = string or function, -- Specifies code to run after this plugin is loaded.
---     -- The setup key implies opt = true
---     setup = string or function,  -- Specifies code to run before this plugin is loaded.
---     -- The following keys all imply lazy-loading and imply opt = true
---     cmd = string or list,        -- Specifies commands which load this plugin. Can be an autocmd pattern.
---     ft = string or list,         -- Specifies filetypes which load this plugin.
---     keys = string or list,       -- Specifies maps which load this plugin. See "Keybindings".
---     event = string or list,      -- Specifies autocommand events which load this plugin.
---     fn = string or list          -- Specifies functions which load this plugin.
---     cond = string, function, or list of strings/functions,   -- Specifies a conditional test to load this plugin
---     module = string or list      -- Specifies Lua module names for require. When requiring a string which starts
---     -- with one of these module names, the plugin will be loaded.
---     module_pattern = string/list -- Specifies Lua pattern of Lua module names for require. When
---         requiring a string which matches one of these patterns, the plugin will be loaded.
--- })
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+        },
+        config = function()
+            pcall(require("nvim-treesitter.install").update({ with_sync = true }))
+        end,
+    },
+})

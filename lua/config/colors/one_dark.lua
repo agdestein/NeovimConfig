@@ -10,6 +10,7 @@ onedark.setup({
     transparent = false, -- Show/hide background
     term_colors = true, -- Change terminal color as per the selected theme style
     ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
+    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
     -- toggle theme style ---
     toggle_style_key = "<leader>ts", -- Default keybinding to toggle
@@ -26,9 +27,24 @@ onedark.setup({
         variables = "none",
     },
 
-    -- Custom Highlights --
-    colors = {}, -- Override default colors
-    highlights = {}, -- Override highlight groups
+    -- Lualine options --
+    lualine = {
+        transparent = false, -- lualine center bar transparency
+    },
+
+    -- Override default colors
+    colors = {},
+
+    -- Override highlight groups
+    highlights = {
+        Headline1 = { fg = "#d19a66", bg = "#303236", bold = true },
+        Headline2 = { fg = "#e5c07b", bg = "#313338", bold = true },
+        Headline3 = { fg = "#98c379", bg = "#2e3437", bold = true },
+        Headline4 = { fg = "#689d6a", bg = "#2b3237", bold = true },
+        Headline5 = { fg = "#56b6c2", bg = "#2a333b", bold = true },
+        Headline6 = { fg = "#61afef", bg = "#2b333d", bold = true },
+        CodeBlock = { bg = "#21252B" },
+    },
 
     -- Plugins Config --
     diagnostics = {
@@ -39,3 +55,5 @@ onedark.setup({
 })
 
 onedark.load()
+
+vim.g.nvim_markdown_preview_theme = "one_dark"

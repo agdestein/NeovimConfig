@@ -1,5 +1,3 @@
-local vim = vim
-
 -- Remove any previous highlighting
 vim.cmd("hi clear")
 

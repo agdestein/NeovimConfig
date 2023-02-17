@@ -72,30 +72,60 @@ ls.config.set_config({
     -- }),
 })
 
-WhichKey.register({
-    ["<C-s>"] = {
-        name = "Snippets",
-        ["<C-j>"] = { ls.expand_or_jump, "Next node" },
-        ["<C-k>"] = {
-            function()
-                return ls.jump(-1)
-            end,
-            "Previous node",
+-- WhichKey.register({
+--     ["<C-s>"] = {
+--         name = "Snippets",
+--         ["<C-j>"] = { ls.expand_or_jump, "Next node" },
+--         ["<C-k>"] = {
+--             function()
+--                 return ls.jump(-1)
+--             end,
+--             "Previous node",
+--         },
+--         l = {
+--             function()
+--                 return ls.change_choice(1)
+--             end,
+--             "Next choice",
+--         },
+--         h = {
+--             function()
+--                 return ls.change_choice(-1)
+--             end,
+--             "Previous choice",
+--         },
+--     },
+-- }, { mode = "i" })
+
+local _modes = { "i", "s", "n" }
+for m = 1, #_modes do
+    WhichKey.register({
+        ["<C-s>"] = {
+            name = "Snippets",
+            ["<C-s>"] = { ls.expand_or_jump, "Expand snippet or jump to next snippet position" },
+            ["<C-j>"] = {
+                function()
+                    return ls.jump(-1)
+                end,
+                "Jump to previous snippet position",
+            },
+            ["<C-k>"] = {
+                function()
+                    return ls.change_choice(1)
+                end,
+                "Next snippet node choice",
+            },
+            h = {
+                function()
+                    return ls.change_choice(-1)
+                end,
+                "Previous snippet node choice",
+            },
+            ["<C-l>"] = { ls.unlink_current, "Unlink current snippet" },
+            u = { ls.unlink_current_if_deleted, "Unlink current if deleted" },
         },
-        l = {
-            function()
-                return ls.change_choice(1)
-            end,
-            "Next choice",
-        },
-        h = {
-            function()
-                return ls.change_choice(-1)
-            end,
-            "Previous choice",
-        },
-    },
-}, { mode = "i" })
+    }, { mode = _modes[m] })
+end
 
 require("config/snippets/julia")
 require("config/snippets/latex")

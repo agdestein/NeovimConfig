@@ -11,6 +11,14 @@ autocmd("BufRead,BufNewFile", {
 })
 
 autocmd("BufRead,BufNewFile", {
+    pattern = "*.jl",
+    callback = function()
+        vim.o.ls = 1
+    end,
+})
+
+
+autocmd("BufRead,BufNewFile", {
     pattern = "*.md",
     callback = function()
         -- vim.opt_local.textwidth = 80

@@ -1,1 +1,1 @@
-gruvbox.lua
+catppuccin.lua

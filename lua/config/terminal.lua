@@ -39,13 +39,13 @@ require("toggleterm").setup({
 })
 
 WhichKey.register({
-    ["<C-j>"] = { "<Cmd>stopinsert!<CR><C-w>k", "Visual mode and window up" },
+    ["<C-j>"] = { "<Cmd>stopinsert!<CR><C-w><C-w>", "Visual mode and switch window" },
     ["<M-j>"] = { "<Cmd>stopinsert!<CR>", "Visual mode" },
 }, { mode = "t", noremap = true })
 
-local iron = require("iron.core")
+local core = require("iron.core")
 
-iron.setup({
+core.setup({
     config = {
         -- Highlights the last sent block with bold
         highlight_last = "IronLastSent",
@@ -70,7 +70,7 @@ iron.setup({
 
         -- Repl position. Check `iron.view` for more options
         repl_open_cmd = "botright 12 split",
-        -- repl_open_cmd = require("iron.view").curry.bottom(12),
+        -- repl_open_cmd = require("iron.view").bottom(12),
 
         -- -- Alternatively, pass a function, which is evalueated when a repl is open.
         -- repl_open_cmd = require('iron.view').curry.right(function()
@@ -86,7 +86,7 @@ iron.setup({
                 command = {
                     "env",
                     "LD_PRELOAD=/usr/lib/libstdc++.so",
-                    "LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/",
+                    -- "LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/",
                     "MESA_LOADER_DRIVER_OVERRIDE=i965", -- Force old driver for Matlab 2019a
                     -- "MESA_LOADER_DRIVER_OVERRIDE=iris", -- Default driver?
                     "matlab",
@@ -97,7 +97,7 @@ iron.setup({
             julia = {
                 command = {
                     "julia",
-                    "-t 8",
+                    -- "-t 8",
                 },
             },
         },
@@ -110,11 +110,24 @@ iron.setup({
         visual_send = "<space>usc",
         send_line = "<space>usl",
         send_mark = "<space>us.",
-        cr = "<space>us<cr>",
         interrupt = "<space>us<space>",
-        exit = "<space>usq",
         clear = "<space>ucl",
     },
+
+    -- keymaps         = {
+    --     send_motion = "<space>usc",
+    --     visual_send = "<space>usc",
+    --     send_file   = "<space>usf",
+    --     send_line   = "<space>usl",
+    --     send_mark   = "<space>usm",
+    --     mark_motion = "<space>umc",
+    --     mark_visual = "<space>umc",
+    --     remove_mark = "<space>umd",
+    --     cr          = "<space>us<cr>",
+    --     interrupt   = "<space>us<space>",
+    --     exit        = "<space>usq",
+    --     clear       = "<space>ucl",
+    -- },
 })
 
 WhichKey.register({
@@ -123,13 +136,12 @@ WhichKey.register({
         t = { ":ToggleTerm<CR>", "Toggle terminal" },
         o = { ":IronRepl<CR>", "Toggle Iron REPL" },
         h = { ":IronReplHere<CR>", "Iron REPL here" },
-        r = { "<space>us.", "Repeat Iron command" },
         l = { "<space>ucl", "Clear Iron REPL" },
-        -- n = { iron.interrupt, "Interrupt Iron REPL" },
-        n = { "<space>us<space>", "Interrupt Iron REPL" },
-        f = { ":IronFocus<CR>i", "Focus Iron REPL" },
-        q = { "<space>usq", "Exit Iron REPL" },
-        p = { [[:IronSend! using Pkg; Pkg.activate(\\".\\")<CR>]], "Activate current Julia environment" },
+        -- n = { core.interrupt, "Interrupt Iron REPL" },
+        -- f = { core.focus_on, "Focus Iron REPL" },
+        f = { ":IronFocus<CR> i", "Focus Iron REPL" },
+        q = { core.close_repl, "Exit Iron REPL" },
+        p = { [[:IronSend using Pkg; Pkg.activate(".")<CR>]], "Activate current Julia environment" },
     },
 }, { prefix = "<leader>", noremap = true })
 

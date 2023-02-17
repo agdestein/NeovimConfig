@@ -66,10 +66,6 @@ WhichKey.setup({
     },
 })
 
--- Leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 WhichKey.register({
     -- Switch window
     -- ["<left>"] = { ":wincmd h<CR>", "Left window" },
@@ -97,29 +93,49 @@ WhichKey.register({
     ag = { ":Neogit<CR>", "Neogit" },
     af = { ":Autoformat<CR>", "Autoformat" },
     ac = { ":ColorizerToggle<CR>", "Colorize" },
+    [","] = { name = "Directory",
+        c = {":cd %:p:h<CR>", "Change directory to current file"},
+        p = {":pwd<CR>", "Print working directory"},
+    }
 }, { prefix = "<leader>", noremap = true })
 
 WhichKey.register({
     ["<F1>"] = { ":set number!<CR> :set relativenumber!<CR>", "Toggle line numbers" },
 }, { noremap = true })
 
--- -- Command mode
--- vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", { noremap = true })
--- vim.api.nvim_set_keymap("c", "<C-e>", "<End>", { noremap = true })
--- vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = true })
--- vim.api.nvim_set_keymap("c", "<C-n>", "<Down>", { noremap = true })
--- vim.api.nvim_set_keymap("c", "<C-b>", "<Left>", { noremap = true })
--- vim.api.nvim_set_keymap("c", "<C-f>", "<Right>", { noremap = true })
--- vim.api.nvim_set_keymap("c", "<M-b>", "<S-Left>", { noremap = true })
--- vim.api.nvim_set_keymap("c", "<M-f>", "<S-Right>", { noremap = true })
+WhichKey.register({
+    t = {
+        name = "Todo",
+        l = {":TodoLocList<CR>", "Loc list"},
+        t = {":TodoTrouble<CR>", "Trouble"},
+        q = {":TodoQuickFix<CR>", "Quick fix"},
+        s = {":TodoTelescope<CR>", "Telescope"},
+    },
+}, { prefix = "<leader>", description = "Todo" })
 
--- WhichKey.register({
---     ["<C-a>"] = { "<Home>", "Home" },
---     ["<C-e>"] = { "<End>", "End" },
---     ["<C-p>"] = { "<Up>", "Up" },
---     ["<C-n>"] = { "<Down>", "Down" },
---     ["<C-b>"] = { "<Left>", "Left" },
---     ["<C-f>"] = { "<Right>", "Right" },
---     ["<M-b>"] = { "<S-left>", "Word left" },
---     ["<M-f>"] = { "<S-Right>", "Word right" },
--- }, { mode = "c", noremap = true })
+WhichKey.register({
+    ["<leader>c"] = { ":bp | bd #<CR>", "Close buffer" },
+    ["<leader>C"] = { ":bd<CR>", "Close buffer" },
+    ["<C-j>"] = { ":bprev<CR>", "Previous buffer" },
+    ["<C-k>"] = { ":bnext<CR>", "Next buffer" },
+    ["<leader>b"] = { ":Telescope buffers<CR>", "Buffers" },
+}, { mode = "n", noremap = true, silent = true })
+
+-- vim.api.nvim_set_keymap("", "<F3>", ":NvimTreeToggle<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("", "<F2>", ":NvimTreeFindFileToggle<CR>", { silent = true })
+
+local function reloadconfig()
+    for name, _ in pairs(package.loaded) do
+        if name:match("^config") then
+            package.loaded[name] = nil
+        end
+    end
+    package.loaded["colorloaders/colors"] = nil
+
+    dofile(vim.env.MYVIMRC)
+end
+
+WhichKey.register({
+    r = { reloadconfig, "Reload Neovim config" },
+    e = { ":edit $MYVIMRC<CR>", "Edit Neovim config" },
+}, { prefix = "<leader>q", noremap = true })
