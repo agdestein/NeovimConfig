@@ -40,7 +40,7 @@ require("toggleterm").setup({
 
 WhichKey.register({
     ["<C-j>"] = { "<Cmd>stopinsert!<CR><C-w><C-w>", "Visual mode and switch window" },
-    ["<M-j>"] = { "<Cmd>stopinsert!<CR>", "Visual mode" },
+    -- ["<M-j>"] = { "<Cmd>stopinsert!<CR>", "Visual mode" },
 }, { mode = "t", noremap = true })
 
 local core = require("iron.core")
@@ -69,6 +69,7 @@ core.setup({
         -- should_map_plug = true,
 
         -- Repl position. Check `iron.view` for more options
+        -- repl_open_cmd = "topleft 12 split",
         repl_open_cmd = "botright 12 split",
         -- repl_open_cmd = require("iron.view").bottom(12),
 
@@ -111,7 +112,7 @@ core.setup({
         send_line = "<space>usl",
         send_mark = "<space>us.",
         interrupt = "<space>us<space>",
-        clear = "<space>ucl",
+        clear = "<space>il",
     },
 
     -- keymaps         = {
@@ -134,14 +135,15 @@ WhichKey.register({
     i = {
         name = "Terminal",
         t = { ":ToggleTerm<CR>", "Toggle terminal" },
-        o = { ":IronRepl<CR>", "Toggle Iron REPL" },
+        o = { ":IronRepl<CR><C-w>+<C-w>-", "Toggle Iron REPL" },
         h = { ":IronReplHere<CR>", "Iron REPL here" },
-        l = { "<space>ucl", "Clear Iron REPL" },
+        -- l = { "<space>ucl", "Clear Iron REPL" },
         -- n = { core.interrupt, "Interrupt Iron REPL" },
         -- f = { core.focus_on, "Focus Iron REPL" },
         f = { ":IronFocus<CR> i", "Focus Iron REPL" },
         q = { core.close_repl, "Exit Iron REPL" },
-        p = { [[:IronSend using Pkg; Pkg.activate(".")<CR>]], "Activate current Julia environment" },
+        -- p = { [[:IronSend using Pkg; Pkg.activate(".")<CR>]], "Activate current Julia environment" },
+        p = { [[:IronSend using Pkg; Pkg.activate("."); using Revise<CR>]], "Activate current Julia environment" },
     },
 }, { prefix = "<leader>", noremap = true })
 
@@ -151,6 +153,7 @@ WhichKey.register({
 }, { mode = "v", noremap = false })
 
 WhichKey.register({
-    ["<C-CR>"] = { "<space>uslj", "Send line to Iron REPL and advance" },
+    -- ["<C-CR>"] = { "<space>uslj", "Send line to Iron REPL and advance" },
+    ["<C-CR>"] = { "0<Leader>usc$j", "Send line to Iron REPL and advance" },
     ["<S-CR>"] = { "}{jvip<space>usc}", "Send paragraph to IRON REPL", noremap = false },
 }, { noremap = false }) --{ noremap = true })

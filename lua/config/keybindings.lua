@@ -53,7 +53,7 @@ WhichKey.setup({
         align = "left", -- align columns left, center or right
     },
     ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+    hidden = { "<silent>", "<Plug>", "<plug>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
     show_help = true, -- show help message on the command line when the popup is visible
     triggers = "auto", -- automatically setup triggers
     -- triggers = {"<leader>"} -- or specify a list manually
@@ -65,64 +65,6 @@ WhichKey.setup({
         v = { "j", "k" },
     },
 })
-
-WhichKey.register({
-    -- Switch window
-    -- ["<left>"] = { ":wincmd h<CR>", "Left window" },
-    -- ["<down>"] = { ":wincmd j<CR>", "Lower window" },
-    -- ["<up>"] = { ":wincmd k<CR>", "Upper window" },
-    -- ["<right>"] = { ":wincmd l<CR>", "Right window" },
-
-    -- Resize window
-    ["<left>"] = { ":wincmd <<CR>", "Decrease width" },
-    ["<down>"] = { ":wincmd +<CR>", "Increase height" },
-    ["<up>"] = { ":wincmd -<CR>", "Decrease height" },
-    ["<right>"] = { ":wincmd ><CR>", "Increase width" },
-
-    -- Move window
-    ["<S-left>"] = { ":wincmd H<CR>", "Move window left" },
-    ["<S-down>"] = { ":wincmd J<CR>", "Move window down" },
-    ["<S-up>"] = { ":wincmd K<CR>", "Move window up" },
-    ["<S-right>"] = { ":wincmd L<CR>", "Move window right" },
-})
-
-WhichKey.register({
-    m = { ":cprev<CR>", "Previous item" },
-    n = { ":cnext<CR>", "Next item" },
-    p = { "\"_dP", "Delete without yank", mode = "x"},
-    ag = { ":Neogit<CR>", "Neogit" },
-    af = { ":Autoformat<CR>", "Autoformat" },
-    ac = { ":ColorizerToggle<CR>", "Colorize" },
-    [","] = { name = "Directory",
-        c = {":cd %:p:h<CR>", "Change directory to current file"},
-        p = {":pwd<CR>", "Print working directory"},
-    }
-}, { prefix = "<leader>", noremap = true })
-
-WhichKey.register({
-    ["<F1>"] = { ":set number!<CR> :set relativenumber!<CR>", "Toggle line numbers" },
-}, { noremap = true })
-
-WhichKey.register({
-    t = {
-        name = "Todo",
-        l = {":TodoLocList<CR>", "Loc list"},
-        t = {":TodoTrouble<CR>", "Trouble"},
-        q = {":TodoQuickFix<CR>", "Quick fix"},
-        s = {":TodoTelescope<CR>", "Telescope"},
-    },
-}, { prefix = "<leader>", description = "Todo" })
-
-WhichKey.register({
-    ["<leader>c"] = { ":bp | bd #<CR>", "Close buffer" },
-    ["<leader>C"] = { ":bd<CR>", "Close buffer" },
-    ["<C-j>"] = { ":bprev<CR>", "Previous buffer" },
-    ["<C-k>"] = { ":bnext<CR>", "Next buffer" },
-    ["<leader>b"] = { ":Telescope buffers<CR>", "Buffers" },
-}, { mode = "n", noremap = true, silent = true })
-
--- vim.api.nvim_set_keymap("", "<F3>", ":NvimTreeToggle<CR>", { silent = true })
--- vim.api.nvim_set_keymap("", "<F2>", ":NvimTreeFindFileToggle<CR>", { silent = true })
 
 local function reloadconfig()
     for name, _ in pairs(package.loaded) do
@@ -136,6 +78,64 @@ local function reloadconfig()
 end
 
 WhichKey.register({
-    r = { reloadconfig, "Reload Neovim config" },
-    e = { ":edit $MYVIMRC<CR>", "Edit Neovim config" },
-}, { prefix = "<leader>q", noremap = true })
+    ["<left>"] = { ":wincmd <<CR>", "Decrease width" },
+    ["<right>"] = { ":wincmd ><CR>", "Increase width" },
+    ["<down>"] = { ":wincmd +<CR>", "Increase height" },
+    ["<up>"] = { ":wincmd -<CR>", "Decrease height" },
+    ["[q"] = { ":cprev<CR>", "Previous item" },
+    ["]q"] = { ":cnext<CR>", "Next item" },
+    ["<F1>"] = { ":set number!<CR> :set relativenumber!<CR>", "Toggle line numbers" },
+    ["<C-j>"] = { ":bprev<CR>", "Previous buffer" },
+    ["<C-k>"] = { ":bnext<CR>", "Next buffer" },
+    ["<leader>"] = {
+        name = "Leader",
+        -- p = { "\"_dP", "Delete without yank", mode = "x"},
+        ag = { ":Neogit<CR>", "Neogit" },
+        af = { ":Autoformat<CR>", "Autoformat" },
+        ac = { ":ColorizerToggle<CR>", "Colorize" },
+        [","] = {
+            name = "Directory",
+            c = { ":cd %:p:h<CR>", "Change directory to current file" },
+            p = { ":pwd<CR>", "Print working directory" },
+        },
+        c = { ":bp | bd #<CR>", "Close buffer" },
+        C = { ":bd<CR>", "Close buffer" },
+        b = { ":Telescope buffers<CR>", "Buffers" },
+        q = {
+            name = "Neovim",
+            r = { reloadconfig, "Reload Neovim config" },
+            e = { ":edit $MYVIMRC<CR>", "Edit Neovim config" },
+        },
+        t = {
+            name = "Todo",
+            l = { ":TodoLocList<CR>", "Loc list" },
+            q = { ":TodoQuickFix<CR>", "Quick fix" },
+            s = { ":TodoTelescope<CR>", "Telescope" },
+        },
+        f = {
+            name = "Telescope",
+            b = { ":Telescope buffers<CR>", "Buffers" },
+            c = { ":Telescope current_buffer_fuzzy_find<CR>", "Current buffer fuzzy find" },
+            e = { ":Telescope live_grep<CR>", "Live grep" },
+            d = {
+                function()
+                    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+                        winblend = 10,
+                        previewer = false,
+                    }))
+                end,
+                "Fuzzily search in current buffer",
+            },
+            h = { ":Telescope help_tags<CR>", "Help tags" },
+            i = { ":Telescope registers<CR>", "Registers" },
+            k = { ":Telescope keymaps<CR>", "Keymaps" },
+            o = { ":Telescope find_files<CR>", "Find files" },
+            p = { ":Telescope find_files no_ignore=true<CR>", "Find (all) files" },
+            r = { ":Telescope oldfiles<CR>", "Oldfiles" },
+            w = { ":Telescope grep_string<CR>", "Grep string" },
+        },
+    },
+}, {
+    noremap = true,
+    -- silent = true,
+})

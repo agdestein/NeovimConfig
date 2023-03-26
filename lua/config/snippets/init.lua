@@ -97,35 +97,48 @@ ls.config.set_config({
 --     },
 -- }, { mode = "i" })
 
-local _modes = { "i", "s", "n" }
-for m = 1, #_modes do
-    WhichKey.register({
-        ["<C-s>"] = {
-            name = "Snippets",
-            ["<C-s>"] = { ls.expand_or_jump, "Expand snippet or jump to next snippet position" },
-            ["<C-j>"] = {
-                function()
-                    return ls.jump(-1)
-                end,
-                "Jump to previous snippet position",
-            },
-            ["<C-k>"] = {
-                function()
-                    return ls.change_choice(1)
-                end,
-                "Next snippet node choice",
-            },
-            h = {
-                function()
-                    return ls.change_choice(-1)
-                end,
-                "Previous snippet node choice",
-            },
-            ["<C-l>"] = { ls.unlink_current, "Unlink current snippet" },
-            u = { ls.unlink_current_if_deleted, "Unlink current if deleted" },
+WhichKey.register({
+    ["<C-s>"] = {
+        name = "Snippets",
+        ["<C-s>"] = { ls.expand_or_jump, "Expand snippet or jump to next snippet position" },
+        ["<C-j>"] = {
+            function()
+                return ls.jump(-1)
+            end,
+            "Jump to previous snippet position",
         },
-    }, { mode = _modes[m] })
-end
+        ["<C-k>"] = {
+            function()
+                return ls.change_choice(1)
+            end,
+            "Next snippet node choice",
+        },
+        h = {
+            function()
+                return ls.change_choice(-1)
+            end,
+            "Previous snippet node choice",
+        },
+        l = { ls.unlink_current, "Unlink current snippet" },
+        u = { ls.unlink_current_if_deleted, "Unlink current if deleted" },
+    },
+}, { noremap = true })
+
+WhichKey.register({
+    ["<C-s>"] = { ls.expand_or_jump, "Expand snippet or jump to next snippet position" },
+    ["<C-j>"] = {
+        function()
+            return ls.jump(-1)
+        end,
+        "Jump to previous snippet position",
+    },
+    ["<C-k>"] = {
+        function()
+            return ls.change_choice(1)
+        end,
+        "Next snippet node choice",
+    },
+}, { mode = {"i", "s"}, noremap = true })
 
 require("config/snippets/julia")
 require("config/snippets/latex")

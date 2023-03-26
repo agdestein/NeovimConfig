@@ -184,7 +184,7 @@ lsp.julials.setup({
         return util.root_pattern("Project.toml")(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
     end,
     on_attach = on_attach,
-    capabilities = capabilities,
+    capabilities = create_capabilities(),
 })
 
 -- Lua

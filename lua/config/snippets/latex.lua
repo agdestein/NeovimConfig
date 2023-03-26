@@ -76,7 +76,7 @@ ls.add_snippets("tex", {
     s("frame", {
         t("\\begin{frame}"),
         c(1, { t(""), t("[allowframebreaks]") }),
-        t({"", "\t\\frametitle{"}),
+        t({ "", "\t\\frametitle{" }),
         i(2, "frame title"),
         t({ "}", "\t" }),
         i(3),
@@ -93,19 +93,31 @@ ls.add_snippets("tex", {
         t({ "", "\\end{equation}" }),
     }),
 
-    s("item", {
-        t({ "\\begin{itemize}", "\t\\item " }),
-        i(1),
-        d(2, rec_ls, {}),
-        t({ "", "\\end{itemize}" }),
-    }),
+    s(
+        "it",
+        fmt(
+            [[
+                \begin{itemize}
+                    \item <>
+                \end{itemize}
+            ]],
+            { i(1) },
+            { delimiters = "<>" }
+        )
+    ),
 
-    s("enum", {
-        t({ "\\begin{enumerate}", "\t\\item " }),
-        i(1),
-        d(2, rec_ls, {}),
-        t({ "", "\\end{enumerate}" }),
-    }),
+    s(
+        "en",
+        fmt(
+            [[
+                \begin{enumerate}
+                    \item <>
+                \end{enumerate}
+            ]],
+            { i(1) },
+            { delimiters = "<>" }
+        )
+    ),
 
     s("op1", {
         t("\\"),
@@ -125,58 +137,155 @@ ls.add_snippets("tex", {
         t("}"),
     }),
 
-    s("f", {
-        t("\\frac{"),
-        i(1, "arg1"),
-        t("}{"),
-        i(2, "arg2"),
-        t("}"),
-    }),
+    s(
+        "f",
+        fmt(
+            [[
+                \frac{<>}{<>}
+            ]],
+            { i(1), i(2) },
+            { delimiters = "<>" }
+        )
+    ),
 
-    s("dd", {
-        t("\\frac{"),
-        c(3, { t("\\partial "), t("\\mathrm{d} ")}),
-        i(2, ""),
-        t("}{"),
-        f(copy, 3),
-        i(1, "x"),
-        t("}"),
-    }),
+    s(
+        "pd",
+        fmt(
+            [[
+                \frac{\partial <>}{\partial <>}
+            ]],
+            { i(2), i(1, "t") },
+            { delimiters = "<>" }
+        )
+    ),
 
-    s("e", t("\\mathrm{e}")),
+    s(
+        "pd",
+        fmt(
+            [[
+                \frac{\partial <>}{\partial <>}
+            ]],
+            { i(2), i(1, "t") },
+            { delimiters = "<>" }
+        )
+    ),
+
+    s(
+        "pd2",
+        fmt(
+            [[
+                \frac{\partial^2 <>}{\partial <>^2}
+            ]],
+            { i(2), i(1, "x") },
+            { delimiters = "<>" }
+        )
+    ),
+
+    s(
+        "dd",
+        fmt(
+            [[
+                \frac{\mathrm{d} <>}{\mathrm{d} t}
+            ]],
+            { i(1) },
+            { delimiters = "<>" }
+        )
+    ),
+
+    s(
+        "b",
+        fmt(
+            [[
+                \begin{<>}
+                    <>
+                \end{<>}
+            ]],
+            { i(1), i(2), f(copy, 1) },
+            { delimiters = "<>" }
+        )
+    ),
+
     s("d", t("\\mathrm{d}")),
+    s("e", t("\\mathrm{e}")),
+    s("i", t("\\in ")),
     s("R", t("\\mathbb{R}")),
+    s("E", t("\\mathbb{E}")),
     s("ub", t("\\bar{u}")),
 
-    s("includegraphics", {
-        t("\\includegraphics[width="),
-        i(1),
-        t("\\textwidth]{"),
-        i(2, "figure.pdf"),
-        t("}"),
-    }),
+    s({ trig = ";a", snippetType = "autosnippet" }, t("\\alpha")),
+    s({ trig = ";b", snippetType = "autosnippet" }, t("\\beta")),
+    s({ trig = ";g", snippetType = "autosnippet" }, t("\\gamma")),
+    s({ trig = ";G", snippetType = "autosnippet" }, t("\\Gamma")),
+    s({ trig = ";d", snippetType = "autosnippet" }, t("\\delta")),
+    s({ trig = ";D", snippetType = "autosnippet" }, t("\\Delta")),
+    s({ trig = ";e", snippetType = "autosnippet" }, t("\\epsilon")),
+    s({ trig = ";ve", snippetType = "autosnippet" }, t("\\varepsilon")),
+    s({ trig = ";z", snippetType = "autosnippet" }, t("\\zeta")),
+    s({ trig = ";Z", snippetType = "autosnippet" }, t("\\Zeta")),
+    s({ trig = ";h", snippetType = "autosnippet" }, t("\\eta")),
+    s({ trig = ";o", snippetType = "autosnippet" }, t("\\theta")),
+    s({ trig = ";vo", snippetType = "autosnippet" }, t("\\vartheta")),
+    s({ trig = ";O", snippetType = "autosnippet" }, t("\\Theta")),
+    s({ trig = ";k", snippetType = "autosnippet" }, t("\\kappa")),
+    s({ trig = ";l", snippetType = "autosnippet" }, t("\\lambda")),
+    s({ trig = ";L", snippetType = "autosnippet" }, t("\\Lambda")),
+    s({ trig = ";m", snippetType = "autosnippet" }, t("\\mu")),
+    s({ trig = ";n", snippetType = "autosnippet" }, t("\\nu")),
+    s({ trig = ";x", snippetType = "autosnippet" }, t("\\xi")),
+    s({ trig = ";X", snippetType = "autosnippet" }, t("\\Xi")),
+    s({ trig = ";i", snippetType = "autosnippet" }, t("\\pi")),
+    s({ trig = ";I", snippetType = "autosnippet" }, t("\\Pi")),
+    s({ trig = ";r", snippetType = "autosnippet" }, t("\\rho")),
+    s({ trig = ";s", snippetType = "autosnippet" }, t("\\sigma")),
+    s({ trig = ";vs", snippetType = "autosnippet" }, t("\\varsigma")),
+    s({ trig = ";S", snippetType = "autosnippet" }, t("\\Sigma")),
+    s({ trig = ";t", snippetType = "autosnippet" }, t("\\tau")),
+    s({ trig = ";f", snippetType = "autosnippet" }, t("\\phi")),
+    s({ trig = ";vf", snippetType = "autosnippet" }, t("\\varphi")),
+    s({ trig = ";F", snippetType = "autosnippet" }, t("\\Phi")),
+    s({ trig = ";c", snippetType = "autosnippet" }, t("\\chi")),
+    s({ trig = ";p", snippetType = "autosnippet" }, t("\\psi")),
+    s({ trig = ";P", snippetType = "autosnippet" }, t("\\Psi")),
+    s({ trig = ";w", snippetType = "autosnippet" }, t("\\omega")),
+    s({ trig = ";W", snippetType = "autosnippet" }, t("\\Omega")),
 
-    s("figure", {
-        t({"\\begin{figure}", "\t"}),
-        i(1, "content"),
-        t({"", "\t\\caption{"}),
-        i(2, "Caption."),
-        t({"}", "\t\\label{fig:"}),
-        i(3, "label"),
-        t({"}", "\\end{figure}"}),
-    }),
+    s(
+        "ig",
+        fmt(
+            [[
+                \includegraphics[width=<>\textwidth]{<>}
+            ]],
+            { i(1), i(2, "figure") },
+            { delimiters = "<>" }
+        )
+    ),
 
-    s("lim", {
-        t("\\underset{"),
-        i(1, "x"),
-        t(" \\to "),
-        i(2, "0"),
-        t("}{\\lim}"),
-    }),
+    s(
+        "fig",
+        fmt(
+            [[
+                \begin{figure}
+                    \centering
+                    <> 
+                    \caption{<>}
+                    \label{fig:<>}
+                \end{figure}
+            ]],
+            { i(1, "content"), i(2, "Caption."), i(3, "label") },
+            { delimiters = "<>" }
+        )
+    ),
 
-    s("left", {
-        t("\\left( "),
-        i(1, "content"),
-        t(" \\right)"),
-    }),
+    s(
+        "us",
+        fmt(
+            [[
+                \underset{<>}{<>} 
+            ]],
+            { i(1), i(2, "\\min") },
+            { delimiters = "<>" }
+        )
+    ),
+
+    s("on", fmt("\\operatorname{<>}", {i(1)}, {delimiters = "<>"})),
 })

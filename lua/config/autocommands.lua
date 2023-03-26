@@ -13,10 +13,18 @@ autocmd("BufRead,BufNewFile", {
 autocmd("BufRead,BufNewFile", {
     pattern = "*.jl",
     callback = function()
-        vim.o.ls = 1
+        -- vim.o.ls = 1
     end,
 })
 
+autocmd("TermOpen", {
+    callback = function()
+        vim.o.number = false
+        vim.o.relativenumber = false
+        vim.o.signcolumn = "no"
+        vim.o.cursorline = false
+    end,
+})
 
 autocmd("BufRead,BufNewFile", {
     pattern = "*.md",

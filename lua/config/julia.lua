@@ -20,10 +20,10 @@ WhichKey.register({
         b = { ":call julia#toggle_function_blockassign()<CR>", "Toggle function block" },
         c = { ":JuliaREPLConnect<CR>", "Connect to remote Julia REPL" },
         -- f = { ":JuliaFormatterFormat<CR>", "Format file" },
+        p = { [[:call system('handlr open /tmp/toto.pdf')<CR>]], "Open /tmp/toto.pdf"},
     },
     d = { "}{jvip :JuliaREPLSend<CR> }", "Send region to remote Julia REPL" },
 }, { prefix = "<leader>", noremap = true })
-
 
 -- WhichKey.register({
 --     jf = { ":JuliaFormatterFormat<CR>", "Format selection", mode = "v" },
