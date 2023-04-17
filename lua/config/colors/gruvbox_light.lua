@@ -10,7 +10,12 @@ require("gruvbox").setup({
     undercurl = true,
     underline = true,
     bold = true,
-    italic = true,
+    italic = {
+        strings = true,
+        comments = true,
+        operators = false,
+        folds = true,
+    },
     strikethrough = true,
     invert_selection = false,
     invert_signs = false,
@@ -44,3 +49,6 @@ vim.api.nvim_set_hl(0 , "CodeBlock" , { bg = palette.light0_soft })
 -- vim.api.nvim_set_hl(0, "WinSeparator", { guibg = NONE, ctermbg = NONE })
 
 vim.g.nvim_markdown_preview_theme = "gruvbox_light"
+
+vim.api.nvim_set_hl(0, "CursorLine", { ctermbg = "NONE" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = palette.colors.dark1 })

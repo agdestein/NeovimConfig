@@ -23,4 +23,4 @@ require("config/terminal")
 require("config/treesitter")
 require("config/zettels")
 
-vim.o.ls = 0
+vim.o.ls = 2

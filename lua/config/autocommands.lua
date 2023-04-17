@@ -6,7 +6,7 @@ autocmd("BufRead,BufNewFile", {
     pattern = "*.tex",
     callback = function()
         -- vim.opt_local.textwidth = 92
-        vim.o.spell = true
+        -- vim.o.spell = true
     end,
 })
 

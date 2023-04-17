@@ -45,6 +45,7 @@ require("lazy").setup({
             return vim.fn.executable("make") == 1
         end,
     },
+    "nvim-telescope/telescope-bibtex.nvim",
 
     -- "monaqa/dial.nvim",
     "chiel92/vim-autoformat",
@@ -113,7 +114,7 @@ require("lazy").setup({
     { "folke/todo-comments.nvim", opts = {} },
     "L3MON4D3/LuaSnip",
     "akinsho/toggleterm.nvim",
-    "hkupty/iron.nvim",
+    "Vigemus/iron.nvim",
     "LnL7/vim-nix",
     "dag/vim-fish",
     "cespare/vim-toml",
@@ -162,6 +163,27 @@ require("lazy").setup({
 
     "stevearc/aerial.nvim",
 
+    {
+        "nvim-neorg/neorg",
+        build = ":Neorg sync-parsers",
+        opts = {
+            load = {
+                ["core.defaults"] = {}, -- Loads default behaviour
+                ["core.export"] = {},
+                ["core.integrations.treesitter"] = {},
+                ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+                ["core.norg.dirman"] = { -- Manages Neorg workspaces
+                    config = {
+                        workspaces = {
+                            notes = "~/notes",
+                        },
+                    },
+                },
+            },
+        },
+        dependencies = { { "nvim-lua/plenary.nvim" } },
+    },
+
     "duane9/nvim-rg",
     -- {
     --     "lukas-reineke/headlines.nvim",
@@ -189,13 +211,13 @@ require("lazy").setup({
     "shaunsingh/nord.nvim",
     "navarasu/onedark.nvim",
     "folke/lsp-colors.nvim",
+    "folke/tokyonight.nvim",
+
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
-        config = function()
-            pcall(require("nvim-treesitter.install").update({ with_sync = true }))
-        end,
+        build = ":TSUpdate",
     },
 })

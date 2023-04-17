@@ -3,7 +3,7 @@ vim.cmd("hi clear")
 vim.opt.termguicolors = true
 
 -- Flavour: "latte", "frappe", "macchiato", "mocha"
-vim.g.catppuccin_flavour = "mocha"
+vim.g.catppuccin_flavour = "latte"
 
 local catppuccin = require("catppuccin")
 
@@ -13,7 +13,7 @@ catppuccin.setup({
         shade = "dark",
         percentage = 0.15,
     },
-    transparent_background = false,
+    transparent_background = true,
     term_colors = false,
     compile = {
         enabled = false,
@@ -95,6 +95,12 @@ catppuccin.setup({
         vimwiki = false,
         beacon = false,
     },
+    color_overrides = {
+        latte = {
+            -- overlay0 = "#ff0000",
+            surface1 = "#ACB0BE",
+        },
+    },
     highlight_overrides = {
         mocha = function(colors)
             return {
@@ -114,7 +120,7 @@ catppuccin.setup({
 
                 -- StatusLine = { fg = colors.base, bg = colors.maroon},
                 -- StatusLineNC = { fg = colors.base, bg = colors.maroon},
-                -- WinSeparator = { bg = colors.base, fg = colors.maroon},
+                -- WinSeparator = { bg = colors.base, fg = colosurface2rs.maroon},
             }
         end,
 
@@ -138,5 +144,5 @@ catppuccin.setup({
 
 vim.cmd("colorscheme catppuccin")
 
-vim.g.nvim_markdown_preview_theme = "catppuccin"
--- vim.g.nvim_markdown_preview_theme = "catppuccin_latte"
+-- vim.g.nvim_markdown_preview_theme = "catppuccin"
+vim.g.nvim_markdown_preview_theme = "catppuccin_latte"

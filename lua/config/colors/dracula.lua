@@ -10,7 +10,7 @@ dracula.setup({
     show_end_of_buffer = true, -- default false
 
     -- use transparent background
-    transparent_bg = false, -- default false
+    transparent_bg = true, -- default false
 
     -- -- set custom lualine background color
     -- lualine_bg_color = "#44475a", -- default nil
@@ -24,51 +24,28 @@ dracula.setup({
         -- NonText = { fg = dracula.colors().white }, -- set NonText fg to white
         -- NvimTreeIndentMarker = { link = "NonText" }, -- link to NonText highlight
         -- Nothing = {} -- clear highlight of Nothing
+        CursorLine = { ctermbg = "NONE" },
+        TelescopeNormal = { ctermbg = "NONE" },
     },
 })
 
 vim.cmd("colorscheme dracula")
 
-vim.api.nvim_set_hl(0, "Headline1", { fg = colors.pink,   bg = "#332e3d", bold = true })
-vim.api.nvim_set_hl(0, "Headline2", { fg = colors.cyan,   bg = "#2d3440", bold = true })
-vim.api.nvim_set_hl(0, "Headline3", { fg = colors.green,  bg = "#2a3439", bold = true })
-vim.api.nvim_set_hl(0, "Headline4", { fg = colors.purple, bg = "#2f2f40", bold = true })
-vim.api.nvim_set_hl(0, "Headline5", { fg = colors.yellow, bg = "#32343a", bold = true })
-vim.api.nvim_set_hl(0, "Headline6", { fg = colors.red,    bg = "#332c38", bold = true })
-vim.api.nvim_set_hl(0, "CodeBlock", { bg = "#21222C" })
+-- vim.api.nvim_set_hl(0, "Headline1", { fg = colors.pink,   bg = "#332e3d", bold = true })
+-- vim.api.nvim_set_hl(0, "Headline2", { fg = colors.cyan,   bg = "#2d3440", bold = true })
+-- vim.api.nvim_set_hl(0, "Headline3", { fg = colors.green,  bg = "#2a3439", bold = true })
+-- vim.api.nvim_set_hl(0, "Headline4", { fg = colors.purple, bg = "#2f2f40", bold = true })
+-- vim.api.nvim_set_hl(0, "Headline5", { fg = colors.yellow, bg = "#32343a", bold = true })
+-- vim.api.nvim_set_hl(0, "Headline6", { fg = colors.red,    bg = "#332c38", bold = true })
+-- vim.api.nvim_set_hl(0, "CodeBlock", { bg = "#21222C" })
 
 -- vim.api.nvim_set_hl(0, "Normal", { guibg = NONE, ctermbg = NONE })
 -- vim.api.nvim_set_hl(0, "TabLine", { guibg = NONE, ctermbg = NONE })
 
 -- vim.api.nvim_set_hl(0, "StatusLine", { bg = NONE})
-vim.api.nvim_set_hl(0, "StatusLineNC", { bg = colors.menu })
+-- vim.api.nvim_set_hl(0, "StatusLineNC", { bg = colors.menu })
 -- vim.api.nvim_set_hl(0, "WinSeparator", { guibg = NONE, ctermbg = NONE })
 
 -- vim.cmd("hi WinSeparator guibg=NONE guifg=#6272a4")
-
--- colors = {
---     bg = "#282A36",
---     fg = "#F8F8F2",
---     selection = "#44475A",
---     comment = "#6272A4",
---     red = "#FF5555",
---     orange = "#FFB86C",
---     yellow = "#F1FA8C",
---     green = "#50fa7b",
---     purple = "#BD93F9",
---     cyan = "#8BE9FD",
---     pink = "#FF79C6",
---     bright_red = "#FF6E6E",
---     bright_green = "#69FF94",
---     bright_yellow = "#FFFFA5",
---     bright_blue = "#D6ACFF",
---     bright_magenta = "#FF92DF",
---     bright_cyan = "#A4FFFF",
---     bright_white = "#FFFFFF",
---     menu = "#21222C",
---     visual = "#3E4452",
---     gutter_fg = "#4B5263",
---     nontext = "#3B4048",
--- }
 
 vim.g.nvim_markdown_preview_theme = "dracula"

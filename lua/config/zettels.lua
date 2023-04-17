@@ -1,4 +1,4 @@
-local journal_dir = "/home/syver/notes/journal"
+local home_dir = "/home/syver/notes/home"
 local work_dir = "/home/syver/notes/work"
 local zet_dir = "/home/syver/notes/zettels"
 
@@ -23,8 +23,8 @@ WhichKey.register({
             create_note(work_dir),
             "Create new work note",
         },
-        j = {
-            create_note(journal_dir),
+        h = {
+            create_note(home_dir),
             "Create personal note",
         },
     },
@@ -33,19 +33,19 @@ WhichKey.register({
             function()
                 require("telescope.builtin").live_grep({ hidden = true, cwd = zet_dir })
             end,
-            "Search zettels",
+            "Search zettelkasten",
         },
         w = {
             function()
                 require("telescope.builtin").live_grep({ hidden = true, cwd = work_dir })
             end,
-            "Search work journal",
+            "Search work",
         },
-        j = {
+        h = {
             function()
-                require("telescope.builtin").live_grep({ hidden = true, cwd = journal_dir })
+                require("telescope.builtin").live_grep({ hidden = true, cwd = home_dir })
             end,
-            "Search journal",
+            "Search home",
         },
     }
 }, { prefix = "<Leader>", noremap = true })
