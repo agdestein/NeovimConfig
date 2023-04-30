@@ -57,7 +57,7 @@ require("nvim-treesitter.configs").setup({
         disable = {
             -- "julia",
             "latex",
-            "markdown",
+            -- "markdown",
         },
 
         -- -- Setting this to true will run `:h syntax` and tree-sitter at the same time.

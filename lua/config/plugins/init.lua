@@ -1,17 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable",
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
+return {
 
     -- {
     --     "folke/noice.nvim",
@@ -26,14 +13,35 @@ require("lazy").setup({
     "kyazdani42/nvim-web-devicons",
     "nvim-lualine/lualine.nvim",
     -- "akinsho/bufferline.nvim",
+
+    -- {
+    --     "freddiehaddad/feline.nvim",
+    --     opts = {
+    --         -- theme = "gruvbox",
+    --     },
+    -- },
+
     "folke/which-key.nvim",
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            { "j-hui/fidget.nvim", opts = {} },
+            -- { "j-hui/fidget.nvim", opts = {} },
             { "folke/neodev.nvim", opts = {} },
+
+            {
+                "SmiteshP/nvim-navbuddy",
+                dependencies = {
+                    "SmiteshP/nvim-navic",
+                    "MunifTanjim/nui.nvim",
+                },
+                config = function()
+                    require("nvim-navbuddy").setup({ lsp = { auto_attach = true } })
+                    vim.keymap.set("n", "<Leader>an", ":Navbuddy<CR>")
+                end,
+            },
         },
     },
+
     { "numToStr/Comment.nvim", opts = {} },
     { "TimUntersberger/neogit", opts = { disable_commit_confirmation = true } },
     "ggandor/leap.nvim",
@@ -163,27 +171,6 @@ require("lazy").setup({
 
     "stevearc/aerial.nvim",
 
-    {
-        "nvim-neorg/neorg",
-        build = ":Neorg sync-parsers",
-        opts = {
-            load = {
-                ["core.defaults"] = {}, -- Loads default behaviour
-                ["core.export"] = {},
-                ["core.integrations.treesitter"] = {},
-                ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-                ["core.norg.dirman"] = { -- Manages Neorg workspaces
-                    config = {
-                        workspaces = {
-                            notes = "~/notes",
-                        },
-                    },
-                },
-            },
-        },
-        dependencies = { { "nvim-lua/plenary.nvim" } },
-    },
-
     "duane9/nvim-rg",
     -- {
     --     "lukas-reineke/headlines.nvim",
@@ -220,4 +207,4 @@ require("lazy").setup({
         },
         build = ":TSUpdate",
     },
-})
+}

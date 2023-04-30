@@ -42,8 +42,8 @@ vim.cmd("colorscheme gruvbox")
 -- vim.api.nvim_set_hl(0, "Normal", { guibg = NONE, ctermbg = NONE })
 -- vim.api.nvim_set_hl(0, "TabLine", { guibg = NONE, ctermbg = NONE })
 
--- vim.api.nvim_set_hl(0, "StatusLine", { guibg = "NONE", ctermbg = "NONE" })
--- vim.api.nvim_set_hl(0, "StatusLineNC", { guibg = "NONE", ctermbg = "NONE" })
+-- vim.api.nvim_set_hl(0, "StatusLine", { ctermbg = "NONE" })
+-- vim.api.nvim_set_hl(0, "StatusLineNC", { ctermbg = "NONE" })
 -- vim.api.nvim_set_hl(0, "WinSeparator", { guibg = "NONE", ctermbg = "NONE" })
 
 -- vim.api.nvim_set_hl(0, "StatusLine",   { ctermbg = "NONE" })
