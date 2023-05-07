@@ -1,6 +1,5 @@
 vim.cmd("hi clear")
 
-vim.opt.termguicolors = true
 vim.o.background = "dark"
 
 require("tokyonight").setup({

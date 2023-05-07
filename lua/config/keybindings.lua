@@ -66,17 +66,6 @@ WhichKey.setup({
     },
 })
 
-local function reloadconfig()
-    for name, _ in pairs(package.loaded) do
-        if name:match("^config") then
-            package.loaded[name] = nil
-        end
-    end
-    package.loaded["colorloaders/colors"] = nil
-
-    dofile(vim.env.MYVIMRC)
-end
-
 WhichKey.register({
     ["<left>"] = { ":wincmd <<CR>", "Decrease width" },
     ["<right>"] = { ":wincmd ><CR>", "Increase width" },
@@ -90,9 +79,6 @@ WhichKey.register({
     ["<leader>"] = {
         name = "Leader",
         -- p = { "\"_dP", "Delete without yank", mode = "x"},
-        ag = { ":Neogit<CR>", "Neogit" },
-        af = { ":Autoformat<CR>", "Autoformat" },
-        ac = { ":ColorizerToggle<CR>", "Colorize" },
         [","] = {
             name = "Directory",
             c = { ":cd %:p:h<CR>", "Change directory to current file" },
@@ -101,41 +87,22 @@ WhichKey.register({
         c = { ":bp | bd #<CR>", "Close buffer" },
         C = { ":bd<CR>", "Close buffer" },
         b = { ":Telescope buffers<CR>", "Buffers" },
+        i = {
+            name = "Terminal",
+        },
         q = {
             name = "Neovim",
-            r = { reloadconfig, "Reload Neovim config" },
             e = { ":edit $MYVIMRC<CR>", "Edit Neovim config" },
         },
         t = {
             name = "Todo",
-            l = { ":TodoLocList<CR>", "Loc list" },
-            q = { ":TodoQuickFix<CR>", "Quick fix" },
-            s = { ":TodoTelescope<CR>", "Telescope" },
-        },
-        f = {
-            name = "Telescope",
-            b = { ":Telescope buffers<CR>", "Buffers" },
-            c = { ":Telescope current_buffer_fuzzy_find<CR>", "Current buffer fuzzy find" },
-            e = { ":Telescope live_grep<CR>", "Live grep" },
-            d = {
-                function()
-                    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-                        winblend = 10,
-                        previewer = false,
-                    }))
-                end,
-                "Fuzzily search in current buffer",
-            },
-            h = { ":Telescope help_tags<CR>", "Help tags" },
-            i = { ":Telescope registers<CR>", "Registers" },
-            k = { ":Telescope keymaps<CR>", "Keymaps" },
-            o = { ":Telescope find_files<CR>", "Find files" },
-            p = { ":Telescope find_files no_ignore=true<CR>", "Find (all) files" },
-            r = { ":Telescope oldfiles<CR>", "Oldfiles" },
-            w = { ":Telescope grep_string<CR>", "Grep string" },
         },
     },
 }, {
-    noremap = true,
     -- silent = true,
 })
+
+WhichKey.register({
+    ["<C-j>"] = { "<Cmd>stopinsert!<CR><C-w><C-w>", "Visual mode and switch window" },
+    -- ["<M-j>"] = { "<Cmd>stopinsert!<CR>", "Visual mode" },
+}, { mode = "t" })

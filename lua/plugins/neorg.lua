@@ -1,5 +1,7 @@
 return {
     "nvim-neorg/neorg",
+    enabled = false,
+    event = "VeryLazy",
     build = ":Neorg sync-parsers",
     opts = {
         load = {

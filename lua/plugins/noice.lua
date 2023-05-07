@@ -1,5 +1,6 @@
 return {
     "folke/noice.nvim",
+    event = "VeryLazy",
     opts = {
         -- You can add any custom commands below that will be available with `:Noice command`
         ---@type table<string, NoiceCommand>
@@ -39,7 +40,8 @@ return {
                 enabled = true,
                 view = "notify",
                 opts = {
-                    background_colour = "#000000",
+                    -- background_colour = "#000000",
+                    background_colour = "#ffffff",
                     render = "minimal",
                     animation = "static",
                 },

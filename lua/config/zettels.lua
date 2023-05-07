@@ -1,6 +1,7 @@
-local home_dir = "/home/syver/notes/home"
-local work_dir = "/home/syver/notes/work"
-local zet_dir = "/home/syver/notes/zettels"
+local note_dir = os.getenv("HOME") .. "/notes"
+local home_dir = note_dir .. "/home"
+local work_dir = note_dir .. "/work"
+local zet_dir = note_dir .. "/zettels"
 
 local function create_note(dir)
     return function()
@@ -29,6 +30,12 @@ WhichKey.register({
         },
     },
     z = {
+        a = {
+            function()
+                require("telescope.builtin").live_grep({ hidden = true, cwd = note_dir })
+            end,
+            "Search all notes",
+        },
         z = {
             function()
                 require("telescope.builtin").live_grep({ hidden = true, cwd = zet_dir })
