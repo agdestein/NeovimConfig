@@ -22,7 +22,5 @@ require("lazy").setup("plugins", {
 require("config/keybindings")
 require("config/colors/colors")
 require("config/autocommands")
-require("config/completion")
-require("config/lsp")
 require("config/snippets")
 require("config/zettels")

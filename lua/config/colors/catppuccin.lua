@@ -3,7 +3,7 @@ vim.cmd("hi clear")
 vim.opt.termguicolors = true
 
 -- Flavour: "latte", "frappe", "macchiato", "mocha"
-vim.g.catppuccin_flavour = "latte"
+vim.g.catppuccin_flavour = "mocha"
 
 local catppuccin = require("catppuccin")
 
@@ -13,7 +13,7 @@ catppuccin.setup({
         shade = "dark",
         percentage = 0.15,
     },
-    transparent_background = true,
+    transparent_background = false,
     term_colors = false,
     compile = {
         enabled = false,
@@ -121,6 +121,23 @@ catppuccin.setup({
                 -- StatusLine = { fg = colors.base, bg = colors.maroon},
                 -- StatusLineNC = { fg = colors.base, bg = colors.maroon},
                 -- WinSeparator = { bg = colors.base, fg = colosurface2rs.maroon},
+
+
+                NotifyERRORBorder = { fg = colors.red },
+                NotifyERRORIcon =   { fg = colors.red },
+                NotifyERRORTitle =  { fg = colors.red },
+                NotifyWARNBorder =  { fg = colors.peach },
+                NotifyWARNIcon =    { fg = colors.peach },
+                NotifyWARNTitle =   { fg = colors.peach },
+                NotifyINFOBorder =  { fg = colors.green },
+                NotifyINFOIcon =    { fg = colors.green },
+                NotifyINFOTitle =   { fg = colors.green },
+                NotifyDEBUGIcon =   { fg = colors.subtext1 },
+                NotifyDEBUGTitle =  { fg = colors.subtext1 },
+                NotifyDEBUGBorder = { fg = colors.overaly1 },
+                NotifyTRACEBorder = { fg = colors.overaly0 },
+                NotifyTRACEIcon =   { fg = colors.mauve },
+                NotifyTRACETitle =  { fg = colors.mauve },
             }
         end,
 
@@ -160,5 +177,5 @@ catppuccin.setup({
 
 vim.cmd("colorscheme catppuccin")
 
--- vim.g.nvim_markdown_preview_theme = "catppuccin"
-vim.g.nvim_markdown_preview_theme = "catppuccin_latte"
+vim.g.nvim_markdown_preview_theme = "catppuccin"
+-- vim.g.nvim_markdown_preview_theme = "catppuccin_latte"

@@ -8,8 +8,7 @@ ls.config.set_config({
     updateevents = "TextChanged,TextChangedI",
 
     -- Snippets aren't automatically removed if their text is deleted.
-    -- `delete_check_events` determines on which events (:h events) a check for
-    -- deleted snippets is performed.
+    -- `delete_check_events` determines on which events (:h events) a check for deleted snippets is performed.
     -- This can be especially useful when `history` is enabled.
     delete_check_events = "TextChanged",
     ext_opts = {
@@ -54,31 +53,6 @@ ls.config.set_config({
     --     markdown = { "julia", "tex" },
     -- }),
 })
-
--- WhichKey.register({
---     ["<C-s>"] = {
---         name = "Snippets",
---         ["<C-j>"] = { ls.expand_or_jump, "Next node" },
---         ["<C-k>"] = {
---             function()
---                 return ls.jump(-1)
---             end,
---             "Previous node",
---         },
---         l = {
---             function()
---                 return ls.change_choice(1)
---             end,
---             "Next choice",
---         },
---         h = {
---             function()
---                 return ls.change_choice(-1)
---             end,
---             "Previous choice",
---         },
---     },
--- }, { mode = "i" })
 
 WhichKey.register({
     ["<C-s>"] = {
@@ -129,17 +103,3 @@ require("config/snippets/lua")
 require("config/snippets/markdown")
 require("config/snippets/matlab")
 require("config/snippets/python")
-
--- local s = ls.snippet
--- local t = ls.text_node
--- local i = ls.insert_node
--- ls.add_snippets("all", {
---     s("ternary", {
---         -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
---         i(1, "cond"),
---         t(" ? "),
---         i(2, "then"),
---         t(" : "),
---         i(3, "else"),
---     }),
--- })

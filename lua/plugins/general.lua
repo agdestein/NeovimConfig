@@ -6,24 +6,6 @@ return {
     -- "akinsho/bufferline.nvim",
 
     { "folke/which-key.nvim", event = "VeryLazy" },
-    {
-        "neovim/nvim-lspconfig",
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = {
-            -- { "j-hui/fidget.nvim", opts = {} },
-            { "folke/neodev.nvim", opts = {} },
-            {
-                "SmiteshP/nvim-navbuddy",
-                dependencies = {
-                    "SmiteshP/nvim-navic",
-                    "MunifTanjim/nui.nvim",
-                },
-                opts = { lsp = { auto_attach = true } },
-                cmd = "Navbuddy",
-                keys = { { "<Leader>an", ":Navbuddy<CR>" } },
-            },
-        },
-    },
 
     { "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
     {
@@ -42,7 +24,6 @@ return {
         keys = { { "<Leader>af", ":Autoformat<CR>" } },
     },
     { "mjbrownie/swapit", event = "VeryLazy" },
-    { "godlygeek/tabular", cmd = "Tabularize" },
     {
         "norcalli/nvim-colorizer.lua",
         cmd = "ColorizerToggle",
@@ -123,34 +104,24 @@ return {
     -- },
 
     { "elkowar/yuck.vim", ft = "yuck" },
-    {
-        "preservim/vim-markdown",
-        ft = "markdown",
-        config = function()
-            vim.g.vim_markdown_math = true
-            vim.g.vim_markdown_fenced_languages = { "bibtex=bib" }
-        end,
-    },
-    { "ron-rs/ron.vim", ft = "ron" },
+
+    { "godlygeek/tabular", cmd = "Tabularize" },
 
     {
-        "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
-        dependencies = {
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-calc",
-            "hrsh7th/cmp-cmdline",
-            "petertriho/cmp-git",
-            "kdheepak/cmp-latex-symbols",
-            "saadparwaiz1/cmp_luasnip",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-nvim-lua",
-            -- "hrsh7th/cmp-omni",
-            "hrsh7th/cmp-path",
-            "f3fora/cmp-spell",
-            "lukas-reineke/cmp-rg",
-        },
+        "preservim/vim-markdown",
+        enabled = false,
+        branch = "master",
+        ft = "markdown",
+        config = function()
+            -- vim.g.vim_markdown_math = true
+            vim.g.vim_markdown_auto_insert_bullets = false
+            vim.g.vim_markdown_new_list_item_indent = false
+            vim.g.vim_markdown_fenced_languages = { "bibtex=bib" }
+            vim.g.vim_markdown_no_default_key_mappings = true
+        end,
     },
+
+    { "ron-rs/ron.vim", ft = "ron" },
 
     { "RRethy/vim-illuminate", event = { "BufReadPost", "BufNewFile" } },
 
@@ -160,10 +131,33 @@ return {
         opts = {
             char = "┊",
             show_trailing_blankline_indent = false,
+            show_current_context = false,
+            show_current_context_start = false,
         },
     },
 
     { "duane9/nvim-rg", cmd = "Rg" },
+
+    {
+        "edluffy/hologram.nvim",
+        enabled = false,
+        opts = {
+            auto_display = true, -- WIP automatic markdown image display, may be prone to breaking
+        },
+    },
+
+    {
+        "chrishrb/gx.nvim",
+        event = { "BufEnter" },
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {},
+    },
+
+    -- paste an image to markdown from the clipboard
+    -- :PasteImg,
+    { "ekickx/clipboard-image.nvim", ft = "markdown", opts = {} },
+
+    { "simrat39/symbols-outline.nvim", event = { "BufEnter" }, opts = {} },
 
     "ellisonleao/gruvbox.nvim",
     { "catppuccin/nvim", name = "catppuccin" },

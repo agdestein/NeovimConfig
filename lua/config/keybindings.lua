@@ -90,9 +90,16 @@ WhichKey.register({
         i = {
             name = "Terminal",
         },
+        k = {
+            name = "LSP",
+            w = {
+                name = "Workspace",
+            },
+        },
         q = {
             name = "Neovim",
             e = { ":edit $MYVIMRC<CR>", "Edit Neovim config" },
+            l = { ":Lazy<CR>", "Lazy" },
         },
         t = {
             name = "Todo",

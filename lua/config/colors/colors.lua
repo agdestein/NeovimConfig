@@ -1,1 +1,1 @@
-catppuccin_latte.lua
+catppuccin.lua
