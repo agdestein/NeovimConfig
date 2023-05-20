@@ -5,8 +5,6 @@ return {
     "kyazdani42/nvim-web-devicons",
     -- "akinsho/bufferline.nvim",
 
-    { "folke/which-key.nvim", event = "VeryLazy" },
-
     { "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
     {
         "TimUntersberger/neogit",
@@ -68,22 +66,24 @@ return {
         end,
     },
 
-    -- {
-    --     "JuliaEditorSupport/julia-vim",
-    --     keys = {
-    --         { "<Leader>jb", ":call julia#toggle_function_blockassign()<CR>", "Toggle function block" },
-    --     },
-    --     config = function()
-    --         vim.g.latex_to_unicode_tab = "off"
-    --         vim.g.latex_to_unicode_auto = false
-    --         vim.g.julia_indent_align_import = false
-    --         vim.g.julia_indent_align_brackets = false
-    --         vim.g.julia_indent_align_funcargs = false
-    --         vim.cmd("hi link juliaParDelim Delimiter")
-    --         vim.cmd("hi link juliaSemicolon Operator")
-    --         vim.cmd("hi link juliaFunctionCall Identifier")
-    --     end,
-    -- },
+    {
+        "JuliaEditorSupport/julia-vim",
+        enabled = false,
+        ft = "julia",
+        keys = {
+            { "<Leader>jb", ":call julia#toggle_function_blockassign()<CR>", "Toggle function block" },
+        },
+        config = function()
+            vim.g.latex_to_unicode_tab = "off"
+            vim.g.latex_to_unicode_auto = false
+            vim.g.julia_indent_align_import = false
+            vim.g.julia_indent_align_brackets = false
+            vim.g.julia_indent_align_funcargs = false
+            vim.cmd("hi link juliaParDelim Delimiter")
+            vim.cmd("hi link juliaSemicolon Operator")
+            vim.cmd("hi link juliaFunctionCall Identifier")
+        end,
+    },
 
     {
         "andreypopp/julia-repl-vim",
@@ -157,13 +157,24 @@ return {
     -- :PasteImg,
     { "ekickx/clipboard-image.nvim", ft = "markdown", opts = {} },
 
-    { "simrat39/symbols-outline.nvim", event = { "BufEnter" }, opts = {} },
+    {
+        "simrat39/symbols-outline.nvim",
+        event = { "BufEnter" },
+        keys = {
+            { "<Leader>as", ":SymbolsOutline<CR>" },
+        },
+        opts = {},
+    },
 
-    "ellisonleao/gruvbox.nvim",
-    { "catppuccin/nvim", name = "catppuccin" },
-    "Mofiqul/dracula.nvim",
-    "tanvirtin/monokai.nvim",
-    "shaunsingh/nord.nvim",
-    "navarasu/onedark.nvim",
-    "folke/tokyonight.nvim",
+    {
+        "topaxi/gh-actions.nvim",
+        cmd = "GhActions",
+        keys = {
+            { "<leader>gh", "<cmd>GhActions<cr>", desc = "Open Github Actions" },
+        },
+        -- optional, you can also install and use `yq` instead.
+        build = "make",
+        dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
+        opts = {},
+    },
 }

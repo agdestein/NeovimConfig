@@ -40,7 +40,8 @@ return {
 
                 -- Repl position. Check `iron.view` for more options
                 -- repl_open_cmd = "topleft 12 split",
-                repl_open_cmd = "botright 12 split",
+                -- repl_open_cmd = "botright 12 split",
+                repl_open_cmd = "vsplit",
                 -- repl_open_cmd = require("iron.view").bottom(12),
 
                 -- -- Alternatively, pass a function, which is evalueated when a repl is open.

@@ -1,7 +1,8 @@
 return {
     "stevearc/aerial.nvim",
+    enabled = false,
     keys = {
-        {"<Leader>at", ":AerialToggle<CR>"},
+        { "<Leader>at", ":AerialToggle<CR>" },
     },
     opts = {
         -- Priority list of preferred backends for aerial.

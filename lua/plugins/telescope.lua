@@ -14,6 +14,7 @@ return {
     },
     cmd = "Telescope",
     keys = {
+        { "<Leader>b", ":Telescope buffers<CR>", { desc = "Buffers" } },
         { "<leader>f:", ":Telescope command_history<CR>", desc = "Command History" },
         { "<Leader>fb", ":Telescope buffers<CR>", desc = "Buffers" },
         { "<Leader>fc", ":Telescope current_buffer_fuzzy_find<CR>", desc = "Current buffer fuzzy find" },

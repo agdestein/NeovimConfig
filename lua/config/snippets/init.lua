@@ -54,48 +54,16 @@ ls.config.set_config({
     -- }),
 })
 
-WhichKey.register({
-    ["<C-s>"] = {
-        name = "Snippets",
-        ["<C-s>"] = { ls.expand_or_jump, "Expand snippet or jump to next snippet position" },
-        ["<C-j>"] = {
-            function()
-                return ls.jump(-1)
-            end,
-            "Jump to previous snippet position",
-        },
-        ["<C-k>"] = {
-            function()
-                return ls.change_choice(1)
-            end,
-            "Next snippet node choice",
-        },
-        h = {
-            function()
-                return ls.change_choice(-1)
-            end,
-            "Previous snippet node choice",
-        },
-        l = { ls.unlink_current, "Unlink current snippet" },
-        u = { ls.unlink_current_if_deleted, "Unlink current if deleted" },
-    },
-}, { noremap = true })
+vim.keymap.set("n", "<C-s><C-s>" , ls.expand_or_jump, { desc = "Expand snippet or jump to next snippet position" })
+vim.keymap.set("n", "<C-s><C-j>" , function() return ls.jump(-1) end, { desc = "Jump to previous snippet position" })
+vim.keymap.set("n", "<C-s><C-k>", function() return ls.change_choice(1) end, { desc = "Next snippet node choice" })
+vim.keymap.set("n", "<C-s>h", function() return ls.change_choice(-1) end, { desc = "Previous snippet node choice" })
+vim.keymap.set("n", "<C-s>l", ls.unlink_current, { desc =  "Unlink current snippet" })
+vim.keymap.set("n", "<C-s>u", ls.unlink_current_if_deleted, { desc =  "Unlink current if deleted" })
 
-WhichKey.register({
-    ["<C-s>"] = { ls.expand_or_jump, "Expand snippet or jump to next snippet position" },
-    ["<C-j>"] = {
-        function()
-            return ls.jump(-1)
-        end,
-        "Jump to previous snippet position",
-    },
-    ["<C-k>"] = {
-        function()
-            return ls.change_choice(1)
-        end,
-        "Next snippet node choice",
-    },
-}, { mode = {"i", "s"}, noremap = true })
+vim.keymap.set({"i", "s"}, "<C-s>", ls.expand_or_jump, { desc = "Expand snippet or jump to next snippet position" })
+vim.keymap.set({"i", "s"}, "<C-j>", function() return ls.jump(-1) end, { desc = "Jump to previous snippet position" })
+vim.keymap.set({"i", "s"}, "<C-j>", function() return ls.change_choice(1) end, { desc = "Next snippet node choice" })
 
 require("config/snippets/julia")
 require("config/snippets/latex")
