@@ -11,7 +11,30 @@ local function create_note(dir)
     end
 end
 
+local function create_linked_note(dir)
+    return function()
+        vim.ui.input(
+            { prompt = "Enter note title: "},
+            function(title)
+                local id = os.date("%Y%m%d%H%M%S")
+                vim.cmd("cd " .. dir)
+                -- vim.cmd(string.format("i[%s](%d.md)<Esc>", title, id))
+                vim.api.nvim_put({ string.format("[%s](%d.md)", title, id) }, "", false, false)
+                vim.cmd(string.format("edit %d.md", id))
+                vim.api.nvim_put({ "# " .. title }, "", false, false)
+                -- vim.cmd(":normal 0ll")
+            end
+        )
+    end
+end
+
+local function insert_date()
+    vim.api.nvim_put({ os.date("%Y/%m/%d %A %H:%M") }, "", false, false)
+end
+
 vim.keymap.set("n", "<Leader>zn", create_note(note_dir), { desc = "Create note" })
+vim.keymap.set("n", "<Leader>zi", create_linked_note(note_dir), { desc = "Create note and insert link at cursor" })
+vim.keymap.set("n", "<Leader>zd", insert_date, { desc = "Insert date" })
 
 vim.keymap.set("n", "<Leader>fz", function()
     require("telescope.builtin").live_grep({ hidden = true, cwd = note_dir })

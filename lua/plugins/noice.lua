@@ -37,11 +37,11 @@ return {
             },
             message = {
                 -- Messages shown by lsp servers
-                enabled = true,
+                enabled = false,
                 view = "notify",
                 opts = {
-                    -- background_colour = "#000000",
-                    background_colour = "#ffffff",
+                    background_colour = "#1e1e2e",
+                    -- background_colour = "#ffffff",
                     render = "minimal",
                     animation = "static",
                 },

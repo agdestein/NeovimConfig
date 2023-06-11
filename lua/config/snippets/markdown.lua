@@ -25,7 +25,10 @@ local t = ls.text_node
 local types = require("luasnip.util.types")
 
 -- In a markdown file: search markdown-, then julia-, then tex-, then all-snippets.
-ls.filetype_extend("markdown", { "julia", "tex" })
+ls.filetype_extend("markdown", {
+    -- "julia",
+    "tex"
+})
 
 ls.add_snippets("markdown", {
     s("```", {

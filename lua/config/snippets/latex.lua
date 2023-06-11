@@ -196,6 +196,16 @@ ls.add_snippets("tex", {
         "b",
         fmt(
             [[
+                \bar{<>}
+            ]],
+            { i(1) },
+            { delimiters = "<>" }
+        )
+    ),
+    s(
+        "bb",
+        fmt(
+            [[
                 \begin{<>}
                     <>
                 \end{<>}

@@ -167,6 +167,12 @@ return {
     },
 
     {
+        "Bekaboo/dropbar.nvim",
+        enabled = false,
+        opts = {},
+    },
+
+    {
         "topaxi/gh-actions.nvim",
         cmd = "GhActions",
         keys = {

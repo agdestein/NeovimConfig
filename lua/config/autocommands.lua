@@ -7,6 +7,18 @@ autocmd("BufRead,BufNewFile", {
     callback = function()
         -- vim.opt_local.textwidth = 92
         -- vim.o.spell = true
+        vim.keymap.set(
+            "i",
+            "<C-f>",
+            [[<Esc>:silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>]],
+            { silent = true }
+        )
+        vim.keymap.set(
+            "n",
+            "<Leader><C-f>",
+            [[:silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]],
+            { silent = true }
+        )
     end,
 })
 
