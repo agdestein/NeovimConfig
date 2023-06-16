@@ -29,7 +29,7 @@ return {
                 "lua",
                 "markdown",
                 "markdown_inline",
-                -- "matlab",
+                "matlab",
                 "norg",
                 "python",
                 "query",
@@ -65,6 +65,7 @@ return {
                     -- "julia",
                     "latex",
                     -- "markdown",
+                    "matlab",
                 },
 
                 -- -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
