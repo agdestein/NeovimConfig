@@ -48,6 +48,8 @@ return {
     { "cespare/vim-toml", ft = "toml" },
     {
         "lervag/vimtex",
+        -- VimTeX should not be lazy loaded for reverse synctex to work
+        lazy = false,
         ft = { "tex", "bib" },
         config = function()
             vim.g.vimtex_view_method = "zathura"
@@ -181,6 +183,14 @@ return {
         -- optional, you can also install and use `yq` instead.
         build = "make",
         dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
+        opts = {},
+    },
+
+    {
+        -- For use with Kitty
+        "3rd/image.nvim",
+        enabled = false,
+        ft = "markdown",
         opts = {},
     },
 }

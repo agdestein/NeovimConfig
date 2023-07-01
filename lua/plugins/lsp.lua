@@ -2,7 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        -- { "j-hui/fidget.nvim", opts = {} },
+        { "j-hui/fidget.nvim", enabled = false, opts = {} },
         { "folke/neodev.nvim", opts = {} },
         {
             "SmiteshP/nvim-navbuddy",
@@ -222,8 +222,9 @@ return {
                     runtime = {
                         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                         version = "LuaJIT",
-                        -- Setup your lua path
-                        path = runtime_path,
+
+                        -- -- Setup your lua path
+                        -- path = runtime_path,
                     },
                     diagnostics = {
                         -- Get the language server to recognize the `vim` global

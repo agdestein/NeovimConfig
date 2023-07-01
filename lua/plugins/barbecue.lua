@@ -1,7 +1,7 @@
 return {
     "utilyre/barbecue.nvim",
     name = "barbecue",
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
     version = "*",
     dependencies = {
         "SmiteshP/nvim-navic",

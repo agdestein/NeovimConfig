@@ -63,7 +63,7 @@ vim.keymap.set("n", "<C-s>u", ls.unlink_current_if_deleted, { desc =  "Unlink cu
 
 vim.keymap.set({"i", "s"}, "<C-s>", ls.expand_or_jump, { desc = "Expand snippet or jump to next snippet position" })
 vim.keymap.set({"i", "s"}, "<C-j>", function() return ls.jump(-1) end, { desc = "Jump to previous snippet position" })
-vim.keymap.set({"i", "s"}, "<C-j>", function() return ls.change_choice(1) end, { desc = "Next snippet node choice" })
+vim.keymap.set({"i", "s"}, "<C-k>", function() return ls.change_choice(1) end, { desc = "Next snippet node choice" })
 
 require("config/snippets/julia")
 require("config/snippets/latex")
