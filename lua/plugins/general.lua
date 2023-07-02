@@ -7,7 +7,7 @@ return {
 
     { "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
     {
-        "TimUntersberger/neogit",
+        "NeogitOrg/neogit",
         cmd = "Neogit",
         keys = {
             { "<Leader>ag", ":Neogit<CR>" },
@@ -53,6 +53,8 @@ return {
         ft = { "tex", "bib" },
         config = function()
             vim.g.vimtex_view_method = "zathura"
+            -- vim.g.vimtex_view_method = "zathura_simple"
+            -- vim.g.vimtex_view_method = "sioyek"
             vim.g.vimtex_quickfix_mode = "0"
             -- vim.g.vimtex_syntax_enabled = "0"
             vim.g.vimtex_compiler_latexmk = {
@@ -192,5 +194,10 @@ return {
         enabled = false,
         ft = "markdown",
         opts = {},
+    },
+    {
+        "kaarmu/typst.vim",
+        enabled = false,
+        ft = "typst",
     },
 }
