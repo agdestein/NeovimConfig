@@ -40,7 +40,8 @@ return {
                 enabled = false,
                 view = "notify",
                 opts = {
-                    background_colour = "#1e1e2e",
+                    -- background_colour = "#1e1e2e",
+                    background_colour = "#282a36",
                     -- background_colour = "#ffffff",
                     render = "minimal",
                     animation = "static",

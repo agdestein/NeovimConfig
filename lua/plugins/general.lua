@@ -2,7 +2,7 @@ return {
 
     -- "nvim-lua/popup.nvim",
     -- "nvim-lua/plenary.nvim",
-    "kyazdani42/nvim-web-devicons",
+    "nvim-tree/nvim-web-devicons",
     -- "akinsho/bufferline.nvim",
 
     { "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
@@ -195,9 +195,42 @@ return {
         ft = "markdown",
         opts = {},
     },
+
     {
         "kaarmu/typst.vim",
         enabled = false,
         ft = "typst",
+    },
+
+    {
+        "romgrk/barbar.nvim",
+        enabled = false,
+        dependencies = {
+            "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+            "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+        },
+        init = function()
+            vim.g.barbar_auto_setup = false
+        end,
+        opts = {
+            auto_hide = true,
+            -- highlight_visible = false,
+        },
+        -- version = "^1.0.0", -- optional: only update when a new 1.x version is released
+    },
+
+    {
+        "akinsho/bufferline.nvim",
+        version = "*",
+        dependencies = "nvim-tree/nvim-web-devicons",
+        opts = {
+            options = {
+                mode = "tabs",
+                always_show_bufferline = false,
+                -- indicator = {
+                --     style = "underline",
+                -- }
+            }
+        },
     },
 }

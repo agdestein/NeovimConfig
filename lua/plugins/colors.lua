@@ -117,6 +117,9 @@ return {
                         -- StatusLineNC = { fg = colors.base, bg = colors.maroon},
                         -- WinSeparator = { bg = colors.base, fg = colosurface2rs.maroon},
 
+                        -- WinBar = { bg = colors.mantle },
+                        -- WinBarNC = { bg = colors.mantle },
+
                         NotifyERRORBorder = { fg = colors.red },
                         NotifyERRORIcon = { fg = colors.red },
                         NotifyERRORTitle = { fg = colors.red },
@@ -167,14 +170,6 @@ return {
                 end,
             },
         },
-        config = function(_, opts)
-            require("catppuccin").setup(opts)
-
-            -- Flavour: "latte", "frappe", "macchiato", "mocha"
-            vim.g.catppuccin_flavour = "mocha"
-            vim.g.nvim_markdown_preview_theme = "catppuccin"
-            -- vim.g.nvim_markdown_preview_theme = "catppuccin_latte"
-        end,
     },
     {
         "Mofiqul/dracula.nvim",
@@ -204,35 +199,38 @@ return {
     },
     {
         "ellisonleao/gruvbox.nvim",
-        config = function(_, opts)
-            require("gruvbox").setup({
-                undercurl = true,
-                underline = true,
-                bold = true,
-                italic = {
-                    strings = true,
-                    comments = true,
-                    operators = false,
-                    folds = true,
-                },
-                strikethrough = true,
-                invert_selection = false,
-                invert_signs = false,
-                invert_tabline = false,
-                invert_intend_guides = false,
-                inverse = true, -- invert background for search, diffs, statuslines and errors
-                contrast = "", -- can be "hard", "soft" or empty string
-                palette_overrides = {},
-                overrides = {
-                    CursorLine = { bg = "NONE" },
-                    CursorLineNr = { link = "Normal" },
-                },
-                dim_inactive = false,
-                transparent_mode = false,
-            })
+        opts = {
+            undercurl = true,
+            underline = true,
+            bold = true,
+            italic = {
+                strings = true,
+                comments = true,
+                operators = false,
+                folds = true,
+            },
+            strikethrough = true,
+            invert_selection = false,
+            invert_signs = false,
+            invert_tabline = false,
+            invert_intend_guides = false,
+            inverse = true, -- invert background for search, diffs, statuslines and errors
+            contrast = "", -- can be "hard", "soft" or empty string
+            palette_overrides = {},
+            overrides = {
+                CursorLine = { bg = "NONE" },
+                CursorLineNr = { link = "Normal" },
+                -- SignColumn = { bg = "NONE" },
 
-            vim.g.nvim_markdown_preview_theme = "gruvbox"
-        end,
+                -- AlphaButtons = {},
+                -- AlphaShortcut = {},
+                -- AlphaHeader = {},
+                -- A = {},lphaButtons = {},
+                -- AlphaFooter = {},
+            },
+            dim_inactive = false,
+            transparent_mode = true,
+        },
     },
     {
         "tanvirtin/monokai.nvim",
@@ -244,9 +242,9 @@ return {
         "shaunsingh/nord.nvim",
         -- opts = {},
         config = function(_, opts)
-            vim.g.nord_contrast = true
+            vim.g.nord_contrast = false
             vim.g.nord_borders = true
-            vim.g.nord_disable_background = false
+            vim.g.nord_disable_background = true
             vim.g.nord_italic = true
             vim.g.nord_uniform_diff_background = true
         end,
@@ -324,13 +322,14 @@ return {
 
             -- Override highlight groups
             highlights = {
-                Headline1 = { fg = "#d19a66", bg = "#303236", bold = true },
-                Headline2 = { fg = "#e5c07b", bg = "#313338", bold = true },
-                Headline3 = { fg = "#98c379", bg = "#2e3437", bold = true },
-                Headline4 = { fg = "#689d6a", bg = "#2b3237", bold = true },
-                Headline5 = { fg = "#56b6c2", bg = "#2a333b", bold = true },
-                Headline6 = { fg = "#61afef", bg = "#2b333d", bold = true },
-                CodeBlock = { bg = "#21252B" },
+                -- Headline1 = { fg = "#d19a66", bg = "#303236", bold = true },
+                -- Headline2 = { fg = "#e5c07b", bg = "#313338", bold = true },
+                -- Headline3 = { fg = "#98c379", bg = "#2e3437", bold = true },
+                -- Headline4 = { fg = "#689d6a", bg = "#2b3237", bold = true },
+                -- Headline5 = { fg = "#56b6c2", bg = "#2a333b", bold = true },
+                -- Headline6 = { fg = "#61afef", bg = "#2b333d", bold = true },
+                -- CodeBlock = { bg = "#21252B" },
+                CursorLine = { bg = "NONE" },
             },
 
             -- Plugins Config --

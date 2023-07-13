@@ -11,7 +11,7 @@ local function create_note(dir)
     end
 end
 
-local function create_linked_note(dir)
+local function create_linked_note(dir, after)
     return function()
         vim.ui.input(
             { prompt = "Enter note title: "},
@@ -19,7 +19,7 @@ local function create_linked_note(dir)
                 local id = os.date("%Y%m%d%H%M%S")
                 vim.cmd("cd " .. dir)
                 -- vim.cmd(string.format("i[%s](%d.md)<Esc>", title, id))
-                vim.api.nvim_put({ string.format("[%s](%d.md)", title, id) }, "", false, false)
+                vim.api.nvim_put({ string.format("[%s](%d.md)", title, id) }, "", after, false)
                 vim.cmd(string.format("edit %d.md", id))
                 vim.api.nvim_put({ "# " .. title }, "", false, false)
                 -- vim.cmd(":normal 0ll")
@@ -33,7 +33,8 @@ local function insert_date()
 end
 
 vim.keymap.set("n", "<Leader>zn", create_note(note_dir), { desc = "Create note" })
-vim.keymap.set("n", "<Leader>zi", create_linked_note(note_dir), { desc = "Create note and insert link at cursor" })
+vim.keymap.set("n", "<Leader>zi", create_linked_note(note_dir, false), { desc = "Create note and insert link at cursor" })
+vim.keymap.set("n", "<Leader>za", create_linked_note(note_dir, true), { desc = "Create note and insert link after cursor" })
 vim.keymap.set("n", "<Leader>zd", insert_date, { desc = "Insert date" })
 
 vim.keymap.set("n", "<Leader>fz", function()
