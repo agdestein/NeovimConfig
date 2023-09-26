@@ -118,37 +118,37 @@ return {
         vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
             virtual_text = true,
             underline = false,
-            signs = true,
+            signs = false,
             update_in_insert = false,
         })
 
-        vim.lsp.protocol.CompletionItemKind = {
-            "   (Text) ",
-            "   (Method)",
-            "   (Function)",
-            "   (Constructor)",
-            " ﴲ  (Field)",
-            "   (Variable)",
-            "   (Class)",
-            " ﰮ  (Interface)",
-            "   (Module)",
-            " 襁 (Property)",
-            "   (Unit)",
-            "   (Value)",
-            " 練 (Enum)",
-            "   (Keyword)",
-            "   (Snippet)",
-            "   (Color)",
-            "   (File)",
-            "   (Reference)",
-            "   (Folder)",
-            "   (EnumMember)",
-            " ﲀ  (Constant)",
-            " ﳤ  (Struct)",
-            "   (Event)",
-            "   (Operator)",
-            "   (TypeParameter)",
-        }
+        -- vim.lsp.protocol.CompletionItemKind = {
+        --     "   (Text) ",
+        --     "   (Method)",
+        --     "   (Function)",
+        --     "   (Constructor)",
+        --     " ﴲ  (Field)",
+        --     "   (Variable)",
+        --     "   (Class)",
+        --     " ﰮ  (Interface)",
+        --     "   (Module)",
+        --     " 襁 (Property)",
+        --     "   (Unit)",
+        --     "   (Value)",
+        --     " 練 (Enum)",
+        --     "   (Keyword)",
+        --     "   (Snippet)",
+        --     "   (Color)",
+        --     "   (File)",
+        --     "   (Reference)",
+        --     "   (Folder)",
+        --     "   (EnumMember)",
+        --     " ﲀ  (Constant)",
+        --     " ﳤ  (Struct)",
+        --     "   (Event)",
+        --     "   (Operator)",
+        --     "   (TypeParameter)",
+        -- }
 
         local lsp = require("lspconfig")
 
@@ -212,6 +212,29 @@ return {
                     or util.path.dirname(fname)
             end,
             capabilities = create_capabilities(),
+            -- settings = {
+            --     julials = {
+            --         diagnostics = {
+            --             enable = false,
+            --             -- Get the language server to recognize the `vim` global
+            --             -- globals = { "vim" },
+            --             -- disabled = { "IncorrectCallArgs" },
+            --             disabled = { "Possible method call error.", "IncorrectCallArgs" },
+            --         },
+            --     }
+            -- },
+            settings = {
+                julia = {
+                    symbolCacheDownload = true,
+                    lint = {
+                        -- missingrefs = "all",
+                        missingrefs = "none",
+                        iter = true,
+                        lazy = true,
+                        modname = true,
+                    },
+                },
+            },
         })
 
         -- Lua

@@ -92,8 +92,8 @@ return {
     {
         "andreypopp/julia-repl-vim",
         keys = {
-            { "<Leader>jc", ":JuliaREPLConnect<CR>", "Connect to remote Julia REPL" },
-            { "<Leader>jd", "}{jvip :JuliaREPLSend<CR> }", "Send region to remote Julia REPL" },
+            { "<Leader>jc", ":JuliaREPLConnect<CR>", "Connect to remote Julia REPL", silent = true},
+            { "<Leader>d", "}{jvip :JuliaREPLSend<CR> }", "Send region to remote Julia REPL", silent = true},
         },
     },
 
@@ -230,7 +230,7 @@ return {
                 -- indicator = {
                 --     style = "underline",
                 -- }
-            }
+            },
         },
     },
 }

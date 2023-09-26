@@ -21,6 +21,7 @@ vim.o.number = true
 vim.o.shiftwidth = 4
 vim.o.showbreak = "↪ "
 vim.o.signcolumn = "yes"
+-- vim.o.signcolumn = "auto:2"
 vim.o.smartcase = true
 vim.o.smartindent = true
 vim.o.spell = false

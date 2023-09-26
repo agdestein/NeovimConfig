@@ -8,7 +8,7 @@ return {
                 shade = "dark",
                 percentage = 0.15,
             },
-            transparent_background = false,
+            transparent_background = true,
             term_colors = false,
             compile = {
                 enabled = false,
@@ -29,6 +29,12 @@ return {
                 operators = {},
             },
             integrations = {
+                barbecue = {
+                    dim_dirname = true,
+                    bold_basename = true,
+                    dim_context = true,
+                    alt_background = false,
+                },
                 treesitter = true,
                 native_lsp = {
                     enabled = true,
@@ -83,6 +89,7 @@ return {
                 ts_rainbow = false,
                 hop = false,
                 notify = false,
+                notifier = true,
                 telekasten = false,
                 symbols_outline = true,
                 mini = false,
@@ -194,6 +201,8 @@ return {
                 -- Nothing = {} -- clear highlight of Nothing
                 CursorLine = { bg = "NONE" },
                 TelescopeNormal = { bg = "NONE" },
+                ["@float"] = { link = "@number" },
+                VertSplit = { fg = "#44475a" },
             },
         },
     },
@@ -227,6 +236,8 @@ return {
                 -- AlphaHeader = {},
                 -- A = {},lphaButtons = {},
                 -- AlphaFooter = {},
+                ["@text.todo.unchecked.markdown"] = { link = "Comment" },
+                ["@text.todo.checked.markdown"] = { link = "Comment" },
             },
             dim_inactive = false,
             transparent_mode = true,
@@ -247,6 +258,7 @@ return {
             vim.g.nord_disable_background = true
             vim.g.nord_italic = true
             vim.g.nord_uniform_diff_background = true
+            vim.g.nord_bold = false
         end,
     },
     {
@@ -292,13 +304,13 @@ return {
         opts = {
             -- Main options --
             style = "dark", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-            transparent = false, -- Show/hide background
+            transparent = true, -- Show/hide background
             term_colors = true, -- Change terminal color as per the selected theme style
             ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
             cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
             -- toggle theme style ---
-            toggle_style_key = "<leader>ts", -- Default keybinding to toggle
+            -- toggle_style_key = "<leader>ts", -- Default keybinding to toggle
             toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
 
             -- Change code style ---
@@ -336,7 +348,7 @@ return {
             diagnostics = {
                 darker = true, -- darker colors for diagnostic
                 undercurl = true, -- use undercurl instead of underline for diagnostics
-                background = true, -- use background color for virtual text
+                background = false, -- use background color for virtual text
             },
         },
     },
