@@ -2,7 +2,7 @@ return {
     "Vigemus/iron.nvim",
     keys = {
         { "<Leader>io", ":IronRepl<CR><C-w>+<C-w>-", "Toggle Iron REPL" },
-        { "<Leader>ih", ":IronReplHere<CR>", "Iron REPL here"},
+        { "<Leader>ih", ":IronReplHere<CR>", "Iron REPL here" },
         { "<Leader>if", ":IronFocus<CR> i", "Iron focus here" },
         {
             "<Leader>iq",
@@ -109,12 +109,7 @@ return {
         })
 
         vim.keymap.set("v", "<C-CR>", "<space>usc", { desc = "Send visual to Iron REPL", remap = true })
-        vim.keymap.set(
-            "n",
-            "<C-CR>",
-            "0<Leader>usc$j",
-            { desc = "Send line to Iron REPL and advance", remap = true }
-        )
+        vim.keymap.set("n", "<C-CR>", "0<Leader>usc$j", { desc = "Send line to Iron REPL and advance", remap = true })
         vim.keymap.set("n", "<S-CR>", "}{jvip<space>usc}", { desc = "Send paragraph to IRON REPL", remap = true })
     end,
 }

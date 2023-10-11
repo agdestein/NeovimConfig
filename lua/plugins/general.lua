@@ -92,8 +92,8 @@ return {
     {
         "andreypopp/julia-repl-vim",
         keys = {
-            { "<Leader>jc", ":JuliaREPLConnect<CR>", "Connect to remote Julia REPL", silent = true},
-            { "<Leader>d", "}{jvip :JuliaREPLSend<CR> }", "Send region to remote Julia REPL", silent = true},
+            { "<Leader>jc", ":JuliaREPLConnect<CR>", "Connect to remote Julia REPL", silent = true },
+            { "<Leader>d", "}{jvip :JuliaREPLSend<CR> }", "Send region to remote Julia REPL", silent = true },
         },
     },
 
@@ -132,11 +132,17 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPost", "BufNewFile" },
+        main = "ibl",
         opts = {
-            char = "┊",
-            show_trailing_blankline_indent = false,
-            show_current_context = false,
-            show_current_context_start = false,
+            -- indent = {
+            --     char = "┊",
+            -- },
+            -- whitespace = { highlight = { "Whitespace", "NonText" } },
+            scope = {
+                exclude = { language = { "lua" } },
+                show_start = false,
+                show_end = false,
+            },
         },
     },
 

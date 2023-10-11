@@ -17,3 +17,16 @@ vim.keymap.set("n", "<C-j>", ":bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<C-k>", ":bnext<CR>", { desc = "Next buffer" })
 
 vim.keymap.set("t", "<C-j>", "<Cmd>stopinsert!<CR><C-w><C-w>", { desc = "Visual mode and switch window" })
+
+vim.keymap.set(
+    "i",
+    "<C-f>",
+    [[<Esc>:silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>]],
+    { silent = true }
+)
+vim.keymap.set(
+    "n",
+    "<Leader><C-f>",
+    [[:silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]],
+    { silent = true }
+)

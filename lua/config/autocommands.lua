@@ -2,32 +2,32 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})
 
-autocmd("BufRead,BufNewFile", {
-    pattern = "*.tex",
-    callback = function()
-        -- vim.opt_local.textwidth = 92
-        -- vim.o.spell = true
-        vim.keymap.set(
-            "i",
-            "<C-f>",
-            [[<Esc>:silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>]],
-            { silent = true }
-        )
-        vim.keymap.set(
-            "n",
-            "<Leader><C-f>",
-            [[:silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]],
-            { silent = true }
-        )
-    end,
-})
+-- autocmd("BufRead,BufNewFile", {
+--     pattern = "*.tex",
+--     callback = function()
+--         -- vim.opt_local.textwidth = 92
+--         -- vim.o.spell = true
+--         vim.keymap.set(
+--             "i",
+--             "<C-f>",
+--             [[<Esc>:silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>]],
+--             { silent = true }
+--         )
+--         vim.keymap.set(
+--             "n",
+--             "<Leader><C-f>",
+--             [[:silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]],
+--             { silent = true }
+--         )
+--     end,
+-- })
 
-autocmd("BufRead,BufNewFile", {
-    pattern = "*.jl",
-    callback = function()
-        -- vim.o.ls = 1
-    end,
-})
+-- autocmd("BufRead,BufNewFile", {
+--     pattern = "*.jl",
+--     callback = function()
+--         -- vim.o.ls = 1
+--     end,
+-- })
 
 autocmd("TermOpen", {
     callback = function()
@@ -38,13 +38,13 @@ autocmd("TermOpen", {
     end,
 })
 
-autocmd("BufRead,BufNewFile", {
-    pattern = "*.md",
-    callback = function()
-        -- vim.opt_local.textwidth = 80
-        -- vim.o.spell = true
-    end,
-})
+-- autocmd("BufRead,BufNewFile", {
+--     pattern = "*.md",
+--     callback = function()
+--         -- vim.opt_local.textwidth = 80
+--         -- vim.o.spell = true
+--     end,
+-- })
 
 autocmd("TextYankPost", {
     group = yank_group,
