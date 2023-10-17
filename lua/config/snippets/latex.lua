@@ -222,9 +222,11 @@ ls.add_snippets("tex", {
 
     s("d", t("\\mathrm{d}")),
     s("e", t("\\mathrm{e}")),
-    s("i", t("\\in ")),
-    s("p", t("\\partial ")),
     s("h", t("\\frac{1}{2}")),
+    s("i", t("\\in ")),
+    s("n", t("\\nabla ")),
+    s("n2", t("\\nabla^2 ")),
+    s("p", t("\\partial ")),
     s("R", t("\\mathbb{R}")),
     s("E", t("\\mathbb{E}")),
     s("ub", t("\\bar{u}")),
