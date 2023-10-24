@@ -1,6 +1,8 @@
 return {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
+    enabled = true,
+    -- event = "VeryLazy",
+    lazy = false,
     dependencies = {
         "folke/noice.nvim",
     },
@@ -20,7 +22,7 @@ return {
                 -- component_separators = { left = "│", right = "│" },
                 -- component_separators = { left = "·", right = "·" },
                 disabled_filetypes = {
-                    statusline = {},
+                    statusline = { "dashboard", "alpha", "starter" },
                     winbar = {},
                 },
                 ignore_focus = {},
@@ -38,8 +40,10 @@ return {
                 lualine_a = {},
                 lualine_b = {},
                 lualine_c = {
-"mode",
-"branch", "diff", "diagnostics",
+                    "mode",
+                    "branch",
+                    "diff",
+                    "diagnostics",
 
                     "filename",
 
@@ -122,7 +126,7 @@ return {
             tabline = {},
             winbar = {},
             inactive_winbar = {},
-            extensions = {},
+            -- extensions = { "neo-tree", "lazy" },
         })
     end,
 }

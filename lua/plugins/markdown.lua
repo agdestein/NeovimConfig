@@ -37,7 +37,7 @@ return {
     {
         -- "davidgranstrom/nvim-markdown-preview",
         dir = "$HOME/projects/nvim-markdown-preview",
-        enabled = false,
+        enabled = true,
         -- event = "VeryLazy",
         ft = { "markdown" },
         config = function()
@@ -48,6 +48,7 @@ return {
 
     {
         "iamcco/markdown-preview.nvim",
+        enabled = false,
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         build = "cd app && yarn install",
         init = function()

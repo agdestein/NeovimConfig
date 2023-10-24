@@ -37,6 +37,7 @@ vim.o.updatetime = 300
 -- vim.o.winblend = 10
 -- vim.o.wrap = true
 vim.o.showmode = false
+vim.o.wildmode = "longest:full,full" -- Command-line completion mode
 
 vim.g.editorconfig = true
 vim.g.formatdef_latexindent = "'latexindent -'"
