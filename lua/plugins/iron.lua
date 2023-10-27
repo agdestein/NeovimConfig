@@ -69,7 +69,8 @@ return {
                     julia = {
                         command = {
                             "julia",
-                            -- "-t 8",
+                            "-t",
+                            "auto",
                         },
                     },
                 },

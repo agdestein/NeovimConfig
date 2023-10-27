@@ -36,7 +36,7 @@ vim.keymap.set("n", "<Leader>zn", create_note(note_dir), { desc = "Create note" 
 vim.keymap.set("n", "<Leader>zi", create_linked_note(note_dir, false), { desc = "Create note and insert link at cursor" })
 vim.keymap.set("n", "<Leader>za", create_linked_note(note_dir, true), { desc = "Create note and insert link after cursor" })
 vim.keymap.set("n", "<Leader>zd", insert_date, { desc = "Insert date" })
-vim.keymap.set("n", "<Leader>zc", ":e .week.md<CR>", { desc = "Current week" })
+vim.keymap.set("n", "<Leader>zc", ":e .week.md<CR>", { silent = true, desc = "Current week" })
 vim.keymap.set("n", "<Leader>zm", ":MarkdownPreview<CR>")
 
 vim.keymap.set("n", "<Leader>fz", function()
