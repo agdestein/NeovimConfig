@@ -5,7 +5,8 @@ return {
         require("noice").setup({
             cmdline = {
                 enabled = true, -- enables the Noice cmdline UI
-                view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+                -- view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+                view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
                 opts = {}, -- global options for the cmdline. See section on views
                 ---@type table<string, CmdlineFormat>
                 format = {
@@ -35,7 +36,7 @@ return {
                 view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
             },
             popupmenu = {
-                enabled = true, -- enables the Noice popupmenu UI
+                enabled = false, -- enables the Noice popupmenu UI
                 ---@type 'nui'|'cmp'
                 backend = "nui", -- backend to use to show regular cmdline completions
                 ---@type NoicePopupmenuItemKind|false
@@ -192,7 +193,7 @@ return {
             presets = {
                 -- you can enable a preset by setting it to true, or a table that will override the preset config
                 -- you can also add custom presets that you can enable/disable with enabled=true
-                bottom_search = false, -- use a classic bottom cmdline for search
+                bottom_search = true, -- use a classic bottom cmdline for search
                 command_palette = false, -- position the cmdline and popupmenu together
                 long_message_to_split = true, -- long messages will be sent to a split
                 inc_rename = false, -- enables an input dialog for inc-rename.nvim

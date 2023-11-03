@@ -5,6 +5,10 @@ return {
     "nvim-tree/nvim-web-devicons",
     -- "akinsho/bufferline.nvim",
 
+    { "mbbill/undotree", keys = { { "<Leader>at", ":UndotreeToggle<CR>", { silent = true } } } },
+
+    { "tpope/vim-fugitive" },
+
     { "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
     {
         "NeogitOrg/neogit",
@@ -139,6 +143,7 @@ return {
             -- },
             -- whitespace = { highlight = { "Whitespace", "NonText" } },
             scope = {
+                enabled = false,
                 exclude = { language = { "lua" } },
                 show_start = false,
                 show_end = false,

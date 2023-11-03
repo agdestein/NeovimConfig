@@ -21,7 +21,8 @@ return {
         require("iron.core").setup({
             config = {
                 -- Highlights the last sent block with bold
-                highlight_last = "IronLastSent",
+                highlight_last = false,
+                -- highlight_last = "IronLastSent",
 
                 -- Toggling behavior is on by default.
                 -- Other options are: `single` and `focus`

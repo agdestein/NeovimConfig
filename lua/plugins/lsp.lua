@@ -35,6 +35,7 @@ return {
                 vim.keymap.set("n", "<leader>kc", vim.lsp.buf.code_action, { desc = "Code action", buffer = ev.buf })
                 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Declaration", buffer = ev.buf })
                 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Definition", buffer = ev.buf })
+                vim.keymap.set("n", "go", vim.lsp.buf.type_definition, { desc = "Type definition", buffer = ev.buf })
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover", buffer = ev.buf })
                 vim.keymap.set("n", "<leader>kf", vim.lsp.buf.format, { desc = "Format", buffer = ev.buf })
                 vim.keymap.set(
