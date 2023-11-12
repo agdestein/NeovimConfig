@@ -16,6 +16,22 @@ return {
         "f3fora/cmp-spell",
         "lukas-reineke/cmp-rg",
         "onsails/lspkind-nvim",
+        {
+            "micangl/cmp-vimtex",
+            enabled = false,
+            opts = {
+                additional_information = {
+                    info_in_menu = true,
+                    info_in_window = true,
+                    info_max_length = 60,
+                    match_against_info = true,
+                    symbols_in_menu = true,
+                },
+                bibtex_parser = {
+                    enabled = true,
+                },
+            },
+        },
     },
     config = function()
         local cmp = require("cmp")
@@ -68,6 +84,7 @@ return {
             },
 
             sources = {
+                -- { name = "vimtex" },
                 { name = "path" },
                 { name = "nvim_lsp" },
                 { name = "luasnip" },

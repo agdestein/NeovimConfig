@@ -188,7 +188,7 @@ return {
             transparent_bg = true, -- default false
 
             -- -- set custom lualine background color
-            -- lualine_bg_color = "#44475a", -- default nil
+            -- lualine_bg_color = "#282a36", -- default nil
 
             -- set italic comment
             italic_comment = true, -- default false
@@ -203,6 +203,7 @@ return {
                 TelescopeNormal = { bg = "NONE" },
                 ["@float"] = { link = "@number" },
                 VertSplit = { fg = "#44475a" },
+                Special = { fg = "#50fa7b", italic = false },
             },
         },
     },

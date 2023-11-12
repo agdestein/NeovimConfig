@@ -25,6 +25,7 @@ return {
                 "json",
                 "json5",
                 "julia",
+                "kdl",
                 "latex",
                 "lua",
                 "markdown",
