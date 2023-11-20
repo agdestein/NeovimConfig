@@ -5,7 +5,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     -- "akinsho/bufferline.nvim",
 
-    { "mbbill/undotree", keys = { { "<Leader>at", ":UndotreeToggle<CR>", { silent = true } } } },
+    { "mbbill/undotree", keys = { { "<Leader>au", ":UndotreeToggle<CR>", { silent = true } } } },
 
     { "tpope/vim-fugitive" },
 
