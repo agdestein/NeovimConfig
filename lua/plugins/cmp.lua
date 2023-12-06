@@ -68,6 +68,7 @@ return {
                 format = lspkind.cmp_format({
                     with_text = true,
                     menu = {
+                        copilot = "[co]",
                         luasnip = "[snip]",
                         nvim_lsp = "[LSP]",
                         buffer = "[buf]",
@@ -84,6 +85,10 @@ return {
             },
 
             sources = {
+                {
+                    name = "copilot",
+                    -- group_index = 2,
+                },
                 -- { name = "vimtex" },
                 { name = "path" },
                 { name = "nvim_lsp" },
