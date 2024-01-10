@@ -296,6 +296,24 @@ ls.add_snippets("tex", {
     ),
 
     s(
+        "tab",
+        fmt(
+            [[
+                \begin{table}
+                    \centering
+                    \begin{tabular}{<>}
+                        <>
+                    \end{tabular}
+                    \caption{<>}
+                    \label{tab:<>}
+                \end{table}
+            ]],
+            { i(3, "c c c"), i(4, "a & b & c"), i(1, "Caption."), i(2, "label") },
+            { delimiters = "<>" }
+        )
+    ),
+
+    s(
         "us",
         fmt(
             [[
