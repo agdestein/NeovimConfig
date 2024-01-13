@@ -39,3 +39,11 @@ ls.add_snippets("markdown", {
         t({ "", "```" }),
     }),
 })
+
+ls.add_snippets("markdown", {
+    s("ar", {
+        t("<https://arxiv.org/abs/"),
+        i(1, "xxxx.xxxxx"),
+        t(">"),
+    }),
+})
