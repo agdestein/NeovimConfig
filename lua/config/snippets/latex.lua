@@ -216,6 +216,7 @@ ls.add_snippets("tex", {
     ),
 
 
+    s("mb", fmt("\\mathbb{<>}", { i(1) }, { delimiters = "<>" })),
     s("mc", fmt("\\mathcal{<>}", { i(1) }, { delimiters = "<>" })),
     s("mr", fmt("\\mathrm{<>}", { i(1) }, { delimiters = "<>" })),
     s("ms", fmt("\\mathsf{<>}", { i(1) }, { delimiters = "<>" })),
