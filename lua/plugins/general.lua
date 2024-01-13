@@ -14,7 +14,7 @@ return {
         "NeogitOrg/neogit",
         cmd = "Neogit",
         keys = {
-            { "<Leader>ag", ":Neogit<CR>" },
+            { "<Leader>g", ":Neogit<CR>" },
         },
         opts = { disable_commit_confirmation = true },
     },
@@ -246,9 +246,9 @@ return {
     {
         "topaxi/gh-actions.nvim",
         cmd = "GhActions",
-        keys = {
-            { "<leader>gh", "<cmd>GhActions<cr>", desc = "Open Github Actions" },
-        },
+        -- keys = {
+        --     { "<leader>gh", "<cmd>GhActions<cr>", desc = "Open Github Actions" },
+        -- },
         -- optional, you can also install and use `yq` instead.
         build = "make",
         dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },

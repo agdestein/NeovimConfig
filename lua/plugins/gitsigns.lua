@@ -1,9 +1,9 @@
 return {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    keys = {
-        { "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", desc = "Stage hunk" },
-    },
+    -- keys = {
+    --     { "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", desc = "Stage hunk" },
+    -- },
     opts = {
         -- signs = {
         --     add = { text = "│" },
