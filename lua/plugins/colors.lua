@@ -120,6 +120,8 @@ return {
                         Headline6 = { fg = colors.text, bg = "#272738", bold = true },
                         CodeBlock = { bg = "#272738" },
 
+                        CursorLine = { bg = colors.base },
+
                         -- StatusLine = { fg = colors.base, bg = colors.maroon},
                         -- StatusLineNC = { fg = colors.base, bg = colors.maroon},
                         -- WinSeparator = { bg = colors.base, fg = colosurface2rs.maroon},
