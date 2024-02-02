@@ -47,3 +47,9 @@ ls.add_snippets("markdown", {
         t(">"),
     }),
 })
+
+ls.add_snippets("markdown", {
+    s("-", {
+        t("- [ ] " .. os.date("%H:%M") .. " "),
+    }),
+})
