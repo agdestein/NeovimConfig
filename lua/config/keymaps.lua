@@ -6,10 +6,10 @@ vim.keymap.set("n", "<Leader>C", ":bd<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "<Leader>ae", ":edit $MYVIMRC<CR>", { desc = "Edit Neovim config" })
 vim.keymap.set("n", "<Leader>al", ":Lazy<CR>", { desc = "Lazy" })
 
-vim.keymap.set("n", "<left>", ":wincmd <<CR>", { desc = "Decrease width" })
-vim.keymap.set("n", "<right>", ":wincmd ><CR>", { desc = "Increase width" })
-vim.keymap.set("n", "<down>", ":wincmd +<CR>", { desc = "Increase height" })
-vim.keymap.set("n", "<up>", ":wincmd -<CR>", { desc = "Decrease height" })
+-- vim.keymap.set("n", "<left>", ":wincmd <<CR>", { desc = "Decrease width" })
+-- vim.keymap.set("n", "<right>", ":wincmd ><CR>", { desc = "Increase width" })
+-- vim.keymap.set("n", "<down>", ":wincmd +<CR>", { desc = "Increase height" })
+-- vim.keymap.set("n", "<up>", ":wincmd -<CR>", { desc = "Decrease height" })
 vim.keymap.set("n", "[q", ":cprev<CR>", { desc = "Previous item", silent = true })
 vim.keymap.set("n", "]q", ":cnext<CR>", { desc = "Next item", silent = true })
 vim.keymap.set("n", "<F1>", ":set number!<CR> :set relativenumber!<CR>", { desc = "Toggle line numbers" })
@@ -30,3 +30,9 @@ vim.keymap.set(
     [[:silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]],
     { silent = true }
 )
+
+-- -- More ergonomic Colemak navigation
+-- vim.keymap.set({"n", "v"}, "n", "j")
+-- vim.keymap.set({"n", "v"}, "e", "k")
+-- vim.keymap.set({"n", "v"}, "k", "n")
+-- vim.keymap.set({"n", "v"}, "j", "e")

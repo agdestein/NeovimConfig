@@ -29,7 +29,7 @@ local function create_linked_note(dir, after)
 end
 
 local function insert_date()
-    vim.api.nvim_put({ os.date("%Y/%m/%d %A %H:%M") }, "", false, false)
+    vim.api.nvim_put({ os.date("%Y/%m/%d %A %H:%M") }, "", true, false)
 end
 
 vim.keymap.set("n", "<Leader>ao", create_note(note_dir), { desc = "Create note" })
