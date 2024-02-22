@@ -1,7 +1,145 @@
 return {
     {
+        "Mofiqul/vscode.nvim",
+        lazy = false,
+        config = function()
+            require("vscode").setup({
+                -- Alternatively set style in setup
+                -- style = 'light'
+
+                -- Enable transparent background
+                transparent = false,
+
+                -- Enable italic comment
+                italic_comments = true,
+
+                -- Underline `@markup.link.*` variants
+                underline_links = true,
+
+                -- -- Disable nvim-tree background color
+                -- disable_nvimtree_bg = true,
+
+                -- Override colors (see ./lua/vscode/colors.lua)
+                -- color_overrides = {
+                --     vscLineNumber = '#FFFFFF',
+                -- },
+
+                -- -- Override highlight groups (see ./lua/vscode/theme.lua)
+                -- group_overrides = {
+                --     -- this supports the same val table as vim.api.nvim_set_hl
+                --     -- use colors from this colorscheme by requiring vscode.colors!
+                --     Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
+                -- }
+            })
+            -- require('vscode').load()
+        end,
+    },
+    {
+        "RRethy/base16-nvim",
+        lazy = false,
+        config = function()
+            require("base16-colorscheme").setup({
+                -- base00 = "#151515",
+                base00 = "#181818",
+                base01 = "#202020",
+                base02 = "#303030",
+                base03 = "#505050",
+                base04 = "#b0b0b0",
+                base05 = "#d0d0d0",
+                base06 = "#e0e0e0",
+                base07 = "#f5f5f5",
+                -- base08 = "#ac4142",
+                base08 = "#ac4242",
+                base09 = "#d28445",
+                base0A = "#f4bf75",
+                base0B = "#90a959",
+                base0C = "#75b5aa",
+                base0D = "#6a9fb5",
+                base0E = "#aa759f",
+                base0F = "#8f5536",
+            })
+
+            -- "#ac4242"
+
+            -- require('base16-colorscheme').with_config({
+            --     telescope = true,
+            --     indentblankline = true,
+            --     notify = true,
+            --     ts_rainbow = true,
+            --     cmp = true,
+            --     illuminate = true,
+            --     dapui = true,
+            -- })
+            -- vim.cmd("colorscheme base16-classic-dark")
+            vim.o.background = "dark"
+            -- vim.cmd("highlight Identifier guifg=#ac4242")
+            vim.cmd("highlight TSVariable guifg=#d0d0d0")
+        end,
+    },
+    {
+        "projekt0n/github-nvim-theme",
+        enabled = false,
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require("github-theme").setup({
+                options = {
+                    -- Compiled file's destination location
+                    compile_path = vim.fn.stdpath("cache") .. "/github-theme",
+                    compile_file_suffix = "_compiled", -- Compiled file suffix
+                    hide_end_of_buffer = true, -- Hide the '~' character at the end of the buffer for a cleaner look
+                    hide_nc_statusline = true, -- Override the underline style for non-active statuslines
+                    transparent = true, -- Disable setting background
+                    terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+                    dim_inactive = false, -- Non focused panes set to alternative background
+                    module_default = true, -- Default enable value for modules
+                    -- styles = { -- Style to be applied to different syntax groups
+                    --     comments = "NONE", -- Value is any valid attr-list value `:help attr-list`
+                    --     functions = "NONE",
+                    --     keywords = "NONE",
+                    --     variables = "NONE",
+                    --     conditionals = "NONE",
+                    --     constants = "NONE",
+                    --     numbers = "NONE",
+                    --     operators = "NONE",
+                    --     strings = "NONE",
+                    --     types = "NONE",
+                    -- },
+                    inverse = { -- Inverse highlight for different types
+                        match_paren = false,
+                        visual = false,
+                        search = false,
+                    },
+                    darken = { -- Darken floating windows and sidebar-like windows
+                        floats = false,
+                        sidebars = {
+                            enabled = true,
+                            list = {}, -- Apply dark background to specific windows
+                        },
+                    },
+                    modules = { -- List of various plugins and additional options
+                        -- ...
+                    },
+                },
+                palettes = {
+                    -- github_dark = {
+                    --     bg1 = "#000000",
+                    --     bg2 = "#000000",
+                    --     bg3 = "#000000",
+                    --     bg4 = "#000000",
+                    -- },
+                },
+                specs = {},
+                groups = {},
+            })
+
+            vim.cmd("colorscheme github_dark_default")
+        end,
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
+        enabled = false,
         opts = {
             dim_inactive = {
                 enabled = false,
@@ -182,6 +320,7 @@ return {
     },
     {
         "Mofiqul/dracula.nvim",
+        enabled = false,
         opts = {
             -- show the '~' characters after the end of buffers
             show_end_of_buffer = true, -- default false
@@ -211,6 +350,7 @@ return {
     },
     {
         "ellisonleao/gruvbox.nvim",
+        enabled = false,
         opts = {
             undercurl = true,
             underline = true,
@@ -248,12 +388,14 @@ return {
     },
     {
         "tanvirtin/monokai.nvim",
+        enabled = false,
         opts = {
             palette = { base2 = "#272822" },
         },
     },
     {
         "shaunsingh/nord.nvim",
+        enabled = false,
         -- opts = {},
         config = function(_, opts)
             vim.g.nord_contrast = false
@@ -266,6 +408,7 @@ return {
     },
     {
         "folke/tokyonight.nvim",
+        enabled = false,
         opts = {
             -- your configuration comes here
             -- or leave it empty to use the default settings
@@ -304,6 +447,7 @@ return {
     },
     {
         "navarasu/onedark.nvim",
+        enabled = false,
         opts = {
             -- Main options --
             style = "dark", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'

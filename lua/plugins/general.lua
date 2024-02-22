@@ -19,7 +19,7 @@ return {
         opts = { disable_commit_confirmation = true },
     },
 
-    { "poljar/typos.nvim", event = { "BufEnter" }, opts = {} },
+    { "poljar/typos.nvim", enabled = false, event = { "BufEnter" }, opts = {} },
 
     {
         "zbirenbaum/copilot.lua",
