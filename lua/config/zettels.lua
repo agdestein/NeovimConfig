@@ -40,6 +40,6 @@ vim.keymap.set("n", "<Leader>ac", ":e .week.md<CR>", { silent = true, desc = "Cu
 vim.keymap.set("n", "<Leader>at", ":e .todo.md<CR>", { silent = true, desc = "Current week" })
 vim.keymap.set("n", "<Leader>am", ":MarkdownPreview<CR>")
 
-vim.keymap.set("n", "<Leader>fz", function()
+vim.keymap.set("n", "<Leader>z", function()
     require("telescope.builtin").live_grep({ hidden = true, cwd = note_dir })
 end, { desc = "Search notes" })
