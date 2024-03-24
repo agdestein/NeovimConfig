@@ -15,11 +15,10 @@ return {
     cmd = "Telescope",
     keys = {
         { "<Leader>b", ":Telescope buffers<CR>", { desc = "Buffers" } },
-        { "<leader>f:", ":Telescope command_history<CR>", desc = "Command History" },
-        { "<Leader>fb", ":Telescope buffers<CR>", desc = "Buffers" },
-        { "<Leader>fc", ":Telescope current_buffer_fuzzy_find<CR>", desc = "Current buffer fuzzy find" },
+        { "<leader>:", ":Telescope command_history<CR>", desc = "Command History" },
+        { "<Leader>s", ":Telescope current_buffer_fuzzy_find<CR>", desc = "Current buffer fuzzy find" },
         {
-            "<Leader>fd",
+            "<Leader>w",
             function()
                 require("telescope.builtin").current_buffer_fuzzy_find(
                     require("telescope.themes").get_dropdown({ winblend = 10, previewer = false })
@@ -27,18 +26,18 @@ return {
             end,
             desc = "Fuzzily search in current buffer",
         },
-        { "<Leader>fe", ":Telescope live_grep<CR>", desc = "Live grep" },
-        { "<Leader>ff", ":Telescope find_files<CR>", desc = "Find files" },
-        { "<Leader>fg", ":Telescope git_commits<CR>", desc = "Find git commits" },
-        { "<Leader>fh", ":Telescope help_tags<CR>", desc = "Help tags" },
-        { "<Leader>fi", ":Telescope registers<CR>", desc = "Registers" },
-        { "<Leader>fk", ":Telescope keymaps<CR>", desc = "Keymaps" },
-        { "<Leader>fo", ":Telescope oldfiles<CR>", desc = "Oldfiles" },
-        { "<Leader>fp", ":Telescope find_files no_ignore=true<CR>", desc = "Find (all) files" },
-        { "<Leader>fs", ":Telescope git_status<CR>", desc = "Find git status" },
-        { "<Leader>ft", ":Telescope bibtex<CR>", desc = "BibTeX" },
-        { "<Leader>fw", ":Telescope grep_string<CR>", desc = "Grep string" },
-        { "<Leader>fy", ":Telescope lsp_document_symbols<CR>", desc = "Find LSP symbols" },
+        { "<Leader>/", ":Telescope live_grep<CR>", desc = "Live grep" },
+        { "<Leader>f", ":Telescope find_files<CR>", desc = "Find files" },
+        -- { "<Leader>fg", ":Telescope git_commits<CR>", desc = "Find git commits" },
+        -- { "<Leader>fh", ":Telescope help_tags<CR>", desc = "Help tags" },
+        -- { "<Leader>fi", ":Telescope registers<CR>", desc = "Registers" },
+        -- { "<Leader>fk", ":Telescope keymaps<CR>", desc = "Keymaps" },
+        { "<Leader>o", ":Telescope oldfiles<CR>", desc = "Oldfiles" },
+        { "<Leader>p", ":Telescope find_files no_ignore=true<CR>", desc = "Find (all) files" },
+        -- { "<Leader>fs", ":Telescope git_status<CR>", desc = "Find git status" },
+        -- { "<Leader>ft", ":Telescope bibtex<CR>", desc = "BibTeX" },
+        { "<Leader>*", ":Telescope grep_string<CR>", desc = "Grep string" },
+        { "<Leader>y", ":Telescope lsp_document_symbols<CR>", desc = "Find LSP symbols" },
     },
     config = function()
         local telescope = require("telescope")

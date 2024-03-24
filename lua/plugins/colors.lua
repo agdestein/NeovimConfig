@@ -1,6 +1,7 @@
 return {
     {
         "Mofiqul/vscode.nvim",
+        enabled = false,
         lazy = false,
         config = function()
             require("vscode").setup({
@@ -31,11 +32,12 @@ return {
                 --     Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
                 -- }
             })
-            -- require('vscode').load()
+            require('vscode').load()
         end,
     },
     {
         "RRethy/base16-nvim",
+        enabled = false,
         lazy = false,
         config = function()
             require("base16-colorscheme").setup({
@@ -139,7 +141,7 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        enabled = false,
+        -- enabled = false,
         opts = {
             dim_inactive = {
                 enabled = false,
@@ -258,7 +260,7 @@ return {
                         Headline6 = { fg = colors.text, bg = "#272738", bold = true },
                         CodeBlock = { bg = "#272738" },
 
-                        CursorLine = { bg = colors.base },
+                        -- CursorLine = { bg = colors.base },
 
                         -- StatusLine = { fg = colors.base, bg = colors.maroon},
                         -- StatusLineNC = { fg = colors.base, bg = colors.maroon},

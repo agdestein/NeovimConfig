@@ -3,7 +3,7 @@ vim.keymap.set("n", "<Leader>,p", ":pwd<CR>", { desc = "Print working directory"
 vim.keymap.set("n", "<Leader>,y", [[:let @+=expand("%")<CR>]], { desc = "Yank file name" })
 vim.keymap.set("n", "<Leader>c", ":bp | bd #<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "<Leader>C", ":bd<CR>", { desc = "Close buffer" })
-vim.keymap.set("n", "<Leader>ae", ":edit $MYVIMRC<CR>", { desc = "Edit Neovim config" })
+-- vim.keymap.set("n", "<Leader>ae", ":edit $MYVIMRC<CR>", { desc = "Edit Neovim config" })
 vim.keymap.set("n", "<Leader>al", ":Lazy<CR>", { desc = "Lazy" })
 
 -- vim.keymap.set("n", "<left>", ":wincmd <<CR>", { desc = "Decrease width" })
@@ -30,9 +30,3 @@ vim.keymap.set(
     [[:silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]],
     { silent = true }
 )
-
--- -- More ergonomic Colemak navigation
--- vim.keymap.set({"n", "v"}, "n", "j")
--- vim.keymap.set({"n", "v"}, "e", "k")
--- vim.keymap.set({"n", "v"}, "k", "n")
--- vim.keymap.set({"n", "v"}, "j", "e")
