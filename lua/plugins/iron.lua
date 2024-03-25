@@ -1,15 +1,15 @@
 return {
     "Vigemus/iron.nvim",
     keys = {
-        { "<Leader>io", ":IronRepl<CR><C-w>+<C-w>-", "Toggle Iron REPL" },
-        { "<Leader>ih", ":IronReplHere<CR>", "Iron REPL here" },
-        { "<Leader>if", ":IronFocus<CR> i", "Iron focus here" },
+        { "<Leader>io", ":IronRepl<CR><C-w>+<C-w>-", desc = "Toggle Iron REPL" },
+        { "<Leader>ih", ":IronReplHere<CR>", desc = "Iron REPL here" },
+        { "<Leader>if", ":IronFocus<CR> i", desc = "Iron focus here" },
         {
             "<Leader>iq",
             function()
                 require("iron.core").close_repl()
             end,
-            "Exit Iron REPL",
+            desc = "Exit Iron REPL",
         },
         {
             "<Leader>ip",

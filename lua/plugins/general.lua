@@ -5,7 +5,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     -- "akinsho/bufferline.nvim",
 
-    { "mbbill/undotree", keys = { { "<Leader>au", ":UndotreeToggle<CR>", { silent = true } } } },
+    { "mbbill/undotree", keys = { { "<Leader>au", ":UndotreeToggle<CR>", desc = "Undotree", silent = true } } },
 
     { "tpope/vim-fugitive" },
 
@@ -14,7 +14,7 @@ return {
         "NeogitOrg/neogit",
         cmd = "Neogit",
         keys = {
-            { "<Leader>g", ":Neogit<CR>" },
+            { "<Leader>g", ":Neogit<CR>" , desc = "Neogit" },
         },
         opts = { disable_commit_confirmation = true },
     },
@@ -79,14 +79,14 @@ return {
     {
         "chiel92/vim-autoformat",
         cmd = "Autoformat",
-        keys = { { "<Leader>af", ":Autoformat<CR>" } },
+        keys = { { "<Leader>af", ":Autoformat<CR>", desc = "Autoformat" } },
     },
     { "mjbrownie/swapit", event = "VeryLazy" },
     {
         "norcalli/nvim-colorizer.lua",
         cmd = "ColorizerToggle",
         keys = {
-            { "<Leader>ac", ":ColorizerToggle<CR>" },
+            -- { "<Leader>ac", ":ColorizerToggle<CR>" },
         },
     },
     {
@@ -95,9 +95,9 @@ return {
         cmd = { "TodoTrouble", "TodoTelescope", "TodoQuickFix" },
         event = { "BufReadPost", "BufNewFile" },
         keys = {
-            { "<Leader>tl", ":TodoLocList<CR>" },
-            { "<Leader>tq", ":TodoQuickFix<CR>" },
-            { "<Leader>ts", ":TodoTelescope<CR>" },
+            -- { "<Leader>tl", ":TodoLocList<CR>" },
+            -- { "<Leader>tq", ":TodoQuickFix<CR>" },
+            { "<Leader>t", ":TodoTelescope<CR>" },
         },
         opts = {},
     },
@@ -152,7 +152,7 @@ return {
     {
         "andreypopp/julia-repl-vim",
         keys = {
-            { "<Leader>jc", ":JuliaREPLConnect<CR>", "Connect to remote Julia REPL", silent = true },
+            -- { "<Leader>jc", ":JuliaREPLConnect<CR>", "Connect to remote Julia REPL", silent = true },
             { "<Leader>d", "}{jvip :JuliaREPLSend<CR> }", "Send region to remote Julia REPL", silent = true },
         },
     },
