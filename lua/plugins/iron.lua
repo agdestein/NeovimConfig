@@ -1,5 +1,6 @@
 return {
     "Vigemus/iron.nvim",
+    enabled = false,
     keys = {
         { "<Leader>io", ":IronRepl<CR><C-w>+<C-w>-", desc = "Toggle Iron REPL" },
         { "<Leader>ih", ":IronReplHere<CR>", desc = "Iron REPL here" },

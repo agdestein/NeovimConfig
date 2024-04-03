@@ -14,12 +14,50 @@ return {
         "NeogitOrg/neogit",
         cmd = "Neogit",
         keys = {
-            { "<Leader>g", ":Neogit<CR>" , desc = "Neogit" },
+            { "<Leader>g", ":Neogit<CR>", desc = "Neogit" },
         },
         opts = { disable_commit_confirmation = true },
     },
 
     { "poljar/typos.nvim", enabled = false, event = { "BufEnter" }, opts = {} },
+
+    {
+        "jpalardy/vim-slime",
+        lazy = false,
+        -- keys = {
+        --     -- called MotionSend but works with textobjects as well
+        --     { "gz", "<Plug>SlimeMotionSend", { mode = "n", remap = true, silent = false } },
+        --     { "gzz", "<Plug>SlimeLineSend", { mode = "n", remap = true, silent = false } },
+        --     { "gz", "<Plug>SlimeRegionSend", { mode = "x", remap = true, silent = false } },
+        --     { "gzc", "<Plug>SlimeConfig", { mode = "n", remap = true, silent = false } },
+        -- },
+        init = function()
+            -- these two should be set before the plugin loads
+            vim.g.slime_target = "neovim"
+            vim.g.slime_no_mappings = true
+        end,
+        config = function()
+            vim.g.slime_input_pid = false
+            vim.g.slime_suggest_default = true
+            vim.g.slime_menu_config = false
+            vim.g.slime_neovim_ignore_unlisted = false
+            -- options not set here are g:slime_neovim_menu_order, g:slime_neovim_menu_delimiter, and g:slime_get_jobid
+            -- see the documentation above to learn about those options
+
+            -- called MotionSend but works with textobjects as well
+            vim.keymap.set("n", "gs", "<Plug>SlimeMotionSend", { remap = true, silent = false })
+            vim.keymap.set("n", "gss", "<Plug>SlimeLineSend", { remap = true, silent = false })
+            vim.keymap.set("x", "gs", "<Plug>SlimeRegionSend", { remap = true, silent = false })
+            vim.keymap.set("n", "gz", "<Plug>SlimeParagraphSend", { remap = true, silent = false })
+            vim.keymap.set("n", "<Leader>az", "<Plug>SlimeConfig", { remap = true, silent = false })
+            vim.keymap.set("n", "<C-CR>", ":SlimeSendCurrentLine<CR>j", { })
+            vim.keymap.set("n", "<S-CR>", "}{jvip:SlimeSend<CR>}", { })
+
+            -- vim.keymap.set("v", "<C-CR>", "<space>usc", { desc = "Send visual to Iron REPL", remap = true })
+            -- vim.keymap.set("n", "<C-CR>", "0<Leader>usc$j", { desc = "Send line to Iron REPL and advance", remap = true })
+            -- vim.keymap.set("n", "<S-CR>", "}{jvip<space>usc}", { desc = "Send paragraph to IRON REPL", remap = true })
+        end,
+    },
 
     {
         "zbirenbaum/copilot.lua",
