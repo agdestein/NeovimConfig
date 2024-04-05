@@ -15,6 +15,7 @@ vim.keymap.set("n", "]q", ":cnext<CR>", { desc = "Next item", silent = true })
 vim.keymap.set("n", "<F1>", ":set number!<CR> :set relativenumber!<CR>", { desc = "Toggle line numbers" })
 vim.keymap.set("n", "<C-j>", ":bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<C-k>", ":bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<Leader>ij", ":vsplit term://julia --project<CR>i", { desc = "Open Julia REPL" })
 
 vim.keymap.set("t", "<C-j>", "<Cmd>stopinsert!<CR><C-w><C-w>", { desc = "Visual mode and switch window" })
 
