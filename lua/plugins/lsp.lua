@@ -163,6 +163,11 @@ return {
             capabilities = create_capabilities(),
         })
 
+        -- Matlab
+        lsp.matlab_ls.setup({
+            capatilities = create_capabilities(),
+        })
+
         -- LaTeX
         lsp.texlab.setup({
             capabilities = create_capabilities(),
