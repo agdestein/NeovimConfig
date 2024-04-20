@@ -8,8 +8,8 @@ return {
     },
     cmd = "Neotree",
     keys = {
-        { "<F3>", ":Neotree reveal<CR>"},
-        { "<F2>", ":Neotree toggle<CR>"},
+        { "<Leader>ak", ":Neotree reveal<CR>"},
+        { "<Leader>ah", ":Neotree toggle<CR>"},
     },
 
     init = function()
