@@ -11,7 +11,7 @@ local function create_note(dir)
     end
 end
 
-local function create_linked_note(dir, after)
+local function create_linked_note(dir, edit, after)
     return function()
         vim.ui.input(
             { prompt = "Enter note title: "},
@@ -20,7 +20,7 @@ local function create_linked_note(dir, after)
                 vim.cmd("cd " .. dir)
                 -- vim.cmd(string.format("i[%s](%d.md)<Esc>", title, id))
                 vim.api.nvim_put({ string.format("[%s](%d.md)", title, id) }, "", after, false)
-                vim.cmd(string.format("edit %d.md", id))
+                vim.cmd(string.format(edit .. " %d.md", id))
                 vim.api.nvim_put({ "# " .. title }, "", false, false)
                 -- vim.cmd(":normal 0ll")
             end
@@ -33,8 +33,10 @@ local function insert_date()
 end
 
 vim.keymap.set("n", "<Leader>ao", create_note(note_dir), { desc = "Create note" })
-vim.keymap.set("n", "<Leader>ai", create_linked_note(note_dir, false), { desc = "Create note and insert link at cursor" })
-vim.keymap.set("n", "<Leader>aa", create_linked_note(note_dir, true), { desc = "Create note and insert link after cursor" })
+-- vim.keymap.set("n", "<Leader>ai", create_linked_note(note_dir, "edit", false), { desc = "Add note" })
+-- vim.keymap.set("n", "<Leader>aa", create_linked_note(note_dir, "edit", true), { desc = "Add note (edit)" })
+vim.keymap.set("n", "<Leader>aa", create_linked_note(note_dir, "sp", true), { desc = "Add note (split)" })
+vim.keymap.set("n", "<Leader>av", create_linked_note(note_dir, "vsp", true), { desc = "Add note (vsplit)" })
 vim.keymap.set("n", "<Leader>ad", insert_date, { desc = "Insert date" })
 vim.keymap.set("n", "<Leader>ac", ":e .week.md<CR>", { silent = true, desc = "Current week" })
 vim.keymap.set("n", "<Leader>at", ":e .todo.md<CR>", { silent = true, desc = "Current week" })
