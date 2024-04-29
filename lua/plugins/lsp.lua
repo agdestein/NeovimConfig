@@ -168,6 +168,11 @@ return {
             capatilities = create_capabilities(),
         })
 
+        -- Fortran
+        lsp.fortls.setup({
+            capabilities = create_capabilities(),
+        })
+
         -- LaTeX
         lsp.texlab.setup({
             capabilities = create_capabilities(),

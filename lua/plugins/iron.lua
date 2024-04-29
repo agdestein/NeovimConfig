@@ -57,12 +57,20 @@ return {
                 repl_definition = {
                     python = require("iron.fts.python").ipython,
                     matlab = {
+                        -- command = {
+                        --     "env",
+                        --     "LD_PRELOAD=/usr/lib/libstdc++.so",
+                        --     -- "LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/",
+                        --     "MESA_LOADER_DRIVER_OVERRIDE=i965", -- Force old driver for Matlab 2019a
+                        --     -- "MESA_LOADER_DRIVER_OVERRIDE=iris", -- Default driver?
+                        --     "matlab",
+                        --     "-nosplash",
+                        --     "-nodesktop",
+                        -- },
+                        -- command = {
+                        --     "octave",
+                        -- }
                         command = {
-                            "env",
-                            "LD_PRELOAD=/usr/lib/libstdc++.so",
-                            -- "LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/",
-                            "MESA_LOADER_DRIVER_OVERRIDE=i965", -- Force old driver for Matlab 2019a
-                            -- "MESA_LOADER_DRIVER_OVERRIDE=iris", -- Default driver?
                             "matlab",
                             "-nosplash",
                             "-nodesktop",

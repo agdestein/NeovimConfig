@@ -352,7 +352,7 @@ return {
     },
     {
         "ellisonleao/gruvbox.nvim",
-        enabled = false,
+        enabled = true,
         opts = {
             undercurl = true,
             underline = true,
@@ -383,6 +383,7 @@ return {
                 -- AlphaFooter = {},
                 ["@text.todo.unchecked.markdown"] = { link = "Comment" },
                 ["@text.todo.checked.markdown"] = { link = "Comment" },
+                ["Delimiter"] = { link = "Comment" },
             },
             dim_inactive = false,
             transparent_mode = true,

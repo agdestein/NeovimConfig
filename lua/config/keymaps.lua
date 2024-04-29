@@ -31,3 +31,13 @@ vim.keymap.set(
     [[:silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]],
     { silent = true }
 )
+
+-- More ergonomic jk for Colemak-DH
+vim.keymap.set({"n", "x"}, "n", "j")
+vim.keymap.set({"n", "x"}, "j", "n")
+vim.keymap.set({"n", "x"}, "e", "k")
+vim.keymap.set({"n", "x"}, "k", "e")
+vim.keymap.set({"n", "x"}, "N", "J")
+vim.keymap.set({"n", "x"}, "J", "N")
+vim.keymap.set({"n", "x"}, "E", "K")
+vim.keymap.set({"n", "x"}, "K", "E")
