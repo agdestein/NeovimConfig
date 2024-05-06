@@ -6,7 +6,7 @@ return {
         require("noice").setup({
             cmdline = {
                 enabled = true, -- enables the Noice cmdline UI
-                view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+                view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
                 -- view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
                 opts = {}, -- global options for the cmdline. See section on views
                 ---@type table<string, CmdlineFormat>
@@ -37,9 +37,9 @@ return {
                 view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
             },
             popupmenu = {
-                enabled = false, -- enables the Noice popupmenu UI
+                enabled = true, -- enables the Noice popupmenu UI
                 ---@type 'nui'|'cmp'
-                backend = "nui", -- backend to use to show regular cmdline completions
+                backend = "cmp", -- backend to use to show regular cmdline completions
                 ---@type NoicePopupmenuItemKind|false
                 -- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
                 kind_icons = {}, -- set to `false` to disable icons
@@ -213,7 +213,7 @@ return {
     end,
     dependencies = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-        "MunifTanjim/nui.nvim",
+        { "MunifTanjim/nui.nvim", lazy = false},
 
         -- OPTIONAL:
         --   `nvim-notify` is only needed, if you want to use the notification view.

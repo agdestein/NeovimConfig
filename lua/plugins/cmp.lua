@@ -4,7 +4,7 @@ return {
     dependencies = {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-calc",
-        "hrsh7th/cmp-cmdline",
+        -- "hrsh7th/cmp-cmdline",
         "petertriho/cmp-git",
         "kdheepak/cmp-latex-symbols",
         "saadparwaiz1/cmp_luasnip",
@@ -123,22 +123,22 @@ return {
             }),
         })
 
-        -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-        cmp.setup.cmdline("/", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = "buffer" },
-            },
-        })
+        -- -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+        -- cmp.setup.cmdline("/", {
+        --     mapping = cmp.mapping.preset.cmdline(),
+        --     sources = {
+        --         { name = "buffer" },
+        --     },
+        -- })
 
-        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-        cmp.setup.cmdline(":", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-            }, {
-                { name = "cmdline" },
-            }),
-        })
+        -- -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+        -- cmp.setup.cmdline(":", {
+        --     mapping = cmp.mapping.preset.cmdline(),
+        --     sources = cmp.config.sources({
+        --         { name = "path" },
+        --     }, {
+        --         { name = "cmdline" },
+        --     }),
+        -- })
     end,
 }
