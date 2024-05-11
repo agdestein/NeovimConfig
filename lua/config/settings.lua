@@ -48,6 +48,8 @@ vim.g.formatdef_python = "black"
 vim.g.loaded_perl_provider = false
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.netrw_keepdir = false
+vim.g.netrw_banner = false
 vim.g.python3_host_prog = "/usr/bin/python"
 vim.g.winbar = true
 

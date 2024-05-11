@@ -201,27 +201,27 @@ return {
 
         -- Julia
         -- https://github.com/fredrikekre/.dotfiles/blob/master/.config/nvim/init.vim#L73-L91
-        local REVISE_LANGUAGESERVER = false
+        -- local REVISE_LANGUAGESERVER = false
         lsp.julials.setup({
-            on_new_config = function(new_config, _)
-                local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
-                -- local julia = vim.fn.expand("/usr/bin/julia")
-                if REVISE_LANGUAGESERVER then
-                    new_config.cmd[5] = (new_config.cmd[5]):gsub(
-                        "using LanguageServer",
-                        "using Revise; using LanguageServer; if isdefined(LanguageServer, :USE_REVISE); LanguageServer.USE_REVISE[] = true; end"
-                    )
-                elseif require("lspconfig").util.path.is_file(julia) then
-                    new_config.cmd[1] = julia
-                end
-            end,
+            -- on_new_config = function(new_config, _)
+            --     local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
+            --     -- local julia = vim.fn.expand("/usr/bin/julia")
+            --     if REVISE_LANGUAGESERVER then
+            --         new_config.cmd[5] = (new_config.cmd[5]):gsub(
+            --             "using LanguageServer",
+            --             "using Revise; using LanguageServer; if isdefined(LanguageServer, :USE_REVISE); LanguageServer.USE_REVISE[] = true; end"
+            --         )
+            --     elseif require("lspconfig").util.path.is_file(julia) then
+            --         new_config.cmd[1] = julia
+            --     end
+            -- end,
             -- This just adds dirname(fname) as a fallback (see nvim-lspconfig#1768).
-            root_dir = function(fname)
-                local util = require("lspconfig.util")
-                return util.root_pattern("Project.toml")(fname)
-                    or util.find_git_ancestor(fname)
-                    or util.path.dirname(fname)
-            end,
+            -- root_dir = function(fname)
+            --     local util = require("lspconfig.util")
+            --     return util.root_pattern("Project.toml")(fname)
+            --         or util.find_git_ancestor(fname)
+            --         or util.path.dirname(fname)
+            -- end,
             capabilities = create_capabilities(),
             -- settings = {
             --     julials = {
