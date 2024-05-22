@@ -210,20 +210,6 @@ return {
 
     { "godlygeek/tabular", cmd = "Tabularize" },
 
-    {
-        "preservim/vim-markdown",
-        enabled = false,
-        branch = "master",
-        ft = "markdown",
-        config = function()
-            -- vim.g.vim_markdown_math = true
-            vim.g.vim_markdown_auto_insert_bullets = false
-            vim.g.vim_markdown_new_list_item_indent = false
-            vim.g.vim_markdown_fenced_languages = { "bibtex=bib" }
-            vim.g.vim_markdown_no_default_key_mappings = true
-        end,
-    },
-
     { "ron-rs/ron.vim", ft = "ron" },
 
     { "RRethy/vim-illuminate", event = { "BufReadPost", "BufNewFile" } },
@@ -250,23 +236,11 @@ return {
     { "duane9/nvim-rg", cmd = "Rg" },
 
     {
-        "edluffy/hologram.nvim",
-        enabled = false,
-        opts = {
-            auto_display = true, -- WIP automatic markdown image display, may be prone to breaking
-        },
-    },
-
-    {
         "chrishrb/gx.nvim",
         event = { "BufEnter" },
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
     },
-
-    -- paste an image to markdown from the clipboard
-    -- :PasteImg,
-    { "ekickx/clipboard-image.nvim", ft = "markdown", opts = {} },
 
     {
         "simrat39/symbols-outline.nvim",
@@ -292,14 +266,6 @@ return {
         -- optional, you can also install and use `yq` instead.
         build = "make",
         dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
-        opts = {},
-    },
-
-    {
-        -- For use with Kitty
-        "3rd/image.nvim",
-        enabled = false,
-        ft = "markdown",
         opts = {},
     },
 

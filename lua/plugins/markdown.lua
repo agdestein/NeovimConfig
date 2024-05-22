@@ -37,7 +37,7 @@ return {
     {
         -- "davidgranstrom/nvim-markdown-preview",
         dir = "$HOME/projects/nvim-markdown-preview",
-        enabled = true,
+        enabled = false,
         -- event = "VeryLazy",
         ft = { "markdown" },
         config = function()
@@ -48,7 +48,7 @@ return {
 
     {
         "iamcco/markdown-preview.nvim",
-        enabled = false,
+        enabled = true,
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         build = "cd app && yarn install",
         init = function()
@@ -59,7 +59,7 @@ return {
         config = function()
             -- set to 1, nvim will open the preview window after entering the Markdown buffer
             -- default: 0
-            vim.cmd([[let g:mkdp_auto_start = 1]])
+            vim.cmd([[let g:mkdp_auto_start = 0]])
 
             -- set to 1, the nvim will auto close current preview window when changing
             -- from Markdown buffer to another buffer
