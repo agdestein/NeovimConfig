@@ -50,8 +50,8 @@ return {
             vim.keymap.set("x", "gs", "<Plug>SlimeRegionSend", { remap = true, silent = false })
             vim.keymap.set("n", "gz", "<Plug>SlimeParagraphSend", { remap = true, silent = false })
             vim.keymap.set("n", "<Leader>az", "<Plug>SlimeConfig", { remap = true, silent = false })
-            vim.keymap.set("n", "<C-CR>", ":SlimeSendCurrentLine<CR>j", { })
-            vim.keymap.set("n", "<S-CR>", "}{jvip:SlimeSend<CR>}", { })
+            vim.keymap.set("n", "<C-CR>", ":SlimeSendCurrentLine<CR>j", {})
+            vim.keymap.set("n", "<S-CR>", "}{jvip:SlimeSend<CR>}", {})
 
             -- vim.keymap.set("v", "<C-CR>", "<space>usc", { desc = "Send visual to Iron REPL", remap = true })
             -- vim.keymap.set("n", "<C-CR>", "0<Leader>usc$j", { desc = "Send line to Iron REPL and advance", remap = true })
@@ -243,12 +243,14 @@ return {
     },
 
     {
-        "simrat39/symbols-outline.nvim",
-        event = { "BufEnter" },
+        "hedyhli/outline.nvim",
+        cmd = { "Outline", "OutlineOpen" },
         keys = {
-            { "<Leader>as", ":SymbolsOutline<CR>" },
+            { "<leader>as", "<cmd>Outline<CR>", desc = "Toggle outline" },
         },
-        opts = {},
+        opts = {
+            -- Your setup opts here
+        },
     },
 
     {
