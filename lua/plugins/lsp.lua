@@ -194,6 +194,10 @@ return {
             capabilities = create_capabilities(),
         })
 
+        lsp.yamlls.setup({
+            capabilities = create_capabilities(),
+        })
+
         -- -- CSS
         -- lsp.tailwindcss.setup({
         --     capabilities = create_capabilities(),
