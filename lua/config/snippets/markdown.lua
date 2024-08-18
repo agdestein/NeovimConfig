@@ -49,6 +49,14 @@ ls.add_snippets("markdown", {
 })
 
 ls.add_snippets("markdown", {
+    s("g", {
+        t("<https://github.com/"),
+        i(1, "xxxx/xxxxx"),
+        t(">"),
+    }),
+})
+
+ls.add_snippets("markdown", {
     s("-", {
         -- t("- [ ] " .. os.date("%H:%M") .. " "),
         f(function(args) return "- [ ] " .. os.date("%H:%M") .. " " end, {}),

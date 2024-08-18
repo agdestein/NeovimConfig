@@ -10,6 +10,7 @@ return {
     { "tpope/vim-fugitive" },
 
     { "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
+
     {
         "NeogitOrg/neogit",
         cmd = "Neogit",
@@ -95,7 +96,7 @@ return {
                 -- yaml = false,
                 markdown = true,
                 -- help = false,
-                -- gitcommit = false,
+                gitcommit = true,
                 -- gitrebase = false,
                 -- hgcommit = false,
                 -- svn = false,
@@ -119,7 +120,9 @@ return {
         cmd = "Autoformat",
         keys = { { "<Leader>af", ":Autoformat<CR>", desc = "Autoformat" } },
     },
+
     { "mjbrownie/swapit", event = "VeryLazy" },
+
     {
         "norcalli/nvim-colorizer.lua",
         cmd = "ColorizerToggle",
@@ -127,6 +130,7 @@ return {
             -- { "<Leader>ac", ":ColorizerToggle<CR>" },
         },
     },
+
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
