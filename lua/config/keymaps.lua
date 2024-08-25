@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<Leader>.", [[:let @+=expand("%")<CR>]], { desc = "Yank file name" })
+vim.keymap.set("n", "<Leader>.", [[:let @+=expand("%:.")<CR>]], { desc = "Yank file name" })
 vim.keymap.set("n", "<Leader>x", ":bp | bd #<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "<Leader>X", ":bd<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "<Leader>al", ":Lazy<CR>", { desc = "Lazy" })
