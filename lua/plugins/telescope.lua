@@ -28,14 +28,9 @@ return {
         },
         { "<Leader>/", ":Telescope live_grep<CR>", desc = "Live grep" },
         { "<Leader>f", ":Telescope find_files<CR>", desc = "Find files" },
-        -- { "<Leader>fg", ":Telescope git_commits<CR>", desc = "Find git commits" },
-        -- { "<Leader>fh", ":Telescope help_tags<CR>", desc = "Help tags" },
-        -- { "<Leader>fi", ":Telescope registers<CR>", desc = "Registers" },
-        -- { "<Leader>fk", ":Telescope keymaps<CR>", desc = "Keymaps" },
-        { "<Leader>o", ":Telescope oldfiles<CR>", desc = "Oldfiles" },
+        { "<Leader>o", ":Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Find symbols" },
+        { "<Leader>r", ":Telescope oldfiles<CR>", desc = "Oldfiles" },
         { "<Leader>p", ":Telescope find_files no_ignore=true<CR>", desc = "Find (all) files" },
-        -- { "<Leader>fs", ":Telescope git_status<CR>", desc = "Find git status" },
-        -- { "<Leader>ft", ":Telescope bibtex<CR>", desc = "BibTeX" },
         { "<Leader>*", ":Telescope grep_string<CR>", desc = "Grep string" },
         { "<Leader>y", ":Telescope lsp_document_symbols<CR>", desc = "Find LSP symbols" },
     },
@@ -65,43 +60,7 @@ return {
                 selection_caret = "→ ",
             },
             extensions = {
-                bibtex = {
-                    -- Depth for the *.bib file
-                    depth = 2,
-
-                    -- -- Custom format for citation label
-                    -- custom_formats = {},
-                    --
-                    -- -- Format to use for citation label.
-                    -- -- Try to match the filetype by default, or use 'plain'
-                    -- format = "",
-                    --
-                    -- -- Path to global bibliographies (placed outside of the project)
-                    -- global_files = {},
-                    --
-                    -- -- Define the search keys to use in the picker
-                    -- search_keys = { "author", "year", "title" },
-                    --
-                    -- -- Template for the formatted citation
-                    -- citation_format = "{{author}} ({{year}}), {{title}}.",
-                    --
-                    -- -- Only use initials for the authors first name
-                    -- citation_trim_firstname = true,
-                    --
-                    -- -- Max number of authors to write in the formatted citation
-                    -- -- following authors will be replaced by "et al."
-                    -- citation_max_auth = 2,
-                    --
-                    -- -- Context awareness disabled by default
-                    -- context = false,
-                    --
-                    -- -- Fallback to global/directory .bib files if context not found
-                    -- -- This setting has no effect if context = false
-                    -- context_fallback = true,
-                    --
-                    -- -- Wrapping in the preview window is disabled by default
-                    -- wrap = false,
-                },
+                bibtex = { depth = 2 },
                 fzf = {
                     fuzzy = true, -- false will only do exact matching
                     override_generic_sorter = true, -- override the generic sorter

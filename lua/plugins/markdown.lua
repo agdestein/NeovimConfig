@@ -1,48 +1,22 @@
 return {
+
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {},
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    },
+
     {
         "toppair/peek.nvim",
         enabled = false,
+        event = { "VeryLazy" },
         build = "deno task --quiet build:fast",
-        lazy = false,
-        opts = {
-            auto_load = true, -- whether to automatically load preview when
-            -- entering another markdown buffer
-            close_on_bdelete = true, -- close preview window on buffer delete
-            syntax = true, -- enable syntax highlighting, affects performance
-            theme = "dark", -- 'dark' or 'light'
-            update_on_change = true,
-            app = "browser", -- 'webview', 'browser', string or a table of strings explained below
-            filetype = { "markdown" }, -- list of filetypes to recognize as markdown
-            -- relevant if update_on_change is true
-            throttle_at = 200000, -- start throttling when file exceeds this amount of bytes in size
-            throttle_time = "auto", -- minimum amount of time in milliseconds that has to pass before starting new render
-        },
-    },
-
-    {
-        "Zeioth/markmap.nvim",
-        enabled = false,
-        build = "yarn global add markmap-cli",
-        cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
-        opts = {
-            html_output = "/tmp/markmap.html", -- (default) Setting a empty string "" here means: [Current buffer path].html
-            hide_toolbar = false, -- (default)
-            grace_period = 3600000, -- (default) Stops markmap watch after 60 minutes. Set it to 0 to disable the grace_period.
-        },
-        -- config = function(_, opts)
-        --     require("markmap").setup(opts)
-        -- end,
-    },
-
-    {
-        -- "davidgranstrom/nvim-markdown-preview",
-        dir = "$HOME/projects/nvim-markdown-preview",
-        enabled = false,
-        -- event = "VeryLazy",
-        ft = { "markdown" },
         config = function()
-            vim.g.nvim_markdown_preview_format = "markdown"
-            -- vim.g.nvim_markdown_preview_format = "gfm"
+            require("peek").setup({
+                app = "browser",
+            })
+            vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+            vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
         end,
     },
 

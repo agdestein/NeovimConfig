@@ -19,4 +19,5 @@ require("config/keymaps")
 require("config/autocommands")
 require("config/snippets")
 require("config/zettels")
-require("config/colors")
+
+vim.cmd.colorscheme("catppuccin")

@@ -6,9 +6,8 @@ return {
         require("noice").setup({
             cmdline = {
                 enabled = true, -- enables the Noice cmdline UI
-                view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
-                -- view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
-                opts = {}, -- global options for the cmdline. See section on views
+                view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+                opts = {},  -- global options for the cmdline. See section on views
                 ---@type table<string, CmdlineFormat>
                 format = {
                     -- conceal: (default=true) This will hide the text in the cmdline that matches the pattern.
@@ -22,7 +21,7 @@ return {
                     filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
                     lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "", lang = "lua" },
                     help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
-                    input = {}, -- Used by input()
+                    input = { view = "cmdline_input", icon = "󰥻 " }, -- Used by input()
                     -- lua = false, -- to disable a format, set to `false`
                 },
             },
@@ -39,7 +38,8 @@ return {
             popupmenu = {
                 enabled = true, -- enables the Noice popupmenu UI
                 ---@type 'nui'|'cmp'
-                backend = "cmp", -- backend to use to show regular cmdline completions
+                -- backend = "cmp", -- backend to use to show regular cmdline completions
+                backend = "nui", -- backend to use to show regular cmdline completions
                 ---@type NoicePopupmenuItemKind|false
                 -- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
                 kind_icons = {}, -- set to `false` to disable icons
@@ -91,6 +91,12 @@ return {
                     filter = { error = true },
                     filter_opts = { reverse = true },
                 },
+                all = {
+                    -- options for the message history that you get with `:Noice`
+                    view = "split",
+                    opts = { enter = true, format = "details" },
+                    filter = {},
+                },
             },
             notify = {
                 -- Noice can be used as `vim.notify` so you can route any notification like other messages
@@ -101,8 +107,6 @@ return {
                 enabled = true,
                 view = "notify",
             },
-
-            ---@type table<string, NoiceCommand>
             lsp = {
                 progress = {
                     enabled = true,
@@ -144,15 +148,9 @@ return {
                 },
                 message = {
                     -- Messages shown by lsp servers
-                    enabled = false,
+                    enabled = true,
                     view = "notify",
-                    opts = {
-                        -- background_colour = "#1e1e2e",
-                        background_colour = "#282a36",
-                        -- background_colour = "#ffffff",
-                        render = "minimal",
-                        animation = "static",
-                    },
+                    opts = {},
                 },
                 -- defaults for hover and signature help
                 documentation = {
@@ -184,12 +182,6 @@ return {
             health = {
                 checker = true, -- Disable if you don't want health checks to run
             },
-            smart_move = {
-                -- noice tries to move out of the way of existing floating windows.
-                enabled = true, -- you can disable this behaviour here
-                -- add any filetypes here, that shouldn't trigger smart move.
-                excluded_filetypes = { "cmp_menu", "cmp_docs", "notify" },
-            },
             ---@type NoicePresets
             presets = {
                 -- you can enable a preset by setting it to true, or a table that will override the preset config
@@ -213,7 +205,7 @@ return {
     end,
     dependencies = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-        { "MunifTanjim/nui.nvim", lazy = false},
+        { "MunifTanjim/nui.nvim", lazy = false },
 
         -- OPTIONAL:
         --   `nvim-notify` is only needed, if you want to use the notification view.

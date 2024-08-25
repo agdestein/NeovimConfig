@@ -73,16 +73,6 @@ return {
                 vim.keymap.set("n", "<leader>kwl", function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, { desc = "List workspace folders", buffer = ev.buf })
-
-                -- if client.server_capabilities.document_highlight then
-                --     vim.cmd([[
-                --         augroup lsp_document_highlight
-                --             autocmd! * <buffer>
-                --             autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-                --             autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-                --         augroup END
-                --     ]])
-                -- end
             end,
         })
 
@@ -123,60 +113,22 @@ return {
             update_in_insert = false,
         })
 
-        -- vim.lsp.protocol.CompletionItemKind = {
-        --     "   (Text) ",
-        --     "   (Method)",
-        --     "   (Function)",
-        --     "   (Constructor)",
-        --     " ﴲ  (Field)",
-        --     "   (Variable)",
-        --     "   (Class)",
-        --     " ﰮ  (Interface)",
-        --     "   (Module)",
-        --     " 襁 (Property)",
-        --     "   (Unit)",
-        --     "   (Value)",
-        --     " 練 (Enum)",
-        --     "   (Keyword)",
-        --     "   (Snippet)",
-        --     "   (Color)",
-        --     "   (File)",
-        --     "   (Reference)",
-        --     "   (Folder)",
-        --     "   (EnumMember)",
-        --     " ﲀ  (Constant)",
-        --     " ﳤ  (Struct)",
-        --     "   (Event)",
-        --     "   (Operator)",
-        --     "   (TypeParameter)",
-        -- }
-
         local lsp = require("lspconfig")
 
         -- Python
-        lsp.pylsp.setup({
-            capabilities = create_capabilities(),
-        })
+        lsp.pylsp.setup({ capabilities = create_capabilities() })
 
         -- Markdown
-        lsp.marksman.setup({
-            capabilities = create_capabilities(),
-        })
+        lsp.marksman.setup({ capabilities = create_capabilities() })
 
         -- Matlab
-        lsp.matlab_ls.setup({
-            capatilities = create_capabilities(),
-        })
+        lsp.matlab_ls.setup({ capatilities = create_capabilities() })
 
         -- Fortran
-        lsp.fortls.setup({
-            capabilities = create_capabilities(),
-        })
+        lsp.fortls.setup({ capabilities = create_capabilities() })
 
         -- LaTeX
-        lsp.texlab.setup({
-            capabilities = create_capabilities(),
-        })
+        lsp.texlab.setup({ capabilities = create_capabilities() })
 
         -- Rust
         lsp.rust_analyzer.setup({
@@ -190,54 +142,14 @@ return {
         })
 
         -- Nix
-        lsp.rnix.setup({
-            capabilities = create_capabilities(),
-        })
+        lsp.rnix.setup({ capabilities = create_capabilities() })
 
-        lsp.yamlls.setup({
-            capabilities = create_capabilities(),
-        })
-
-        -- -- CSS
-        -- lsp.tailwindcss.setup({
-        --     capabilities = create_capabilities(),
-        -- })
+        lsp.yamlls.setup({ capabilities = create_capabilities() })
 
         -- Julia
         -- https://github.com/fredrikekre/.dotfiles/blob/master/.config/nvim/init.vim#L73-L91
-        -- local REVISE_LANGUAGESERVER = false
         lsp.julials.setup({
-            -- on_new_config = function(new_config, _)
-            --     local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
-            --     -- local julia = vim.fn.expand("/usr/bin/julia")
-            --     if REVISE_LANGUAGESERVER then
-            --         new_config.cmd[5] = (new_config.cmd[5]):gsub(
-            --             "using LanguageServer",
-            --             "using Revise; using LanguageServer; if isdefined(LanguageServer, :USE_REVISE); LanguageServer.USE_REVISE[] = true; end"
-            --         )
-            --     elseif require("lspconfig").util.path.is_file(julia) then
-            --         new_config.cmd[1] = julia
-            --     end
-            -- end,
-            -- This just adds dirname(fname) as a fallback (see nvim-lspconfig#1768).
-            -- root_dir = function(fname)
-            --     local util = require("lspconfig.util")
-            --     return util.root_pattern("Project.toml")(fname)
-            --         or util.find_git_ancestor(fname)
-            --         or util.path.dirname(fname)
-            -- end,
             capabilities = create_capabilities(),
-            -- settings = {
-            --     julials = {
-            --         diagnostics = {
-            --             enable = false,
-            --             -- Get the language server to recognize the `vim` global
-            --             -- globals = { "vim" },
-            --             -- disabled = { "IncorrectCallArgs" },
-            --             disabled = { "Possible method call error.", "IncorrectCallArgs" },
-            --         },
-            --     }
-            -- },
             settings = {
                 julia = {
                     symbolCacheDownload = true,
@@ -255,30 +167,39 @@ return {
         -- Lua
         lsp.lua_ls.setup({
             capabilities = create_capabilities(),
-            settings = {
-                Lua = {
-                    runtime = {
-                        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                        version = "LuaJIT",
+            on_init = function(client)
+                local path = client.workspace_folders[1].name
+                if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
+                    return
+                end
 
-                        -- -- Setup your lua path
-                        -- path = runtime_path,
+                client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+                    runtime = {
+                        -- Tell the language server which version of Lua you're using
+                        -- (most likely LuaJIT in the case of Neovim)
+                        version = "LuaJIT",
                     },
                     diagnostics = {
                         -- Get the language server to recognize the `vim` global
                         globals = { "vim" },
                     },
                     workspace = {
-                        -- Make the server aware of Neovim runtime files
-                        library = vim.api.nvim_get_runtime_file("", true),
                         checkThirdParty = false,
-                    },
-                    -- Do not send telemetry data containing a randomized but unique identifier
-                    telemetry = {
-                        enable = false,
-                    },
-                },
-            },
+                        library = {
+                            -- Make the server aware of Neovim runtime files
+                            vim.env.VIMRUNTIME
+                            -- Depending on the usage, you might want to add additional paths here.
+                            -- "${3rd}/luv/library"
+                            -- "${3rd}/busted/library",
+                        }
+                        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+                        -- library = vim.api.nvim_get_runtime_file("", true)
+                    }
+                })
+            end,
+            settings = {
+                Lua = {}
+            }
         })
     end,
 }

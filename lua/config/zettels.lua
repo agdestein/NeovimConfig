@@ -38,8 +38,6 @@ vim.keymap.set("n", "<Leader>ao", create_note(note_dir), { desc = "Create note" 
 vim.keymap.set("n", "<Leader>aa", create_linked_note(note_dir, "sp", true), { desc = "Add note (split)" })
 vim.keymap.set("n", "<Leader>av", create_linked_note(note_dir, "vsp", true), { desc = "Add note (vsplit)" })
 vim.keymap.set("n", "<Leader>ad", insert_date, { desc = "Insert date" })
-vim.keymap.set("n", "<Leader>ac", ":e .week.md<CR>", { silent = true, desc = "Current week" })
-vim.keymap.set("n", "<Leader>at", ":e .todo.md<CR>", { silent = true, desc = "Current week" })
 vim.keymap.set("n", "<Leader>am", ":MarkdownPreview<CR>")
 
 vim.keymap.set("n", "<Leader>z", function()

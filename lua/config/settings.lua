@@ -40,7 +40,7 @@ vim.o.updatetime = 50
 -- vim.o.winblend = 10
 -- vim.o.wrap = true
 vim.o.showmode = false
-vim.o.wildmode = "longest:full,full" -- Command-line completion mode
+-- vim.o.wildmode = "longest:full,full" -- Command-line completion mode
 
 vim.g.editorconfig = true
 vim.g.formatdef_latexindent = "'latexindent -'"
@@ -53,11 +53,11 @@ vim.g.netrw_banner = false
 vim.g.python3_host_prog = "/usr/bin/python"
 vim.g.winbar = true
 
--- Remove window separators
-vim.cmd([[:set fillchars+=horiz:\ ]])
-vim.cmd([[:set fillchars+=horizup:\ ]])
-vim.cmd([[:set fillchars+=horizdown:\ ]])
-vim.cmd([[:set fillchars+=vert:\ ]])
-vim.cmd([[:set fillchars+=vertleft:\ ]])
-vim.cmd([[:set fillchars+=vertright:\ ]])
-vim.cmd([[:set fillchars+=verthoriz:\ ]])
+-- -- Remove window separators
+-- vim.cmd([[:set fillchars+=horiz:\ ]])
+-- vim.cmd([[:set fillchars+=horizup:\ ]])
+-- vim.cmd([[:set fillchars+=horizdown:\ ]])
+-- vim.cmd([[:set fillchars+=vert:\ ]])
+-- vim.cmd([[:set fillchars+=vertleft:\ ]])
+-- vim.cmd([[:set fillchars+=vertright:\ ]])
+-- vim.cmd([[:set fillchars+=verthoriz:\ ]])
