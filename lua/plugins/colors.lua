@@ -40,6 +40,11 @@ return {
             custom_highlights = function(colors)
                 return {
                     CursorLine = { bg = colors.none },
+                    -- TreesitterContextBottom = {
+                    --     sp = colors.surface0,
+                    --     -- style = { "underline" },
+                    --     style = {},
+                    -- },
                 }
             end,
             highlight_overrides = {},

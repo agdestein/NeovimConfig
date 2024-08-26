@@ -18,6 +18,7 @@ vim.o.mouse = "a"
 vim.o.number = true
 -- vim.o.numberwidth = 2
 -- vim.o.relativenumber = true
+vim.o.scrolloff = 3
 vim.o.shiftwidth = 4
 vim.o.showbreak = "↪ "
 vim.o.signcolumn = "yes"

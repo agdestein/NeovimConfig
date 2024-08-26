@@ -27,7 +27,7 @@ return {
 
             highlight = {
                 enable = true, -- false will disable the whole extension
-                disable = { "latex" },
+                -- disable = { "latex" },
             },
             incremental_selection = {
                 enable = true,
