@@ -29,6 +29,7 @@ return {
         { "<Leader>/", ":Telescope live_grep<CR>", desc = "Live grep" },
         { "<Leader>f", ":Telescope find_files<CR>", desc = "Find files" },
         { "<Leader>o", ":Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Find symbols" },
+        { "<leader>i", ":Telescope git_files<CR>", desc = "Find git files" },
         { "<Leader>r", ":Telescope oldfiles<CR>", desc = "Oldfiles" },
         { "<Leader>p", ":Telescope find_files no_ignore=true<CR>", desc = "Find (all) files" },
         { "<Leader>*", ":Telescope grep_string<CR>", desc = "Grep string" },

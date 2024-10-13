@@ -106,7 +106,7 @@ return {
         -- VimTeX should not be lazy loaded for reverse synctex to work
         lazy = false,
         ft = { "tex", "bib" },
-        config = function()
+        init = function()
             vim.g.vimtex_view_method = "zathura"
             -- vim.g.vimtex_view_method = "zathura_simple"
             -- vim.g.vimtex_view_method = "sioyek"
